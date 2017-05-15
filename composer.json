@@ -1,0 +1,22 @@
+{
+  "name": "pgrimaud/cheetahmail-sdk",
+  "type": "library",
+  "description": "",
+  "homepage": "https://github.com/pgrimaud/cheetahmail-sdk",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pierre Grimaud",
+      "email": "grimaud.pierre@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-soap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cheetahmail\\": "src/"
+    }
+  }
+}

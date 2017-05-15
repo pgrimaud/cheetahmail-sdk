@@ -1,0 +1,1753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignParams" type="tns:CampaignParams" />
+            <s:element minOccurs="1" maxOccurs="1" name="sentParams" type="tns:SentParams" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageParams" type="tns:MessageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CampaignParams">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="isPrivate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="filters" type="tns:FilterParams" />
+          <s:element minOccurs="1" maxOccurs="1" name="folderId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FilterParams">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="behavioralFilterId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fieldFilterId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sqlQueryFilterId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="targetId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SentParams">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="speed" type="tns:SpeedValue" />
+          <s:element minOccurs="1" maxOccurs="1" name="configId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="wishdate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="100" name="percentil" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="randomize" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="mailboxMonitor" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="emailAnalytics" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SpeedValue">
+        <s:restriction base="s:string">
+          <s:enumeration value="SPEED_INCONNU" />
+          <s:enumeration value="SPEED_0100" />
+          <s:enumeration value="SPEED_0250" />
+          <s:enumeration value="SPEED_0500" />
+          <s:enumeration value="SPEED_1000" />
+          <s:enumeration value="SPEED_2000" />
+          <s:enumeration value="SPEED_3000" />
+          <s:enumeration value="SPEED_4000" />
+          <s:enumeration value="SPEED_6000" />
+          <s:enumeration value="SPEED_8000" />
+          <s:enumeration value="SPEED_10000" />
+          <s:enumeration value="SPEED_MAX" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MessageParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="format" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="priority" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlSrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtSrc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="CreateWithMultipleSents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignParams" type="tns:CampaignParams" />
+            <s:element minOccurs="0" maxOccurs="1" name="sentParams" type="tns:ArrayOfSentParams" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageParams" type="tns:ArrayOfMessageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSentParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SentParams" type="tns:SentParams" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMessageParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageParams" type="tns:MessageParams" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateWithMultipleSentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateWithMultipleSentsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parameters" type="tns:CampaignParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCampaignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelCampaignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReprogrammCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReprogrammCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReprogrammCampaignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCampaignResult" type="tns:CampaignsDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CampaignsDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="filters" type="tns:FilterParams" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="tns:STATUS" />
+          <s:element minOccurs="0" maxOccurs="1" name="sents" type="tns:ArrayOfSentDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="STATUS">
+        <s:restriction base="s:string">
+          <s:enumeration value="INCONNU" />
+          <s:enumeration value="EN_PREPARATION" />
+          <s:enumeration value="ENVOI_EN_COURS" />
+          <s:enumeration value="SUSPENDU" />
+          <s:enumeration value="EN_ATTENTE_DE_REDEMARRAGE" />
+          <s:enumeration value="ANNULATION_DEMANDEE" />
+          <s:enumeration value="TERMINE" />
+          <s:enumeration value="ERREUR" />
+          <s:enumeration value="CYCLIQUE" />
+          <s:enumeration value="DEPROGRAMME" />
+          <s:enumeration value="CHRONOCONTACT" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfSentDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SentDetails" type="tns:SentDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SentDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="tns:SENTSTATUS" />
+          <s:element minOccurs="1" maxOccurs="1" name="wishdate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="percentil" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="idConfig" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="randomize" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="mailboxMonitor" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="emailAnalytics" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SENTSTATUS">
+        <s:restriction base="s:string">
+          <s:enumeration value="INCONNU" />
+          <s:enumeration value="EN_PREPARATION" />
+          <s:enumeration value="PROGRAMME" />
+          <s:enumeration value="ENVOI_EN_COURS" />
+          <s:enumeration value="SUSPENDU" />
+          <s:enumeration value="EN_ATTENTE_DE_REDEMARRAGE" />
+          <s:enumeration value="ANNULATION_DEMANDEE" />
+          <s:enumeration value="TERMINE" />
+          <s:enumeration value="ERREUR" />
+          <s:enumeration value="CYCLIQUE" />
+          <s:enumeration value="DEPROGRAMME" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="FindCampaignsByDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="criteresDesc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindCampaignsByDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindCampaignsByDescriptionResult" type="tns:ArrayOfDetailsCamp" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetailsCamp">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetailsCamp" type="tns:DetailsCamp" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetailsCamp">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateCreation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateModification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateFin" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSourceByIdSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSourceByIdSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSourceByIdSentResult" type="tns:SourceDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SourceDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idsent" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idarch" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlsrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtsrc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="format" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSourceOfCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSourceOfCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSourceOfCampaignResult" type="tns:ArrayOfSourceDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSourceDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SourceDetails" type="tns:SourceDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateSentParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parameters" type="tns:SentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSentParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSentParamsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_status" type="tns:STATUS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListResult" type="tns:ArrayOfCampaignsListDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCampaignsListDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CampaignsListDetails" type="tns:CampaignsListDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CampaignsListDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:STATUS" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListBetweenTwoDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pDateDebut" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDateFin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="withBAT" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListBetweenTwoDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListBetweenTwoDatesResult" type="tns:ArrayOfCampaignsListDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parameters" type="tns:MessageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Suspend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SuspendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Start">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Restart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalMailCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalMailCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTotalMailCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentMailCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentMailCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCurrentMailCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteCampaignPreview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteCampaignPreviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecuteCampaignPreviewResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseCampaignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuplicateCampaign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuplicateCampaignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DuplicateCampaignResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sentParams" type="tns:SentParams" />
+            <s:element minOccurs="1" maxOccurs="1" name="msgParams" type="tns:MessageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReprogramSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReprogramSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReprogramSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuplicateSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuplicateSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DuplicateSentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parameters" type="tns:SentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSentMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parameters" type="tns:MessageParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSentMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSentMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartSentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestartSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendSent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="campaignId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendSentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SuspendSentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithMultipleSentsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWithMultipleSents" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithMultipleSentsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWithMultipleSentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithMultipleSentsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCampaign" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelCampaign" />
+  </wsdl:message>
+  <wsdl:message name="CancelCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelSentSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelSent" />
+  </wsdl:message>
+  <wsdl:message name="CancelSentSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReprogrammCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:ReprogrammCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ReprogrammCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:ReprogrammCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReprogrammCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCampaign" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="FindCampaignsByDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:FindCampaignsByDescription" />
+  </wsdl:message>
+  <wsdl:message name="FindCampaignsByDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:FindCampaignsByDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindCampaignsByDescriptionAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceByIdSentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSourceByIdSent" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceByIdSentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSourceByIdSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceByIdSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceOfCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSourceOfCampaign" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceOfCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSourceOfCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSourceOfCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSentParams" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSentParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentParamsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListSoapIn">
+    <wsdl:part name="parameters" element="tns:List" />
+  </wsdl:message>
+  <wsdl:message name="ListSoapOut">
+    <wsdl:part name="parameters" element="tns:ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListBetweenTwoDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListBetweenTwoDates" />
+  </wsdl:message>
+  <wsdl:message name="ListBetweenTwoDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListBetweenTwoDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListBetweenTwoDatesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMessage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMessageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SuspendSoapIn">
+    <wsdl:part name="parameters" element="tns:Suspend" />
+  </wsdl:message>
+  <wsdl:message name="SuspendSoapOut">
+    <wsdl:part name="parameters" element="tns:SuspendResponse" />
+  </wsdl:message>
+  <wsdl:message name="SuspendAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapIn">
+    <wsdl:part name="parameters" element="tns:Start" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapOut">
+    <wsdl:part name="parameters" element="tns:StartResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RestartSoapIn">
+    <wsdl:part name="parameters" element="tns:Restart" />
+  </wsdl:message>
+  <wsdl:message name="RestartSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalMailCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTotalMailCount" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalMailCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTotalMailCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalMailCountAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMailCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentMailCount" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMailCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentMailCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMailCountAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteCampaignPreviewSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteCampaignPreview" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteCampaignPreviewSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteCampaignPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteCampaignPreviewAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CloseCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseCampaign" />
+  </wsdl:message>
+  <wsdl:message name="CloseCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateCampaignSoapIn">
+    <wsdl:part name="parameters" element="tns:DuplicateCampaign" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateCampaignSoapOut">
+    <wsdl:part name="parameters" element="tns:DuplicateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateCampaignAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSent" />
+  </wsdl:message>
+  <wsdl:message name="AddSentSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReprogramSentSoapIn">
+    <wsdl:part name="parameters" element="tns:ReprogramSent" />
+  </wsdl:message>
+  <wsdl:message name="ReprogramSentSoapOut">
+    <wsdl:part name="parameters" element="tns:ReprogramSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReprogramSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSent" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateSentSoapIn">
+    <wsdl:part name="parameters" element="tns:DuplicateSent" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateSentSoapOut">
+    <wsdl:part name="parameters" element="tns:DuplicateSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DuplicateSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSent" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSentMessage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSentMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSentMessageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="StartSentSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSent" />
+  </wsdl:message>
+  <wsdl:message name="StartSentSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RestartSentSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartSent" />
+  </wsdl:message>
+  <wsdl:message name="RestartSentSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SuspendSentSoapIn">
+    <wsdl:part name="parameters" element="tns:SuspendSent" />
+  </wsdl:message>
+  <wsdl:message name="SuspendSentSoapOut">
+    <wsdl:part name="parameters" element="tns:SuspendSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SuspendSentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="CampaignsSoap">
+    <wsdl:operation name="Create">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour créer une campagne email avec 1 seul objet Sent</wsdl:documentation>
+      <wsdl:input message="tns:CreateSoapIn" />
+      <wsdl:output message="tns:CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithMultipleSents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour créer une campagne email avec n objets Sent</wsdl:documentation>
+      <wsdl:input message="tns:CreateWithMultipleSentsSoapIn" />
+      <wsdl:output message="tns:CreateWithMultipleSentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour modifier les paramètres d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCampaignSoapIn" />
+      <wsdl:output message="tns:UpdateCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour déprogrammer une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:CancelCampaignSoapIn" />
+      <wsdl:output message="tns:CancelCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour déprogrammer un Sent d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:CancelSentSoapIn" />
+      <wsdl:output message="tns:CancelSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReprogrammCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour reprogrammer une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:ReprogrammCampaignSoapIn" />
+      <wsdl:output message="tns:ReprogrammCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour connaitre les détails d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:GetCampaignSoapIn" />
+      <wsdl:output message="tns:GetCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCampaignsByDescription">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour rechercher une ou plusieurs campagnes via des mots clés inclus dans la description des campagnes</wsdl:documentation>
+      <wsdl:input message="tns:FindCampaignsByDescriptionSoapIn" />
+      <wsdl:output message="tns:FindCampaignsByDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceByIdSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour connaitre les sources d'un sent d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:GetSourceByIdSentSoapIn" />
+      <wsdl:output message="tns:GetSourceByIdSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceOfCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour connaitre les sources de chaque sent d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:GetSourceOfCampaignSoapIn" />
+      <wsdl:output message="tns:GetSourceOfCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentParams">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour modifier les paramètres d'envoi d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSentParamsSoapIn" />
+      <wsdl:output message="tns:UpdateSentParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de lister les campagnes</wsdl:documentation>
+      <wsdl:input message="tns:ListSoapIn" />
+      <wsdl:output message="tns:ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListBetweenTwoDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de lister les campagnes</wsdl:documentation>
+      <wsdl:input message="tns:ListBetweenTwoDatesSoapIn" />
+      <wsdl:output message="tns:ListBetweenTwoDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour modifier le message d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:UpdateMessageSoapIn" />
+      <wsdl:output message="tns:UpdateMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour supprimer une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Suspend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour suspendre une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:SuspendSoapIn" />
+      <wsdl:output message="tns:SuspendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour démarrer une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:StartSoapIn" />
+      <wsdl:output message="tns:StartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Restart">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour reprendre l'envoi d'une campagne email</wsdl:documentation>
+      <wsdl:input message="tns:RestartSoapIn" />
+      <wsdl:output message="tns:RestartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalMailCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de connaître le nombre de mails prévus pour une campagne</wsdl:documentation>
+      <wsdl:input message="tns:GetTotalMailCountSoapIn" />
+      <wsdl:output message="tns:GetTotalMailCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMailCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de connaître le nombre de mails déjà envoyés pour une campagne</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMailCountSoapIn" />
+      <wsdl:output message="tns:GetCurrentMailCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCampaignPreview">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Methode permettant d'exécuter une preview de la campagne</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteCampaignPreviewSoapIn" />
+      <wsdl:output message="tns:ExecuteCampaignPreviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de cloturer une campagne</wsdl:documentation>
+      <wsdl:input message="tns:CloseCampaignSoapIn" />
+      <wsdl:output message="tns:CloseCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateCampaign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de dupliquer une campagne</wsdl:documentation>
+      <wsdl:input message="tns:DuplicateCampaignSoapIn" />
+      <wsdl:output message="tns:DuplicateCampaignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'ajouter un objet Sent à une campagne</wsdl:documentation>
+      <wsdl:input message="tns:AddSentSoapIn" />
+      <wsdl:output message="tns:AddSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReprogramSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de reprogrammer un Sent précédemment annulé</wsdl:documentation>
+      <wsdl:input message="tns:ReprogramSentSoapIn" />
+      <wsdl:output message="tns:ReprogramSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de supprimer un objet Sent d'une campagne</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSentSoapIn" />
+      <wsdl:output message="tns:DeleteSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de dupliquer un objet Sent d'une campagne</wsdl:documentation>
+      <wsdl:input message="tns:DuplicateSentSoapIn" />
+      <wsdl:output message="tns:DuplicateSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour modifier les paramètres d'un objet Sent de campagne</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSentSoapIn" />
+      <wsdl:output message="tns:UpdateSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode pour modifier les paramètres du message associé à un envoi de la campagne</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSentMessageSoapIn" />
+      <wsdl:output message="tns:UpdateSentMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de lancer un objet Sent de campagne</wsdl:documentation>
+      <wsdl:input message="tns:StartSentSoapIn" />
+      <wsdl:output message="tns:StartSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de relancer un objet Sent de campagne</wsdl:documentation>
+      <wsdl:input message="tns:RestartSentSoapIn" />
+      <wsdl:output message="tns:RestartSentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendSent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de suspendre un objet Sent de campagne</wsdl:documentation>
+      <wsdl:input message="tns:SuspendSentSoapIn" />
+      <wsdl:output message="tns:SuspendSentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CampaignsSoap" type="tns:CampaignsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://ws.ems6.net/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithMultipleSents">
+      <soap:operation soapAction="http://ws.ems6.net/CreateWithMultipleSents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateWithMultipleSentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/CancelCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSent">
+      <soap:operation soapAction="http://ws.ems6.net/CancelSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReprogrammCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/ReprogrammCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReprogrammCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/GetCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCampaignsByDescription">
+      <soap:operation soapAction="http://ws.ems6.net/FindCampaignsByDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindCampaignsByDescriptionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceByIdSent">
+      <soap:operation soapAction="http://ws.ems6.net/GetSourceByIdSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSourceByIdSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceOfCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/GetSourceOfCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSourceOfCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentParams">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateSentParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateSentParamsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListBetweenTwoDates">
+      <soap:operation soapAction="http://ws.ems6.net/ListBetweenTwoDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListBetweenTwoDatesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Suspend">
+      <soap:operation soapAction="http://ws.ems6.net/Suspend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SuspendAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap:operation soapAction="http://ws.ems6.net/Start" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Restart">
+      <soap:operation soapAction="http://ws.ems6.net/Restart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RestartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalMailCount">
+      <soap:operation soapAction="http://ws.ems6.net/GetTotalMailCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTotalMailCountAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMailCount">
+      <soap:operation soapAction="http://ws.ems6.net/GetCurrentMailCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCurrentMailCountAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCampaignPreview">
+      <soap:operation soapAction="http://ws.ems6.net/ExecuteCampaignPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecuteCampaignPreviewAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/CloseCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CloseCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateCampaign">
+      <soap:operation soapAction="http://ws.ems6.net/DuplicateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DuplicateCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSent">
+      <soap:operation soapAction="http://ws.ems6.net/AddSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReprogramSent">
+      <soap:operation soapAction="http://ws.ems6.net/ReprogramSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReprogramSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSent">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateSent">
+      <soap:operation soapAction="http://ws.ems6.net/DuplicateSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DuplicateSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSent">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentMessage">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateSentMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateSentMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSent">
+      <soap:operation soapAction="http://ws.ems6.net/StartSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StartSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartSent">
+      <soap:operation soapAction="http://ws.ems6.net/RestartSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RestartSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendSent">
+      <soap:operation soapAction="http://ws.ems6.net/SuspendSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SuspendSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CampaignsSoap12" type="tns:CampaignsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap12:operation soapAction="http://ws.ems6.net/Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithMultipleSents">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateWithMultipleSents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateWithMultipleSentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/CancelCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CancelCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSent">
+      <soap12:operation soapAction="http://ws.ems6.net/CancelSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CancelSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReprogrammCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/ReprogrammCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReprogrammCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/GetCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCampaignsByDescription">
+      <soap12:operation soapAction="http://ws.ems6.net/FindCampaignsByDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FindCampaignsByDescriptionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceByIdSent">
+      <soap12:operation soapAction="http://ws.ems6.net/GetSourceByIdSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSourceByIdSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSourceOfCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/GetSourceOfCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSourceOfCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentParams">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateSentParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateSentParamsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap12:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListBetweenTwoDates">
+      <soap12:operation soapAction="http://ws.ems6.net/ListBetweenTwoDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListBetweenTwoDatesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Suspend">
+      <soap12:operation soapAction="http://ws.ems6.net/Suspend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SuspendAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap12:operation soapAction="http://ws.ems6.net/Start" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Restart">
+      <soap12:operation soapAction="http://ws.ems6.net/Restart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RestartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalMailCount">
+      <soap12:operation soapAction="http://ws.ems6.net/GetTotalMailCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTotalMailCountAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMailCount">
+      <soap12:operation soapAction="http://ws.ems6.net/GetCurrentMailCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCurrentMailCountAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCampaignPreview">
+      <soap12:operation soapAction="http://ws.ems6.net/ExecuteCampaignPreview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecuteCampaignPreviewAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/CloseCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CloseCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateCampaign">
+      <soap12:operation soapAction="http://ws.ems6.net/DuplicateCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DuplicateCampaignAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSent">
+      <soap12:operation soapAction="http://ws.ems6.net/AddSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReprogramSent">
+      <soap12:operation soapAction="http://ws.ems6.net/ReprogramSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReprogramSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSent">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuplicateSent">
+      <soap12:operation soapAction="http://ws.ems6.net/DuplicateSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DuplicateSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSent">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSentMessage">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateSentMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateSentMessageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSent">
+      <soap12:operation soapAction="http://ws.ems6.net/StartSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StartSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartSent">
+      <soap12:operation soapAction="http://ws.ems6.net/RestartSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RestartSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendSent">
+      <soap12:operation soapAction="http://ws.ems6.net/SuspendSent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SuspendSentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Campaigns">
+    <wsdl:port name="CampaignsSoap" binding="tns:CampaignsSoap">
+      <soap:address location="https://ws1.ems6.net/campaigns.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CampaignsSoap12" binding="tns:CampaignsSoap12">
+      <soap12:address location="https://ws1.ems6.net/campaigns.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
