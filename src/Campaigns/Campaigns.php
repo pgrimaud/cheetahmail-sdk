@@ -94,7 +94,6 @@ class Campaigns extends \SoapClient
     /**
      * Campaigns constructor.
      * @param AuthHeader $authHeader
-     *
      * @param array $options A array of config values
      * @param string $wsdl The wsdl file to use
      */

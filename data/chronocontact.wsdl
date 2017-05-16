@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="SendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chronoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachementPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deleteAttachementFile" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="SendMailByPacket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chronoId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usersId" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachementPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deleteAttachementFile" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMailByPacketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailByPacketResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailHTML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chronoId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="HTMLsource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXTsource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachementPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deleteAttachementFile" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailHTMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailHTMLResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailHTMLByPacket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chronoId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usersId" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="HTMLsource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TXTsource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachementPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deleteAttachementFile" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailHTMLByPacketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailHTMLByPacketResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TemplateName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceHTML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceTXT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTemplateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="templateId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTemplateResult" type="tns:Template" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Template">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtSource" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="templateId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTemplateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemplate" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TemplateName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceHTML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceTXT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyTemplateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplates">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTemplatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTemplatesResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateChrono">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChronoName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCampagne" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemplate" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateChronoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateChronoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyChrono">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idChrono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChronoName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCampagne" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemplate" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyChronoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyChronoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChronos">
+        <s:complexType />
+      </s:element>
+      <s:element name="getChronosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getChronosResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChrono">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdChrono" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChronoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getChronoResult" type="tns:Chrono" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Chrono">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdChrono" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTemplate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCamp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdList" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteChrono">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdChrono" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteChronoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteChronoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCampaigns">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCampaignsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCampaignsResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendMailByPacketSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailByPacket" />
+  </wsdl:message>
+  <wsdl:message name="SendMailByPacketSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailByPacketResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailByPacketAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailHTML" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailHTMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLByPacketSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailHTMLByPacket" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLByPacketSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailHTMLByPacketResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailHTMLByPacketAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTemplate" />
+  </wsdl:message>
+  <wsdl:message name="CreateTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTemplateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplate" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTemplate" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTemplateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ModifyTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ModifyTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyTemplateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplates" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplatesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateChronoSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateChrono" />
+  </wsdl:message>
+  <wsdl:message name="CreateChronoSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateChronoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateChronoAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ModifyChronoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyChrono" />
+  </wsdl:message>
+  <wsdl:message name="ModifyChronoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyChronoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyChronoAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getChronosSoapIn">
+    <wsdl:part name="parameters" element="tns:getChronos" />
+  </wsdl:message>
+  <wsdl:message name="getChronosSoapOut">
+    <wsdl:part name="parameters" element="tns:getChronosResponse" />
+  </wsdl:message>
+  <wsdl:message name="getChronosAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getChronoSoapIn">
+    <wsdl:part name="parameters" element="tns:getChrono" />
+  </wsdl:message>
+  <wsdl:message name="getChronoSoapOut">
+    <wsdl:part name="parameters" element="tns:getChronoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getChronoAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteChronoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteChrono" />
+  </wsdl:message>
+  <wsdl:message name="DeleteChronoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteChronoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteChronoAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCampaigns" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCampaignsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ChronoContactSoap">
+    <wsdl:operation name="SendMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'ordonner l'envoi d'un mail de type Chrono à un utilisateur</wsdl:documentation>
+      <wsdl:input message="tns:SendMailSoapIn" />
+      <wsdl:output message="tns:SendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByPacket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'ordonner l'envoi d'un mail de type Chrono à un utilisateur</wsdl:documentation>
+      <wsdl:input message="tns:SendMailByPacketSoapIn" />
+      <wsdl:output message="tns:SendMailByPacketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'ordonner l'envoi d'un mail de type Chrono à un utilisateur en précisant éventuellement un sujet, un corps de message HTML ou texte</wsdl:documentation>
+      <wsdl:input message="tns:SendMailHTMLSoapIn" />
+      <wsdl:output message="tns:SendMailHTMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTMLByPacket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'ordonner l'envoi d'un mail de type Chrono à un utilisateur en précisant éventuellement un sujet, un corps de message HTML ou texte</wsdl:documentation>
+      <wsdl:input message="tns:SendMailHTMLByPacketSoapIn" />
+      <wsdl:output message="tns:SendMailHTMLByPacketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de creer un template mail, la methode renvoi l'identifiant du template créé</wsdl:documentation>
+      <wsdl:input message="tns:CreateTemplateSoapIn" />
+      <wsdl:output message="tns:CreateTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de récupérer un template mail</wsdl:documentation>
+      <wsdl:input message="tns:GetTemplateSoapIn" />
+      <wsdl:output message="tns:GetTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de supprimer un template mail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTemplateSoapIn" />
+      <wsdl:output message="tns:DeleteTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTemplate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de modifier un template en fonction de son id, renvoi true si la modification s'est bien effectuée</wsdl:documentation>
+      <wsdl:input message="tns:ModifyTemplateSoapIn" />
+      <wsdl:output message="tns:ModifyTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'obtenir la liste de ses templates (paires idtempalte/ description)</wsdl:documentation>
+      <wsdl:input message="tns:GetTemplatesSoapIn" />
+      <wsdl:output message="tns:GetTemplatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateChrono">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de creer une campagne chronomail, la methode renvoi l'identifiant du chronomail créé</wsdl:documentation>
+      <wsdl:input message="tns:CreateChronoSoapIn" />
+      <wsdl:output message="tns:CreateChronoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyChrono">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de modifier une campagne chronomail en fonction de son id, renvoi true si la modification s'est bien effectuée</wsdl:documentation>
+      <wsdl:input message="tns:ModifyChronoSoapIn" />
+      <wsdl:output message="tns:ModifyChronoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getChronos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'obtenir la liste de ses chronomail (paires idchrono/ description)</wsdl:documentation>
+      <wsdl:input message="tns:getChronosSoapIn" />
+      <wsdl:output message="tns:getChronosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getChrono">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'obtenir un Chrono</wsdl:documentation>
+      <wsdl:input message="tns:getChronoSoapIn" />
+      <wsdl:output message="tns:getChronoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChrono">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de supprimer un Chrono</wsdl:documentation>
+      <wsdl:input message="tns:DeleteChronoSoapIn" />
+      <wsdl:output message="tns:DeleteChronoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCampaigns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant d'obtenir la liste de ses campagnes chronomail (paires id/ nom)</wsdl:documentation>
+      <wsdl:input message="tns:getCampaignsSoapIn" />
+      <wsdl:output message="tns:getCampaignsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChronoContactSoap" type="tns:ChronoContactSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://ws.ems6.net/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByPacket">
+      <soap:operation soapAction="http://ws.ems6.net/SendMailByPacket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendMailByPacketAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTML">
+      <soap:operation soapAction="http://ws.ems6.net/SendMailHTML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendMailHTMLAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTMLByPacket">
+      <soap:operation soapAction="http://ws.ems6.net/SendMailHTMLByPacket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendMailHTMLByPacketAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <soap:operation soapAction="http://ws.ems6.net/CreateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <soap:operation soapAction="http://ws.ems6.net/GetTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplate">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTemplate">
+      <soap:operation soapAction="http://ws.ems6.net/ModifyTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ModifyTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <soap:operation soapAction="http://ws.ems6.net/GetTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTemplatesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateChrono">
+      <soap:operation soapAction="http://ws.ems6.net/CreateChrono" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyChrono">
+      <soap:operation soapAction="http://ws.ems6.net/ModifyChrono" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ModifyChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChronos">
+      <soap:operation soapAction="http://ws.ems6.net/getChronos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getChronosAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChrono">
+      <soap:operation soapAction="http://ws.ems6.net/getChrono" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChrono">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteChrono" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaigns">
+      <soap:operation soapAction="http://ws.ems6.net/getCampaigns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCampaignsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChronoContactSoap12" type="tns:ChronoContactSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://ws.ems6.net/SendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByPacket">
+      <soap12:operation soapAction="http://ws.ems6.net/SendMailByPacket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendMailByPacketAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTML">
+      <soap12:operation soapAction="http://ws.ems6.net/SendMailHTML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendMailHTMLAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailHTMLByPacket">
+      <soap12:operation soapAction="http://ws.ems6.net/SendMailHTMLByPacket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendMailHTMLByPacketAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <soap12:operation soapAction="http://ws.ems6.net/GetTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplate">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTemplate">
+      <soap12:operation soapAction="http://ws.ems6.net/ModifyTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModifyTemplateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <soap12:operation soapAction="http://ws.ems6.net/GetTemplates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTemplatesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateChrono">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateChrono" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyChrono">
+      <soap12:operation soapAction="http://ws.ems6.net/ModifyChrono" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModifyChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChronos">
+      <soap12:operation soapAction="http://ws.ems6.net/getChronos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getChronosAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChrono">
+      <soap12:operation soapAction="http://ws.ems6.net/getChrono" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChrono">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteChrono" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteChronoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaigns">
+      <soap12:operation soapAction="http://ws.ems6.net/getCampaigns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCampaignsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChronoContact">
+    <wsdl:port name="ChronoContactSoap" binding="tns:ChronoContactSoap">
+      <soap:address location="https://ws1.ems6.net/chronocontact.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChronoContactSoap12" binding="tns:ChronoContactSoap12">
+      <soap12:address location="https://ws1.ems6.net/chronocontact.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
