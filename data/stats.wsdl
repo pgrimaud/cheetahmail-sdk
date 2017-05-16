@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="List">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListResult" type="tns:ArrayOfCampaignOverview" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCampaignOverview">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CampaignOverview" type="tns:CampaignOverview" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CampaignOverview">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CampaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetResult" type="tns:CampaignStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CampaignStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Target" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Envelope" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Recipients" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Filtered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bounces" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delivered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Openers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Openings" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Clickers" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Clicks" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Complaints" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Unsubs" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HardBounces" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoftBounces" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListSMS">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListSMSResult" type="tns:ArrayOfSMSCampaignOverview" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSMSCampaignOverview">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMSCampaignOverview" type="tns:SMSCampaignOverview" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSCampaignOverview">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SMSCampaignId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSMSResult" type="tns:SMSCampaignStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SMSCampaignStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Target" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Recipients" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bounces" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delivered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SentNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListSoapIn">
+    <wsdl:part name="parameters" element="tns:List" />
+  </wsdl:message>
+  <wsdl:message name="ListSoapOut">
+    <wsdl:part name="parameters" element="tns:ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ListSMS" />
+  </wsdl:message>
+  <wsdl:message name="ListSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ListSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSMSAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSMS" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSMSAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="StatsSoap">
+    <wsdl:operation name="List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de lister l'identitifant et la description de chacune des cent dernières campagnes envoyées (hors BAT et campagne sans destinataire)</wsdl:documentation>
+      <wsdl:input message="tns:ListSoapIn" />
+      <wsdl:output message="tns:ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode listant quelques chiffres concernant une campagne envoyée</wsdl:documentation>
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de lister l'identitifant et la description de chacune des cent dernières campagnes SMS envoyées</wsdl:documentation>
+      <wsdl:input message="tns:ListSMSSoapIn" />
+      <wsdl:output message="tns:ListSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode détaillant les statistiques d'une campagne SMS envoyée</wsdl:documentation>
+      <wsdl:input message="tns:GetSMSSoapIn" />
+      <wsdl:output message="tns:GetSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatsSoap" type="tns:StatsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSMS">
+      <soap:operation soapAction="http://ws.ems6.net/ListSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListSMSAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMS">
+      <soap:operation soapAction="http://ws.ems6.net/GetSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSMSAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StatsSoap12" type="tns:StatsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="List">
+      <soap12:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSMS">
+      <soap12:operation soapAction="http://ws.ems6.net/ListSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListSMSAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMS">
+      <soap12:operation soapAction="http://ws.ems6.net/GetSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSMSAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Stats">
+    <wsdl:port name="StatsSoap" binding="tns:StatsSoap">
+      <soap:address location="https://ws1.ems6.net/stats.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StatsSoap12" binding="tns:StatsSoap12">
+      <soap12:address location="https://ws1.ems6.net/stats.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
