@@ -96,7 +96,7 @@ class Campaigns extends \SoapClient
      */
     public function __construct($wsdl = null, $options = [])
     {
-        $wsdl = $wsdl ?: __DIR__ . '/../data/campaigns.wsdl';
+        $wsdl = $wsdl ?: __DIR__ . '/../../data/campaigns.wsdl';
 
         foreach (self::$classmap as $key => $value) {
             if (!isset($options['classmap'][$key])) {
