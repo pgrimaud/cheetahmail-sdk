@@ -14,7 +14,7 @@ class CancelSentResponse
      */
     public function __construct($CancelSentResult)
     {
-      $this->CancelSentResult = $CancelSentResult;
+        $this->CancelSentResult = $CancelSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class CancelSentResponse
      */
     public function getCancelSentResult()
     {
-      return $this->CancelSentResult;
+        return $this->CancelSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class CancelSentResponse
      */
     public function setCancelSentResult($CancelSentResult)
     {
-      $this->CancelSentResult = $CancelSentResult;
-      return $this;
+        $this->CancelSentResult = $CancelSentResult;
+        return $this;
     }
-
 }

@@ -20,8 +20,8 @@ class UpdateSentParams
      */
     public function __construct($campaignId, $parameters)
     {
-      $this->campaignId = $campaignId;
-      $this->parameters = $parameters;
+        $this->campaignId = $campaignId;
+        $this->parameters = $parameters;
     }
 
     /**
@@ -29,7 +29,7 @@ class UpdateSentParams
      */
     public function getCampaignId()
     {
-      return $this->campaignId;
+        return $this->campaignId;
     }
 
     /**
@@ -38,8 +38,8 @@ class UpdateSentParams
      */
     public function setCampaignId($campaignId)
     {
-      $this->campaignId = $campaignId;
-      return $this;
+        $this->campaignId = $campaignId;
+        return $this;
     }
 
     /**
@@ -47,7 +47,7 @@ class UpdateSentParams
      */
     public function getParameters()
     {
-      return $this->parameters;
+        return $this->parameters;
     }
 
     /**
@@ -56,8 +56,7 @@ class UpdateSentParams
      */
     public function setParameters($parameters)
     {
-      $this->parameters = $parameters;
-      return $this;
+        $this->parameters = $parameters;
+        return $this;
     }
-
 }

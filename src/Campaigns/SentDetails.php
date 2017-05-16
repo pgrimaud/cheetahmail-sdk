@@ -58,11 +58,11 @@ class SentDetails
      */
     public function __construct($id, $state, \DateTime $wishdate, $percentil, $idConfig)
     {
-      $this->id = $id;
-      $this->state = $state;
-      $this->wishdate = $wishdate->format(\DateTime::ATOM);
-      $this->percentil = $percentil;
-      $this->idConfig = $idConfig;
+        $this->id = $id;
+        $this->state = $state;
+        $this->wishdate = $wishdate->format(\DateTime::ATOM);
+        $this->percentil = $percentil;
+        $this->idConfig = $idConfig;
     }
 
     /**
@@ -70,7 +70,7 @@ class SentDetails
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -79,8 +79,8 @@ class SentDetails
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -88,7 +88,7 @@ class SentDetails
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -97,8 +97,8 @@ class SentDetails
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -106,7 +106,7 @@ class SentDetails
      */
     public function getState()
     {
-      return $this->state;
+        return $this->state;
     }
 
     /**
@@ -115,8 +115,8 @@ class SentDetails
      */
     public function setState($state)
     {
-      $this->state = $state;
-      return $this;
+        $this->state = $state;
+        return $this;
     }
 
     /**
@@ -124,15 +124,15 @@ class SentDetails
      */
     public function getWishdate()
     {
-      if ($this->wishdate == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->wishdate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->wishdate == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->wishdate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -141,8 +141,8 @@ class SentDetails
      */
     public function setWishdate(\DateTime $wishdate)
     {
-      $this->wishdate = $wishdate->format(\DateTime::ATOM);
-      return $this;
+        $this->wishdate = $wishdate->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -150,7 +150,7 @@ class SentDetails
      */
     public function getPercentil()
     {
-      return $this->percentil;
+        return $this->percentil;
     }
 
     /**
@@ -159,8 +159,8 @@ class SentDetails
      */
     public function setPercentil($percentil)
     {
-      $this->percentil = $percentil;
-      return $this;
+        $this->percentil = $percentil;
+        return $this;
     }
 
     /**
@@ -168,7 +168,7 @@ class SentDetails
      */
     public function getIdConfig()
     {
-      return $this->idConfig;
+        return $this->idConfig;
     }
 
     /**
@@ -177,8 +177,8 @@ class SentDetails
      */
     public function setIdConfig($idConfig)
     {
-      $this->idConfig = $idConfig;
-      return $this;
+        $this->idConfig = $idConfig;
+        return $this;
     }
 
     /**
@@ -186,7 +186,7 @@ class SentDetails
      */
     public function getRandomize()
     {
-      return $this->randomize;
+        return $this->randomize;
     }
 
     /**
@@ -195,8 +195,8 @@ class SentDetails
      */
     public function setRandomize($randomize)
     {
-      $this->randomize = $randomize;
-      return $this;
+        $this->randomize = $randomize;
+        return $this;
     }
 
     /**
@@ -204,7 +204,7 @@ class SentDetails
      */
     public function getMailboxMonitor()
     {
-      return $this->mailboxMonitor;
+        return $this->mailboxMonitor;
     }
 
     /**
@@ -213,8 +213,8 @@ class SentDetails
      */
     public function setMailboxMonitor($mailboxMonitor)
     {
-      $this->mailboxMonitor = $mailboxMonitor;
-      return $this;
+        $this->mailboxMonitor = $mailboxMonitor;
+        return $this;
     }
 
     /**
@@ -222,7 +222,7 @@ class SentDetails
      */
     public function getEmailAnalytics()
     {
-      return $this->emailAnalytics;
+        return $this->emailAnalytics;
     }
 
     /**
@@ -231,8 +231,7 @@ class SentDetails
      */
     public function setEmailAnalytics($emailAnalytics)
     {
-      $this->emailAnalytics = $emailAnalytics;
-      return $this;
+        $this->emailAnalytics = $emailAnalytics;
+        return $this;
     }
-
 }

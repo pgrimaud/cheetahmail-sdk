@@ -14,7 +14,7 @@ class FindCampaignsByDescription
      */
     public function __construct($criteresDesc)
     {
-      $this->criteresDesc = $criteresDesc;
+        $this->criteresDesc = $criteresDesc;
     }
 
     /**
@@ -22,7 +22,7 @@ class FindCampaignsByDescription
      */
     public function getCriteresDesc()
     {
-      return $this->criteresDesc;
+        return $this->criteresDesc;
     }
 
     /**
@@ -31,8 +31,7 @@ class FindCampaignsByDescription
      */
     public function setCriteresDesc($criteresDesc)
     {
-      $this->criteresDesc = $criteresDesc;
-      return $this;
+        $this->criteresDesc = $criteresDesc;
+        return $this;
     }
-
 }

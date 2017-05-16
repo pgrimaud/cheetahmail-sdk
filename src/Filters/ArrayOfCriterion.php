@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function getCriterion()
     {
-      return $this->Criterion;
+        return $this->Criterion;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function setCriterion(array $Criterion = null)
     {
-      $this->Criterion = $Criterion;
-      return $this;
+        $this->Criterion = $Criterion;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->Criterion[$offset]);
+        return isset($this->Criterion[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->Criterion[$offset];
+        return $this->Criterion[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->Criterion[] = $value;
-      } else {
-        $this->Criterion[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->Criterion[] = $value;
+        } else {
+            $this->Criterion[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->Criterion[$offset]);
+        unset($this->Criterion[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->Criterion);
+        return current($this->Criterion);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->Criterion);
+        next($this->Criterion);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->Criterion);
+        return key($this->Criterion);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->Criterion);
+        reset($this->Criterion);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfCriterion implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->Criterion);
+        return count($this->Criterion);
     }
-
 }

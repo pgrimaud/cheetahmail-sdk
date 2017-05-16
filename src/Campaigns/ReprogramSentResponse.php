@@ -14,7 +14,7 @@ class ReprogramSentResponse
      */
     public function __construct($ReprogramSentResult)
     {
-      $this->ReprogramSentResult = $ReprogramSentResult;
+        $this->ReprogramSentResult = $ReprogramSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class ReprogramSentResponse
      */
     public function getReprogramSentResult()
     {
-      return $this->ReprogramSentResult;
+        return $this->ReprogramSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class ReprogramSentResponse
      */
     public function setReprogramSentResult($ReprogramSentResult)
     {
-      $this->ReprogramSentResult = $ReprogramSentResult;
-      return $this;
+        $this->ReprogramSentResult = $ReprogramSentResult;
+        return $this;
     }
-
 }

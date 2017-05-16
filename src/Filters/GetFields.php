@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class GetFields
@@ -15,7 +14,7 @@ class GetFields
      */
     public function __construct($queryId)
     {
-      $this->queryId = $queryId;
+        $this->queryId = $queryId;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetFields
      */
     public function getQueryId()
     {
-      return $this->queryId;
+        return $this->queryId;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetFields
      */
     public function setQueryId($queryId)
     {
-      $this->queryId = $queryId;
-      return $this;
+        $this->queryId = $queryId;
+        return $this;
     }
-
 }

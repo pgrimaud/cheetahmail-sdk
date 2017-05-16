@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class SetFieldsResponse
@@ -15,7 +14,7 @@ class SetFieldsResponse
      */
     public function __construct($SetFieldsResult)
     {
-      $this->SetFieldsResult = $SetFieldsResult;
+        $this->SetFieldsResult = $SetFieldsResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class SetFieldsResponse
      */
     public function getSetFieldsResult()
     {
-      return $this->SetFieldsResult;
+        return $this->SetFieldsResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class SetFieldsResponse
      */
     public function setSetFieldsResult($SetFieldsResult)
     {
-      $this->SetFieldsResult = $SetFieldsResult;
-      return $this;
+        $this->SetFieldsResult = $SetFieldsResult;
+        return $this;
     }
-
 }

@@ -14,7 +14,7 @@ class UpdateMessageResponse
      */
     public function __construct($UpdateMessageResult)
     {
-      $this->UpdateMessageResult = $UpdateMessageResult;
+        $this->UpdateMessageResult = $UpdateMessageResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateMessageResponse
      */
     public function getUpdateMessageResult()
     {
-      return $this->UpdateMessageResult;
+        return $this->UpdateMessageResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class UpdateMessageResponse
      */
     public function setUpdateMessageResult($UpdateMessageResult)
     {
-      $this->UpdateMessageResult = $UpdateMessageResult;
-      return $this;
+        $this->UpdateMessageResult = $UpdateMessageResult;
+        return $this;
     }
-
 }

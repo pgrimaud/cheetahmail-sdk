@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class Update
@@ -39,11 +38,11 @@ class Update
      */
     public function __construct($IdNotify, $Name, $IsPrivate, $Emails, $Lang)
     {
-      $this->IdNotify = $IdNotify;
-      $this->Name = $Name;
-      $this->IsPrivate = $IsPrivate;
-      $this->Emails = $Emails;
-      $this->Lang = $Lang;
+        $this->IdNotify = $IdNotify;
+        $this->Name = $Name;
+        $this->IsPrivate = $IsPrivate;
+        $this->Emails = $Emails;
+        $this->Lang = $Lang;
     }
 
     /**
@@ -51,7 +50,7 @@ class Update
      */
     public function getIdNotify()
     {
-      return $this->IdNotify;
+        return $this->IdNotify;
     }
 
     /**
@@ -60,8 +59,8 @@ class Update
      */
     public function setIdNotify($IdNotify)
     {
-      $this->IdNotify = $IdNotify;
-      return $this;
+        $this->IdNotify = $IdNotify;
+        return $this;
     }
 
     /**
@@ -69,7 +68,7 @@ class Update
      */
     public function getName()
     {
-      return $this->Name;
+        return $this->Name;
     }
 
     /**
@@ -78,8 +77,8 @@ class Update
      */
     public function setName($Name)
     {
-      $this->Name = $Name;
-      return $this;
+        $this->Name = $Name;
+        return $this;
     }
 
     /**
@@ -87,7 +86,7 @@ class Update
      */
     public function getIsPrivate()
     {
-      return $this->IsPrivate;
+        return $this->IsPrivate;
     }
 
     /**
@@ -96,8 +95,8 @@ class Update
      */
     public function setIsPrivate($IsPrivate)
     {
-      $this->IsPrivate = $IsPrivate;
-      return $this;
+        $this->IsPrivate = $IsPrivate;
+        return $this;
     }
 
     /**
@@ -105,7 +104,7 @@ class Update
      */
     public function getEmails()
     {
-      return $this->Emails;
+        return $this->Emails;
     }
 
     /**
@@ -114,8 +113,8 @@ class Update
      */
     public function setEmails($Emails)
     {
-      $this->Emails = $Emails;
-      return $this;
+        $this->Emails = $Emails;
+        return $this;
     }
 
     /**
@@ -123,7 +122,7 @@ class Update
      */
     public function getLang()
     {
-      return $this->Lang;
+        return $this->Lang;
     }
 
     /**
@@ -132,8 +131,7 @@ class Update
      */
     public function setLang($Lang)
     {
-      $this->Lang = $Lang;
-      return $this;
+        $this->Lang = $Lang;
+        return $this;
     }
-
 }

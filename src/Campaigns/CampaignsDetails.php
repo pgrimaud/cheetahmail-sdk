@@ -36,9 +36,9 @@ class CampaignsDetails
      */
     public function __construct($id, $filters, $state)
     {
-      $this->id = $id;
-      $this->filters = $filters;
-      $this->state = $state;
+        $this->id = $id;
+        $this->filters = $filters;
+        $this->state = $state;
     }
 
     /**
@@ -46,7 +46,7 @@ class CampaignsDetails
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -55,8 +55,8 @@ class CampaignsDetails
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -64,7 +64,7 @@ class CampaignsDetails
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -73,8 +73,8 @@ class CampaignsDetails
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -82,7 +82,7 @@ class CampaignsDetails
      */
     public function getFilters()
     {
-      return $this->filters;
+        return $this->filters;
     }
 
     /**
@@ -91,8 +91,8 @@ class CampaignsDetails
      */
     public function setFilters($filters)
     {
-      $this->filters = $filters;
-      return $this;
+        $this->filters = $filters;
+        return $this;
     }
 
     /**
@@ -100,7 +100,7 @@ class CampaignsDetails
      */
     public function getState()
     {
-      return $this->state;
+        return $this->state;
     }
 
     /**
@@ -109,8 +109,8 @@ class CampaignsDetails
      */
     public function setState($state)
     {
-      $this->state = $state;
-      return $this;
+        $this->state = $state;
+        return $this;
     }
 
     /**
@@ -118,7 +118,7 @@ class CampaignsDetails
      */
     public function getSents()
     {
-      return $this->sents;
+        return $this->sents;
     }
 
     /**
@@ -127,8 +127,7 @@ class CampaignsDetails
      */
     public function setSents($sents)
     {
-      $this->sents = $sents;
-      return $this;
+        $this->sents = $sents;
+        return $this;
     }
-
 }

@@ -14,7 +14,7 @@ class UpdateCampaignResponse
      */
     public function __construct($UpdateCampaignResult)
     {
-      $this->UpdateCampaignResult = $UpdateCampaignResult;
+        $this->UpdateCampaignResult = $UpdateCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateCampaignResponse
      */
     public function getUpdateCampaignResult()
     {
-      return $this->UpdateCampaignResult;
+        return $this->UpdateCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class UpdateCampaignResponse
      */
     public function setUpdateCampaignResult($UpdateCampaignResult)
     {
-      $this->UpdateCampaignResult = $UpdateCampaignResult;
-      return $this;
+        $this->UpdateCampaignResult = $UpdateCampaignResult;
+        return $this;
     }
-
 }

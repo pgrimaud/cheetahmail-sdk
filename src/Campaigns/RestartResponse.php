@@ -14,7 +14,7 @@ class RestartResponse
      */
     public function __construct($RestartResult)
     {
-      $this->RestartResult = $RestartResult;
+        $this->RestartResult = $RestartResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class RestartResponse
      */
     public function getRestartResult()
     {
-      return $this->RestartResult;
+        return $this->RestartResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class RestartResponse
      */
     public function setRestartResult($RestartResult)
     {
-      $this->RestartResult = $RestartResult;
-      return $this;
+        $this->RestartResult = $RestartResult;
+        return $this;
     }
-
 }

@@ -14,7 +14,7 @@ class DuplicateSentResponse
      */
     public function __construct($DuplicateSentResult)
     {
-      $this->DuplicateSentResult = $DuplicateSentResult;
+        $this->DuplicateSentResult = $DuplicateSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class DuplicateSentResponse
      */
     public function getDuplicateSentResult()
     {
-      return $this->DuplicateSentResult;
+        return $this->DuplicateSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class DuplicateSentResponse
      */
     public function setDuplicateSentResult($DuplicateSentResult)
     {
-      $this->DuplicateSentResult = $DuplicateSentResult;
-      return $this;
+        $this->DuplicateSentResult = $DuplicateSentResult;
+        return $this;
     }
-
 }

@@ -14,7 +14,7 @@ class GetSourceByIdSentResponse
      */
     public function __construct($GetSourceByIdSentResult)
     {
-      $this->GetSourceByIdSentResult = $GetSourceByIdSentResult;
+        $this->GetSourceByIdSentResult = $GetSourceByIdSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class GetSourceByIdSentResponse
      */
     public function getGetSourceByIdSentResult()
     {
-      return $this->GetSourceByIdSentResult;
+        return $this->GetSourceByIdSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class GetSourceByIdSentResponse
      */
     public function setGetSourceByIdSentResult($GetSourceByIdSentResult)
     {
-      $this->GetSourceByIdSentResult = $GetSourceByIdSentResult;
-      return $this;
+        $this->GetSourceByIdSentResult = $GetSourceByIdSentResult;
+        return $this;
     }
-
 }

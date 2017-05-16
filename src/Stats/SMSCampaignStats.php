@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class SMSCampaignStats
@@ -56,13 +55,13 @@ class SMSCampaignStats
      */
     public function __construct($Id, $Target, \DateTime $SendDate, $Recipients, $Bounces, $Delivered, $SentNumber)
     {
-      $this->Id = $Id;
-      $this->Target = $Target;
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
-      $this->Recipients = $Recipients;
-      $this->Bounces = $Bounces;
-      $this->Delivered = $Delivered;
-      $this->SentNumber = $SentNumber;
+        $this->Id = $Id;
+        $this->Target = $Target;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        $this->Recipients = $Recipients;
+        $this->Bounces = $Bounces;
+        $this->Delivered = $Delivered;
+        $this->SentNumber = $SentNumber;
     }
 
     /**
@@ -70,7 +69,7 @@ class SMSCampaignStats
      */
     public function getId()
     {
-      return $this->Id;
+        return $this->Id;
     }
 
     /**
@@ -79,8 +78,8 @@ class SMSCampaignStats
      */
     public function setId($Id)
     {
-      $this->Id = $Id;
-      return $this;
+        $this->Id = $Id;
+        return $this;
     }
 
     /**
@@ -88,7 +87,7 @@ class SMSCampaignStats
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -97,8 +96,8 @@ class SMSCampaignStats
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
 
     /**
@@ -106,7 +105,7 @@ class SMSCampaignStats
      */
     public function getTarget()
     {
-      return $this->Target;
+        return $this->Target;
     }
 
     /**
@@ -115,8 +114,8 @@ class SMSCampaignStats
      */
     public function setTarget($Target)
     {
-      $this->Target = $Target;
-      return $this;
+        $this->Target = $Target;
+        return $this;
     }
 
     /**
@@ -124,15 +123,15 @@ class SMSCampaignStats
      */
     public function getSendDate()
     {
-      if ($this->SendDate == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->SendDate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->SendDate == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->SendDate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -141,8 +140,8 @@ class SMSCampaignStats
      */
     public function setSendDate(\DateTime $SendDate)
     {
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
-      return $this;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -150,7 +149,7 @@ class SMSCampaignStats
      */
     public function getRecipients()
     {
-      return $this->Recipients;
+        return $this->Recipients;
     }
 
     /**
@@ -159,8 +158,8 @@ class SMSCampaignStats
      */
     public function setRecipients($Recipients)
     {
-      $this->Recipients = $Recipients;
-      return $this;
+        $this->Recipients = $Recipients;
+        return $this;
     }
 
     /**
@@ -168,7 +167,7 @@ class SMSCampaignStats
      */
     public function getBounces()
     {
-      return $this->Bounces;
+        return $this->Bounces;
     }
 
     /**
@@ -177,8 +176,8 @@ class SMSCampaignStats
      */
     public function setBounces($Bounces)
     {
-      $this->Bounces = $Bounces;
-      return $this;
+        $this->Bounces = $Bounces;
+        return $this;
     }
 
     /**
@@ -186,7 +185,7 @@ class SMSCampaignStats
      */
     public function getDelivered()
     {
-      return $this->Delivered;
+        return $this->Delivered;
     }
 
     /**
@@ -195,8 +194,8 @@ class SMSCampaignStats
      */
     public function setDelivered($Delivered)
     {
-      $this->Delivered = $Delivered;
-      return $this;
+        $this->Delivered = $Delivered;
+        return $this;
     }
 
     /**
@@ -204,7 +203,7 @@ class SMSCampaignStats
      */
     public function getSentNumber()
     {
-      return $this->SentNumber;
+        return $this->SentNumber;
     }
 
     /**
@@ -213,8 +212,7 @@ class SMSCampaignStats
      */
     public function setSentNumber($SentNumber)
     {
-      $this->SentNumber = $SentNumber;
-      return $this;
+        $this->SentNumber = $SentNumber;
+        return $this;
     }
-
 }

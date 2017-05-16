@@ -15,6 +15,4 @@ class SENTSTATUS
     const ERREUR = 'ERREUR';
     const CYCLIQUE = 'CYCLIQUE';
     const DEPROGRAMME = 'DEPROGRAMME';
-
-
 }

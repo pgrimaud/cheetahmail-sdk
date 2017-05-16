@@ -12,7 +12,6 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -20,7 +19,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function getSentParams()
     {
-      return $this->SentParams;
+        return $this->SentParams;
     }
 
     /**
@@ -29,8 +28,8 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function setSentParams(array $SentParams = null)
     {
-      $this->SentParams = $SentParams;
-      return $this;
+        $this->SentParams = $SentParams;
+        return $this;
     }
 
     /**
@@ -41,7 +40,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->SentParams[$offset]);
+        return isset($this->SentParams[$offset]);
     }
 
     /**
@@ -52,7 +51,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->SentParams[$offset];
+        return $this->SentParams[$offset];
     }
 
     /**
@@ -64,11 +63,11 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->SentParams[] = $value;
-      } else {
-        $this->SentParams[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->SentParams[] = $value;
+        } else {
+            $this->SentParams[$offset] = $value;
+        }
     }
 
     /**
@@ -79,7 +78,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->SentParams[$offset]);
+        unset($this->SentParams[$offset]);
     }
 
     /**
@@ -89,7 +88,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->SentParams);
+        return current($this->SentParams);
     }
 
     /**
@@ -100,7 +99,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->SentParams);
+        next($this->SentParams);
     }
 
     /**
@@ -110,7 +109,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->SentParams);
+        return key($this->SentParams);
     }
 
     /**
@@ -120,7 +119,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -131,7 +130,7 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->SentParams);
+        reset($this->SentParams);
     }
 
     /**
@@ -141,7 +140,6 @@ class ArrayOfSentParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->SentParams);
+        return count($this->SentParams);
     }
-
 }

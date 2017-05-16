@@ -14,7 +14,7 @@ class ListBetweenTwoDatesResponse
      */
     public function __construct($ListBetweenTwoDatesResult)
     {
-      $this->ListBetweenTwoDatesResult = $ListBetweenTwoDatesResult;
+        $this->ListBetweenTwoDatesResult = $ListBetweenTwoDatesResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class ListBetweenTwoDatesResponse
      */
     public function getListBetweenTwoDatesResult()
     {
-      return $this->ListBetweenTwoDatesResult;
+        return $this->ListBetweenTwoDatesResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class ListBetweenTwoDatesResponse
      */
     public function setListBetweenTwoDatesResult($ListBetweenTwoDatesResult)
     {
-      $this->ListBetweenTwoDatesResult = $ListBetweenTwoDatesResult;
-      return $this;
+        $this->ListBetweenTwoDatesResult = $ListBetweenTwoDatesResult;
+        return $this;
     }
-
 }

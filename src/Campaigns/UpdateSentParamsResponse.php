@@ -14,7 +14,7 @@ class UpdateSentParamsResponse
      */
     public function __construct($UpdateSentParamsResult)
     {
-      $this->UpdateSentParamsResult = $UpdateSentParamsResult;
+        $this->UpdateSentParamsResult = $UpdateSentParamsResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateSentParamsResponse
      */
     public function getUpdateSentParamsResult()
     {
-      return $this->UpdateSentParamsResult;
+        return $this->UpdateSentParamsResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class UpdateSentParamsResponse
      */
     public function setUpdateSentParamsResult($UpdateSentParamsResult)
     {
-      $this->UpdateSentParamsResult = $UpdateSentParamsResult;
-      return $this;
+        $this->UpdateSentParamsResult = $UpdateSentParamsResult;
+        return $this;
     }
-
 }

@@ -24,7 +24,7 @@ class AuthHeader
      */
     public function __construct($IdMlist)
     {
-      $this->IdMlist = $IdMlist;
+        $this->IdMlist = $IdMlist;
     }
 
     /**
@@ -32,7 +32,7 @@ class AuthHeader
      */
     public function getUserName()
     {
-      return $this->UserName;
+        return $this->UserName;
     }
 
     /**
@@ -41,8 +41,8 @@ class AuthHeader
      */
     public function setUserName($UserName)
     {
-      $this->UserName = $UserName;
-      return $this;
+        $this->UserName = $UserName;
+        return $this;
     }
 
     /**
@@ -50,7 +50,7 @@ class AuthHeader
      */
     public function getPassword()
     {
-      return $this->Password;
+        return $this->Password;
     }
 
     /**
@@ -59,8 +59,8 @@ class AuthHeader
      */
     public function setPassword($Password)
     {
-      $this->Password = $Password;
-      return $this;
+        $this->Password = $Password;
+        return $this;
     }
 
     /**
@@ -68,7 +68,7 @@ class AuthHeader
      */
     public function getIdMlist()
     {
-      return $this->IdMlist;
+        return $this->IdMlist;
     }
 
     /**
@@ -77,8 +77,7 @@ class AuthHeader
      */
     public function setIdMlist($IdMlist)
     {
-      $this->IdMlist = $IdMlist;
-      return $this;
+        $this->IdMlist = $IdMlist;
+        return $this;
     }
-
 }

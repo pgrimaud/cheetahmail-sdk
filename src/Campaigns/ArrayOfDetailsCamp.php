@@ -12,7 +12,6 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -20,7 +19,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function getDetailsCamp()
     {
-      return $this->DetailsCamp;
+        return $this->DetailsCamp;
     }
 
     /**
@@ -29,8 +28,8 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function setDetailsCamp(array $DetailsCamp = null)
     {
-      $this->DetailsCamp = $DetailsCamp;
-      return $this;
+        $this->DetailsCamp = $DetailsCamp;
+        return $this;
     }
 
     /**
@@ -41,7 +40,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->DetailsCamp[$offset]);
+        return isset($this->DetailsCamp[$offset]);
     }
 
     /**
@@ -52,7 +51,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->DetailsCamp[$offset];
+        return $this->DetailsCamp[$offset];
     }
 
     /**
@@ -64,11 +63,11 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->DetailsCamp[] = $value;
-      } else {
-        $this->DetailsCamp[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->DetailsCamp[] = $value;
+        } else {
+            $this->DetailsCamp[$offset] = $value;
+        }
     }
 
     /**
@@ -79,7 +78,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->DetailsCamp[$offset]);
+        unset($this->DetailsCamp[$offset]);
     }
 
     /**
@@ -89,7 +88,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->DetailsCamp);
+        return current($this->DetailsCamp);
     }
 
     /**
@@ -100,7 +99,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->DetailsCamp);
+        next($this->DetailsCamp);
     }
 
     /**
@@ -110,7 +109,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->DetailsCamp);
+        return key($this->DetailsCamp);
     }
 
     /**
@@ -120,7 +119,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -131,7 +130,7 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->DetailsCamp);
+        reset($this->DetailsCamp);
     }
 
     /**
@@ -141,7 +140,6 @@ class ArrayOfDetailsCamp implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->DetailsCamp);
+        return count($this->DetailsCamp);
     }
-
 }

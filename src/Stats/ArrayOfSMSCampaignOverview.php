@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function getSMSCampaignOverview()
     {
-      return $this->SMSCampaignOverview;
+        return $this->SMSCampaignOverview;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function setSMSCampaignOverview(array $SMSCampaignOverview = null)
     {
-      $this->SMSCampaignOverview = $SMSCampaignOverview;
-      return $this;
+        $this->SMSCampaignOverview = $SMSCampaignOverview;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->SMSCampaignOverview[$offset]);
+        return isset($this->SMSCampaignOverview[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->SMSCampaignOverview[$offset];
+        return $this->SMSCampaignOverview[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->SMSCampaignOverview[] = $value;
-      } else {
-        $this->SMSCampaignOverview[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->SMSCampaignOverview[] = $value;
+        } else {
+            $this->SMSCampaignOverview[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->SMSCampaignOverview[$offset]);
+        unset($this->SMSCampaignOverview[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->SMSCampaignOverview);
+        return current($this->SMSCampaignOverview);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->SMSCampaignOverview);
+        next($this->SMSCampaignOverview);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->SMSCampaignOverview);
+        return key($this->SMSCampaignOverview);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->SMSCampaignOverview);
+        reset($this->SMSCampaignOverview);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfSMSCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->SMSCampaignOverview);
+        return count($this->SMSCampaignOverview);
     }
-
 }

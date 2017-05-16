@@ -26,9 +26,9 @@ class AddSent
      */
     public function __construct($campaignId, $sentParams, $msgParams)
     {
-      $this->campaignId = $campaignId;
-      $this->sentParams = $sentParams;
-      $this->msgParams = $msgParams;
+        $this->campaignId = $campaignId;
+        $this->sentParams = $sentParams;
+        $this->msgParams = $msgParams;
     }
 
     /**
@@ -36,7 +36,7 @@ class AddSent
      */
     public function getCampaignId()
     {
-      return $this->campaignId;
+        return $this->campaignId;
     }
 
     /**
@@ -45,8 +45,8 @@ class AddSent
      */
     public function setCampaignId($campaignId)
     {
-      $this->campaignId = $campaignId;
-      return $this;
+        $this->campaignId = $campaignId;
+        return $this;
     }
 
     /**
@@ -54,7 +54,7 @@ class AddSent
      */
     public function getSentParams()
     {
-      return $this->sentParams;
+        return $this->sentParams;
     }
 
     /**
@@ -63,8 +63,8 @@ class AddSent
      */
     public function setSentParams($sentParams)
     {
-      $this->sentParams = $sentParams;
-      return $this;
+        $this->sentParams = $sentParams;
+        return $this;
     }
 
     /**
@@ -72,7 +72,7 @@ class AddSent
      */
     public function getMsgParams()
     {
-      return $this->msgParams;
+        return $this->msgParams;
     }
 
     /**
@@ -81,8 +81,7 @@ class AddSent
      */
     public function setMsgParams($msgParams)
     {
-      $this->msgParams = $msgParams;
-      return $this;
+        $this->msgParams = $msgParams;
+        return $this;
     }
-
 }

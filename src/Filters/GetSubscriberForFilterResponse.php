@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class GetSubscriberForFilterResponse
@@ -15,7 +14,7 @@ class GetSubscriberForFilterResponse
      */
     public function __construct($GetSubscriberForFilterResult)
     {
-      $this->GetSubscriberForFilterResult = $GetSubscriberForFilterResult;
+        $this->GetSubscriberForFilterResult = $GetSubscriberForFilterResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetSubscriberForFilterResponse
      */
     public function getGetSubscriberForFilterResult()
     {
-      return $this->GetSubscriberForFilterResult;
+        return $this->GetSubscriberForFilterResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetSubscriberForFilterResponse
      */
     public function setGetSubscriberForFilterResult($GetSubscriberForFilterResult)
     {
-      $this->GetSubscriberForFilterResult = $GetSubscriberForFilterResult;
-      return $this;
+        $this->GetSubscriberForFilterResult = $GetSubscriberForFilterResult;
+        return $this;
     }
-
 }

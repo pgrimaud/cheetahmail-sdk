@@ -20,8 +20,8 @@ class GetSourceByIdSent
      */
     public function __construct($campaignId, $sentId)
     {
-      $this->campaignId = $campaignId;
-      $this->sentId = $sentId;
+        $this->campaignId = $campaignId;
+        $this->sentId = $sentId;
     }
 
     /**
@@ -29,7 +29,7 @@ class GetSourceByIdSent
      */
     public function getCampaignId()
     {
-      return $this->campaignId;
+        return $this->campaignId;
     }
 
     /**
@@ -38,8 +38,8 @@ class GetSourceByIdSent
      */
     public function setCampaignId($campaignId)
     {
-      $this->campaignId = $campaignId;
-      return $this;
+        $this->campaignId = $campaignId;
+        return $this;
     }
 
     /**
@@ -47,7 +47,7 @@ class GetSourceByIdSent
      */
     public function getSentId()
     {
-      return $this->sentId;
+        return $this->sentId;
     }
 
     /**
@@ -56,8 +56,7 @@ class GetSourceByIdSent
      */
     public function setSentId($sentId)
     {
-      $this->sentId = $sentId;
-      return $this;
+        $this->sentId = $sentId;
+        return $this;
     }
-
 }

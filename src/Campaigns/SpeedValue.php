@@ -16,6 +16,4 @@ class SpeedValue
     const SPEED_8000 = 'SPEED_8000';
     const SPEED_10000 = 'SPEED_10000';
     const SPEED_MAX = 'SPEED_MAX';
-
-
 }

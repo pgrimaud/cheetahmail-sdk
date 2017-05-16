@@ -14,7 +14,7 @@ class SuspendSentResponse
      */
     public function __construct($SuspendSentResult)
     {
-      $this->SuspendSentResult = $SuspendSentResult;
+        $this->SuspendSentResult = $SuspendSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class SuspendSentResponse
      */
     public function getSuspendSentResult()
     {
-      return $this->SuspendSentResult;
+        return $this->SuspendSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class SuspendSentResponse
      */
     public function setSuspendSentResult($SuspendSentResult)
     {
-      $this->SuspendSentResult = $SuspendSentResult;
-      return $this;
+        $this->SuspendSentResult = $SuspendSentResult;
+        return $this;
     }
-
 }

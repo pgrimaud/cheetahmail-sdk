@@ -14,7 +14,7 @@ class UpdateSentMessageResponse
      */
     public function __construct($UpdateSentMessageResult)
     {
-      $this->UpdateSentMessageResult = $UpdateSentMessageResult;
+        $this->UpdateSentMessageResult = $UpdateSentMessageResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateSentMessageResponse
      */
     public function getUpdateSentMessageResult()
     {
-      return $this->UpdateSentMessageResult;
+        return $this->UpdateSentMessageResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class UpdateSentMessageResponse
      */
     public function setUpdateSentMessageResult($UpdateSentMessageResult)
     {
-      $this->UpdateSentMessageResult = $UpdateSentMessageResult;
-      return $this;
+        $this->UpdateSentMessageResult = $UpdateSentMessageResult;
+        return $this;
     }
-
 }

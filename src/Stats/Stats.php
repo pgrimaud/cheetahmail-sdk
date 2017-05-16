@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class Stats extends \SoapClient
@@ -8,7 +7,7 @@ class Stats extends \SoapClient
     /**
      * @var array $classmap The defined classes
      */
-    private static $classmap = array (
+    private static $classmap = array(
       'List' => 'Cheetahmail\\Stats\\ListCustom',
       'ListResponse' => 'Cheetahmail\\Stats\\ListResponse',
       'ArrayOfCampaignOverview' => 'Cheetahmail\\Stats\\ArrayOfCampaignOverview',
@@ -32,18 +31,18 @@ class Stats extends \SoapClient
      */
     public function __construct(array $options = array(), $wsdl = null)
     {
-      foreach (self::$classmap as $key => $value) {
-        if (!isset($options['classmap'][$key])) {
-          $options['classmap'][$key] = $value;
+        foreach (self::$classmap as $key => $value) {
+            if (!isset($options['classmap'][$key])) {
+                $options['classmap'][$key] = $value;
+            }
         }
-      }
-      $options = array_merge(array (
+        $options = array_merge(array(
       'features' => 1,
     ), $options);
-      if (!$wsdl) {
-        $wsdl = '../data/stats.wsdl';
-      }
-      parent::__construct($wsdl, $options);
+        if (!$wsdl) {
+            $wsdl = '../data/stats.wsdl';
+        }
+        parent::__construct($wsdl, $options);
     }
 
     /**
@@ -54,7 +53,7 @@ class Stats extends \SoapClient
      */
     public function aList($parameters)
     {
-      return $this->__soapCall('List', array($parameters));
+        return $this->__soapCall('List', array($parameters));
     }
 
     /**
@@ -65,7 +64,7 @@ class Stats extends \SoapClient
      */
     public function Get(Get $parameters)
     {
-      return $this->__soapCall('Get', array($parameters));
+        return $this->__soapCall('Get', array($parameters));
     }
 
     /**
@@ -76,7 +75,7 @@ class Stats extends \SoapClient
      */
     public function ListSMS(ListSMS $parameters)
     {
-      return $this->__soapCall('ListSMS', array($parameters));
+        return $this->__soapCall('ListSMS', array($parameters));
     }
 
     /**
@@ -87,7 +86,6 @@ class Stats extends \SoapClient
      */
     public function GetSMS(GetSMS $parameters)
     {
-      return $this->__soapCall('GetSMS', array($parameters));
+        return $this->__soapCall('GetSMS', array($parameters));
     }
-
 }

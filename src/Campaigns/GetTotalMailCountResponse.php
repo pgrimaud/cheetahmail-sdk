@@ -14,7 +14,7 @@ class GetTotalMailCountResponse
      */
     public function __construct($GetTotalMailCountResult)
     {
-      $this->GetTotalMailCountResult = $GetTotalMailCountResult;
+        $this->GetTotalMailCountResult = $GetTotalMailCountResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class GetTotalMailCountResponse
      */
     public function getGetTotalMailCountResult()
     {
-      return $this->GetTotalMailCountResult;
+        return $this->GetTotalMailCountResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class GetTotalMailCountResponse
      */
     public function setGetTotalMailCountResult($GetTotalMailCountResult)
     {
-      $this->GetTotalMailCountResult = $GetTotalMailCountResult;
-      return $this;
+        $this->GetTotalMailCountResult = $GetTotalMailCountResult;
+        return $this;
     }
-
 }

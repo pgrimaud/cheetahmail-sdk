@@ -14,7 +14,7 @@ class FindCampaignsByDescriptionResponse
      */
     public function __construct($FindCampaignsByDescriptionResult)
     {
-      $this->FindCampaignsByDescriptionResult = $FindCampaignsByDescriptionResult;
+        $this->FindCampaignsByDescriptionResult = $FindCampaignsByDescriptionResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class FindCampaignsByDescriptionResponse
      */
     public function getFindCampaignsByDescriptionResult()
     {
-      return $this->FindCampaignsByDescriptionResult;
+        return $this->FindCampaignsByDescriptionResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class FindCampaignsByDescriptionResponse
      */
     public function setFindCampaignsByDescriptionResult($FindCampaignsByDescriptionResult)
     {
-      $this->FindCampaignsByDescriptionResult = $FindCampaignsByDescriptionResult;
-      return $this;
+        $this->FindCampaignsByDescriptionResult = $FindCampaignsByDescriptionResult;
+        return $this;
     }
-
 }

@@ -25,8 +25,8 @@ class CampaignsListDetails
      */
     public function __construct($id, $status)
     {
-      $this->id = $id;
-      $this->status = $status;
+        $this->id = $id;
+        $this->status = $status;
     }
 
     /**
@@ -34,7 +34,7 @@ class CampaignsListDetails
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -43,8 +43,8 @@ class CampaignsListDetails
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -52,7 +52,7 @@ class CampaignsListDetails
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -61,8 +61,8 @@ class CampaignsListDetails
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -70,7 +70,7 @@ class CampaignsListDetails
      */
     public function getStatus()
     {
-      return $this->status;
+        return $this->status;
     }
 
     /**
@@ -79,8 +79,7 @@ class CampaignsListDetails
      */
     public function setStatus($status)
     {
-      $this->status = $status;
-      return $this;
+        $this->status = $status;
+        return $this;
     }
-
 }

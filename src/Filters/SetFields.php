@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class SetFields
@@ -21,8 +20,8 @@ class SetFields
      */
     public function __construct($queryId, $criteria)
     {
-      $this->queryId = $queryId;
-      $this->criteria = $criteria;
+        $this->queryId = $queryId;
+        $this->criteria = $criteria;
     }
 
     /**
@@ -30,7 +29,7 @@ class SetFields
      */
     public function getQueryId()
     {
-      return $this->queryId;
+        return $this->queryId;
     }
 
     /**
@@ -39,8 +38,8 @@ class SetFields
      */
     public function setQueryId($queryId)
     {
-      $this->queryId = $queryId;
-      return $this;
+        $this->queryId = $queryId;
+        return $this;
     }
 
     /**
@@ -48,7 +47,7 @@ class SetFields
      */
     public function getCriteria()
     {
-      return $this->criteria;
+        return $this->criteria;
     }
 
     /**
@@ -57,8 +56,7 @@ class SetFields
      */
     public function setCriteria($criteria)
     {
-      $this->criteria = $criteria;
-      return $this;
+        $this->criteria = $criteria;
+        return $this;
     }
-
 }

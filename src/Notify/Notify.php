@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class Notify extends \SoapClient
@@ -8,7 +7,7 @@ class Notify extends \SoapClient
     /**
      * @var array $classmap The defined classes
      */
-    private static $classmap = array (
+    private static $classmap = array(
       'List' => 'Cheetahmail\\Notify\\ListCustom',
       'ListResponse' => 'Cheetahmail\\Notify\\ListResponse',
       'ArrayOfNotifyGrp' => 'Cheetahmail\\Notify\\ArrayOfNotifyGrp',
@@ -28,18 +27,18 @@ class Notify extends \SoapClient
      */
     public function __construct(array $options = array(), $wsdl = null)
     {
-      foreach (self::$classmap as $key => $value) {
-        if (!isset($options['classmap'][$key])) {
-          $options['classmap'][$key] = $value;
+        foreach (self::$classmap as $key => $value) {
+            if (!isset($options['classmap'][$key])) {
+                $options['classmap'][$key] = $value;
+            }
         }
-      }
-      $options = array_merge(array (
+        $options = array_merge(array(
       'features' => 1,
     ), $options);
-      if (!$wsdl) {
-        $wsdl = '../data/notify.wsdl';
-      }
-      parent::__construct($wsdl, $options);
+        if (!$wsdl) {
+            $wsdl = '../data/notify.wsdl';
+        }
+        parent::__construct($wsdl, $options);
     }
 
     /**
@@ -50,7 +49,7 @@ class Notify extends \SoapClient
      */
     public function aList($parameters)
     {
-      return $this->__soapCall('List', array($parameters));
+        return $this->__soapCall('List', array($parameters));
     }
 
     /**
@@ -61,7 +60,7 @@ class Notify extends \SoapClient
      */
     public function Create(Create $parameters)
     {
-      return $this->__soapCall('Create', array($parameters));
+        return $this->__soapCall('Create', array($parameters));
     }
 
     /**
@@ -72,7 +71,7 @@ class Notify extends \SoapClient
      */
     public function Update(Update $parameters)
     {
-      return $this->__soapCall('Update', array($parameters));
+        return $this->__soapCall('Update', array($parameters));
     }
 
     /**
@@ -83,7 +82,6 @@ class Notify extends \SoapClient
      */
     public function Delete(Delete $parameters)
     {
-      return $this->__soapCall('Delete', array($parameters));
+        return $this->__soapCall('Delete', array($parameters));
     }
-
 }

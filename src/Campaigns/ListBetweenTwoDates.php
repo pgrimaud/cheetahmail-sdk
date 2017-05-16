@@ -26,9 +26,9 @@ class ListBetweenTwoDates
      */
     public function __construct(\DateTime $pDateDebut, \DateTime $pDateFin, $withBAT)
     {
-      $this->pDateDebut = $pDateDebut->format(\DateTime::ATOM);
-      $this->pDateFin = $pDateFin->format(\DateTime::ATOM);
-      $this->withBAT = $withBAT;
+        $this->pDateDebut = $pDateDebut->format(\DateTime::ATOM);
+        $this->pDateFin = $pDateFin->format(\DateTime::ATOM);
+        $this->withBAT = $withBAT;
     }
 
     /**
@@ -36,15 +36,15 @@ class ListBetweenTwoDates
      */
     public function getPDateDebut()
     {
-      if ($this->pDateDebut == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->pDateDebut);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->pDateDebut == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->pDateDebut);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -53,8 +53,8 @@ class ListBetweenTwoDates
      */
     public function setPDateDebut(\DateTime $pDateDebut)
     {
-      $this->pDateDebut = $pDateDebut->format(\DateTime::ATOM);
-      return $this;
+        $this->pDateDebut = $pDateDebut->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -62,15 +62,15 @@ class ListBetweenTwoDates
      */
     public function getPDateFin()
     {
-      if ($this->pDateFin == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->pDateFin);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->pDateFin == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->pDateFin);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -79,8 +79,8 @@ class ListBetweenTwoDates
      */
     public function setPDateFin(\DateTime $pDateFin)
     {
-      $this->pDateFin = $pDateFin->format(\DateTime::ATOM);
-      return $this;
+        $this->pDateFin = $pDateFin->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -88,7 +88,7 @@ class ListBetweenTwoDates
      */
     public function getWithBAT()
     {
-      return $this->withBAT;
+        return $this->withBAT;
     }
 
     /**
@@ -97,8 +97,7 @@ class ListBetweenTwoDates
      */
     public function setWithBAT($withBAT)
     {
-      $this->withBAT = $withBAT;
-      return $this;
+        $this->withBAT = $withBAT;
+        return $this;
     }
-
 }

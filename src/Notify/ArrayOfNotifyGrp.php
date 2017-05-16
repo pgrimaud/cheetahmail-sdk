@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function getNotifyGrp()
     {
-      return $this->NotifyGrp;
+        return $this->NotifyGrp;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function setNotifyGrp(array $NotifyGrp = null)
     {
-      $this->NotifyGrp = $NotifyGrp;
-      return $this;
+        $this->NotifyGrp = $NotifyGrp;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->NotifyGrp[$offset]);
+        return isset($this->NotifyGrp[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->NotifyGrp[$offset];
+        return $this->NotifyGrp[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->NotifyGrp[] = $value;
-      } else {
-        $this->NotifyGrp[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->NotifyGrp[] = $value;
+        } else {
+            $this->NotifyGrp[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->NotifyGrp[$offset]);
+        unset($this->NotifyGrp[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->NotifyGrp);
+        return current($this->NotifyGrp);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->NotifyGrp);
+        next($this->NotifyGrp);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->NotifyGrp);
+        return key($this->NotifyGrp);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->NotifyGrp);
+        reset($this->NotifyGrp);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfNotifyGrp implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->NotifyGrp);
+        return count($this->NotifyGrp);
     }
-
 }

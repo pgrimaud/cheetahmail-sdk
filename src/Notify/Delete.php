@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class Delete
@@ -15,7 +14,7 @@ class Delete
      */
     public function __construct($IdNotify)
     {
-      $this->IdNotify = $IdNotify;
+        $this->IdNotify = $IdNotify;
     }
 
     /**
@@ -23,7 +22,7 @@ class Delete
      */
     public function getIdNotify()
     {
-      return $this->IdNotify;
+        return $this->IdNotify;
     }
 
     /**
@@ -32,8 +31,7 @@ class Delete
      */
     public function setIdNotify($IdNotify)
     {
-      $this->IdNotify = $IdNotify;
-      return $this;
+        $this->IdNotify = $IdNotify;
+        return $this;
     }
-
 }

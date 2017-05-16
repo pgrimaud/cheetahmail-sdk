@@ -35,8 +35,8 @@ class MessageParams
      */
     public function __construct($format, $priority)
     {
-      $this->format = $format;
-      $this->priority = $priority;
+        $this->format = $format;
+        $this->priority = $priority;
     }
 
     /**
@@ -44,7 +44,7 @@ class MessageParams
      */
     public function getSubject()
     {
-      return $this->subject;
+        return $this->subject;
     }
 
     /**
@@ -53,8 +53,8 @@ class MessageParams
      */
     public function setSubject($subject)
     {
-      $this->subject = $subject;
-      return $this;
+        $this->subject = $subject;
+        return $this;
     }
 
     /**
@@ -62,7 +62,7 @@ class MessageParams
      */
     public function getFormat()
     {
-      return $this->format;
+        return $this->format;
     }
 
     /**
@@ -71,8 +71,8 @@ class MessageParams
      */
     public function setFormat($format)
     {
-      $this->format = $format;
-      return $this;
+        $this->format = $format;
+        return $this;
     }
 
     /**
@@ -80,7 +80,7 @@ class MessageParams
      */
     public function getPriority()
     {
-      return $this->priority;
+        return $this->priority;
     }
 
     /**
@@ -89,8 +89,8 @@ class MessageParams
      */
     public function setPriority($priority)
     {
-      $this->priority = $priority;
-      return $this;
+        $this->priority = $priority;
+        return $this;
     }
 
     /**
@@ -98,7 +98,7 @@ class MessageParams
      */
     public function getHtmlSrc()
     {
-      return $this->htmlSrc;
+        return $this->htmlSrc;
     }
 
     /**
@@ -107,8 +107,8 @@ class MessageParams
      */
     public function setHtmlSrc($htmlSrc)
     {
-      $this->htmlSrc = $htmlSrc;
-      return $this;
+        $this->htmlSrc = $htmlSrc;
+        return $this;
     }
 
     /**
@@ -116,7 +116,7 @@ class MessageParams
      */
     public function getTxtSrc()
     {
-      return $this->txtSrc;
+        return $this->txtSrc;
     }
 
     /**
@@ -125,8 +125,7 @@ class MessageParams
      */
     public function setTxtSrc($txtSrc)
     {
-      $this->txtSrc = $txtSrc;
-      return $this;
+        $this->txtSrc = $txtSrc;
+        return $this;
     }
-
 }

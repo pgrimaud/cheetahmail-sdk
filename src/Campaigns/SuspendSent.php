@@ -20,8 +20,8 @@ class SuspendSent
      */
     public function __construct($campaignId, $idSent)
     {
-      $this->campaignId = $campaignId;
-      $this->idSent = $idSent;
+        $this->campaignId = $campaignId;
+        $this->idSent = $idSent;
     }
 
     /**
@@ -29,7 +29,7 @@ class SuspendSent
      */
     public function getCampaignId()
     {
-      return $this->campaignId;
+        return $this->campaignId;
     }
 
     /**
@@ -38,8 +38,8 @@ class SuspendSent
      */
     public function setCampaignId($campaignId)
     {
-      $this->campaignId = $campaignId;
-      return $this;
+        $this->campaignId = $campaignId;
+        return $this;
     }
 
     /**
@@ -47,7 +47,7 @@ class SuspendSent
      */
     public function getIdSent()
     {
-      return $this->idSent;
+        return $this->idSent;
     }
 
     /**
@@ -56,8 +56,7 @@ class SuspendSent
      */
     public function setIdSent($idSent)
     {
-      $this->idSent = $idSent;
-      return $this;
+        $this->idSent = $idSent;
+        return $this;
     }
-
 }

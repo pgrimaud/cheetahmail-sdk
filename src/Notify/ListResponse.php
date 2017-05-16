@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class ListResponse
@@ -15,7 +14,7 @@ class ListResponse
      */
     public function __construct($ListResult)
     {
-      $this->ListResult = $ListResult;
+        $this->ListResult = $ListResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class ListResponse
      */
     public function getListResult()
     {
-      return $this->ListResult;
+        return $this->ListResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class ListResponse
      */
     public function setListResult($ListResult)
     {
-      $this->ListResult = $ListResult;
-      return $this;
+        $this->ListResult = $ListResult;
+        return $this;
     }
-
 }

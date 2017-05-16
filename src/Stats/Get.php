@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class Get
@@ -15,7 +14,7 @@ class Get
      */
     public function __construct($CampaignId)
     {
-      $this->CampaignId = $CampaignId;
+        $this->CampaignId = $CampaignId;
     }
 
     /**
@@ -23,7 +22,7 @@ class Get
      */
     public function getCampaignId()
     {
-      return $this->CampaignId;
+        return $this->CampaignId;
     }
 
     /**
@@ -32,8 +31,7 @@ class Get
      */
     public function setCampaignId($CampaignId)
     {
-      $this->CampaignId = $CampaignId;
-      return $this;
+        $this->CampaignId = $CampaignId;
+        return $this;
     }
-
 }

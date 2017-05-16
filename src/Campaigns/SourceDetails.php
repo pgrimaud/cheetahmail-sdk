@@ -41,9 +41,9 @@ class SourceDetails
      */
     public function __construct($idsent, $idarch, $format)
     {
-      $this->idsent = $idsent;
-      $this->idarch = $idarch;
-      $this->format = $format;
+        $this->idsent = $idsent;
+        $this->idarch = $idarch;
+        $this->format = $format;
     }
 
     /**
@@ -51,7 +51,7 @@ class SourceDetails
      */
     public function getIdsent()
     {
-      return $this->idsent;
+        return $this->idsent;
     }
 
     /**
@@ -60,8 +60,8 @@ class SourceDetails
      */
     public function setIdsent($idsent)
     {
-      $this->idsent = $idsent;
-      return $this;
+        $this->idsent = $idsent;
+        return $this;
     }
 
     /**
@@ -69,7 +69,7 @@ class SourceDetails
      */
     public function getIdarch()
     {
-      return $this->idarch;
+        return $this->idarch;
     }
 
     /**
@@ -78,8 +78,8 @@ class SourceDetails
      */
     public function setIdarch($idarch)
     {
-      $this->idarch = $idarch;
-      return $this;
+        $this->idarch = $idarch;
+        return $this;
     }
 
     /**
@@ -87,7 +87,7 @@ class SourceDetails
      */
     public function getSubject()
     {
-      return $this->subject;
+        return $this->subject;
     }
 
     /**
@@ -96,8 +96,8 @@ class SourceDetails
      */
     public function setSubject($subject)
     {
-      $this->subject = $subject;
-      return $this;
+        $this->subject = $subject;
+        return $this;
     }
 
     /**
@@ -105,7 +105,7 @@ class SourceDetails
      */
     public function getHtmlsrc()
     {
-      return $this->htmlsrc;
+        return $this->htmlsrc;
     }
 
     /**
@@ -114,8 +114,8 @@ class SourceDetails
      */
     public function setHtmlsrc($htmlsrc)
     {
-      $this->htmlsrc = $htmlsrc;
-      return $this;
+        $this->htmlsrc = $htmlsrc;
+        return $this;
     }
 
     /**
@@ -123,7 +123,7 @@ class SourceDetails
      */
     public function getTxtsrc()
     {
-      return $this->txtsrc;
+        return $this->txtsrc;
     }
 
     /**
@@ -132,8 +132,8 @@ class SourceDetails
      */
     public function setTxtsrc($txtsrc)
     {
-      $this->txtsrc = $txtsrc;
-      return $this;
+        $this->txtsrc = $txtsrc;
+        return $this;
     }
 
     /**
@@ -141,7 +141,7 @@ class SourceDetails
      */
     public function getFormat()
     {
-      return $this->format;
+        return $this->format;
     }
 
     /**
@@ -150,8 +150,7 @@ class SourceDetails
      */
     public function setFormat($format)
     {
-      $this->format = $format;
-      return $this;
+        $this->format = $format;
+        return $this;
     }
-
 }

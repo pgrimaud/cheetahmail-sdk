@@ -486,5 +486,4 @@ class Campaigns extends \SoapClient
     {
         return $this->__soapCall('SuspendSent', array($parameters));
     }
-
 }

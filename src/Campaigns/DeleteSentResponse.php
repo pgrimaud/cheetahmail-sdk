@@ -14,7 +14,7 @@ class DeleteSentResponse
      */
     public function __construct($DeleteSentResult)
     {
-      $this->DeleteSentResult = $DeleteSentResult;
+        $this->DeleteSentResult = $DeleteSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class DeleteSentResponse
      */
     public function getDeleteSentResult()
     {
-      return $this->DeleteSentResult;
+        return $this->DeleteSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class DeleteSentResponse
      */
     public function setDeleteSentResult($DeleteSentResult)
     {
-      $this->DeleteSentResult = $DeleteSentResult;
-      return $this;
+        $this->DeleteSentResult = $DeleteSentResult;
+        return $this;
     }
-
 }

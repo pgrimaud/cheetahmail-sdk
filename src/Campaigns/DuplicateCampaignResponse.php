@@ -14,7 +14,7 @@ class DuplicateCampaignResponse
      */
     public function __construct($DuplicateCampaignResult)
     {
-      $this->DuplicateCampaignResult = $DuplicateCampaignResult;
+        $this->DuplicateCampaignResult = $DuplicateCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class DuplicateCampaignResponse
      */
     public function getDuplicateCampaignResult()
     {
-      return $this->DuplicateCampaignResult;
+        return $this->DuplicateCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class DuplicateCampaignResponse
      */
     public function setDuplicateCampaignResult($DuplicateCampaignResult)
     {
-      $this->DuplicateCampaignResult = $DuplicateCampaignResult;
-      return $this;
+        $this->DuplicateCampaignResult = $DuplicateCampaignResult;
+        return $this;
     }
-
 }

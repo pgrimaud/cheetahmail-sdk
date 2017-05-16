@@ -14,7 +14,7 @@ class ListCustom
      */
     public function __construct($_status)
     {
-      $this->_status = $_status;
+        $this->_status = $_status;
     }
 
     /**
@@ -22,7 +22,7 @@ class ListCustom
      */
     public function get_status()
     {
-      return $this->_status;
+        return $this->_status;
     }
 
     /**
@@ -31,8 +31,7 @@ class ListCustom
      */
     public function set_status($_status)
     {
-      $this->_status = $_status;
-      return $this;
+        $this->_status = $_status;
+        return $this;
     }
-
 }

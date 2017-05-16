@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class CampaignStats
@@ -110,22 +109,22 @@ class CampaignStats
      */
     public function __construct($Id, $Target, \DateTime $SendDate, $Envelope, $Recipients, $Filtered, $Bounces, $Delivered, $Openers, $Openings, $Clickers, $Clicks, $Complaints, $Unsubs, $HardBounces, $SoftBounces)
     {
-      $this->Id = $Id;
-      $this->Target = $Target;
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
-      $this->Envelope = $Envelope;
-      $this->Recipients = $Recipients;
-      $this->Filtered = $Filtered;
-      $this->Bounces = $Bounces;
-      $this->Delivered = $Delivered;
-      $this->Openers = $Openers;
-      $this->Openings = $Openings;
-      $this->Clickers = $Clickers;
-      $this->Clicks = $Clicks;
-      $this->Complaints = $Complaints;
-      $this->Unsubs = $Unsubs;
-      $this->HardBounces = $HardBounces;
-      $this->SoftBounces = $SoftBounces;
+        $this->Id = $Id;
+        $this->Target = $Target;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        $this->Envelope = $Envelope;
+        $this->Recipients = $Recipients;
+        $this->Filtered = $Filtered;
+        $this->Bounces = $Bounces;
+        $this->Delivered = $Delivered;
+        $this->Openers = $Openers;
+        $this->Openings = $Openings;
+        $this->Clickers = $Clickers;
+        $this->Clicks = $Clicks;
+        $this->Complaints = $Complaints;
+        $this->Unsubs = $Unsubs;
+        $this->HardBounces = $HardBounces;
+        $this->SoftBounces = $SoftBounces;
     }
 
     /**
@@ -133,7 +132,7 @@ class CampaignStats
      */
     public function getId()
     {
-      return $this->Id;
+        return $this->Id;
     }
 
     /**
@@ -142,8 +141,8 @@ class CampaignStats
      */
     public function setId($Id)
     {
-      $this->Id = $Id;
-      return $this;
+        $this->Id = $Id;
+        return $this;
     }
 
     /**
@@ -151,7 +150,7 @@ class CampaignStats
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -160,8 +159,8 @@ class CampaignStats
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
 
     /**
@@ -169,7 +168,7 @@ class CampaignStats
      */
     public function getTarget()
     {
-      return $this->Target;
+        return $this->Target;
     }
 
     /**
@@ -178,8 +177,8 @@ class CampaignStats
      */
     public function setTarget($Target)
     {
-      $this->Target = $Target;
-      return $this;
+        $this->Target = $Target;
+        return $this;
     }
 
     /**
@@ -187,15 +186,15 @@ class CampaignStats
      */
     public function getSendDate()
     {
-      if ($this->SendDate == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->SendDate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->SendDate == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->SendDate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -204,8 +203,8 @@ class CampaignStats
      */
     public function setSendDate(\DateTime $SendDate)
     {
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
-      return $this;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -213,7 +212,7 @@ class CampaignStats
      */
     public function getEnvelope()
     {
-      return $this->Envelope;
+        return $this->Envelope;
     }
 
     /**
@@ -222,8 +221,8 @@ class CampaignStats
      */
     public function setEnvelope($Envelope)
     {
-      $this->Envelope = $Envelope;
-      return $this;
+        $this->Envelope = $Envelope;
+        return $this;
     }
 
     /**
@@ -231,7 +230,7 @@ class CampaignStats
      */
     public function getRecipients()
     {
-      return $this->Recipients;
+        return $this->Recipients;
     }
 
     /**
@@ -240,8 +239,8 @@ class CampaignStats
      */
     public function setRecipients($Recipients)
     {
-      $this->Recipients = $Recipients;
-      return $this;
+        $this->Recipients = $Recipients;
+        return $this;
     }
 
     /**
@@ -249,7 +248,7 @@ class CampaignStats
      */
     public function getFiltered()
     {
-      return $this->Filtered;
+        return $this->Filtered;
     }
 
     /**
@@ -258,8 +257,8 @@ class CampaignStats
      */
     public function setFiltered($Filtered)
     {
-      $this->Filtered = $Filtered;
-      return $this;
+        $this->Filtered = $Filtered;
+        return $this;
     }
 
     /**
@@ -267,7 +266,7 @@ class CampaignStats
      */
     public function getBounces()
     {
-      return $this->Bounces;
+        return $this->Bounces;
     }
 
     /**
@@ -276,8 +275,8 @@ class CampaignStats
      */
     public function setBounces($Bounces)
     {
-      $this->Bounces = $Bounces;
-      return $this;
+        $this->Bounces = $Bounces;
+        return $this;
     }
 
     /**
@@ -285,7 +284,7 @@ class CampaignStats
      */
     public function getDelivered()
     {
-      return $this->Delivered;
+        return $this->Delivered;
     }
 
     /**
@@ -294,8 +293,8 @@ class CampaignStats
      */
     public function setDelivered($Delivered)
     {
-      $this->Delivered = $Delivered;
-      return $this;
+        $this->Delivered = $Delivered;
+        return $this;
     }
 
     /**
@@ -303,7 +302,7 @@ class CampaignStats
      */
     public function getOpeners()
     {
-      return $this->Openers;
+        return $this->Openers;
     }
 
     /**
@@ -312,8 +311,8 @@ class CampaignStats
      */
     public function setOpeners($Openers)
     {
-      $this->Openers = $Openers;
-      return $this;
+        $this->Openers = $Openers;
+        return $this;
     }
 
     /**
@@ -321,7 +320,7 @@ class CampaignStats
      */
     public function getOpenings()
     {
-      return $this->Openings;
+        return $this->Openings;
     }
 
     /**
@@ -330,8 +329,8 @@ class CampaignStats
      */
     public function setOpenings($Openings)
     {
-      $this->Openings = $Openings;
-      return $this;
+        $this->Openings = $Openings;
+        return $this;
     }
 
     /**
@@ -339,7 +338,7 @@ class CampaignStats
      */
     public function getClickers()
     {
-      return $this->Clickers;
+        return $this->Clickers;
     }
 
     /**
@@ -348,8 +347,8 @@ class CampaignStats
      */
     public function setClickers($Clickers)
     {
-      $this->Clickers = $Clickers;
-      return $this;
+        $this->Clickers = $Clickers;
+        return $this;
     }
 
     /**
@@ -357,7 +356,7 @@ class CampaignStats
      */
     public function getClicks()
     {
-      return $this->Clicks;
+        return $this->Clicks;
     }
 
     /**
@@ -366,8 +365,8 @@ class CampaignStats
      */
     public function setClicks($Clicks)
     {
-      $this->Clicks = $Clicks;
-      return $this;
+        $this->Clicks = $Clicks;
+        return $this;
     }
 
     /**
@@ -375,7 +374,7 @@ class CampaignStats
      */
     public function getComplaints()
     {
-      return $this->Complaints;
+        return $this->Complaints;
     }
 
     /**
@@ -384,8 +383,8 @@ class CampaignStats
      */
     public function setComplaints($Complaints)
     {
-      $this->Complaints = $Complaints;
-      return $this;
+        $this->Complaints = $Complaints;
+        return $this;
     }
 
     /**
@@ -393,7 +392,7 @@ class CampaignStats
      */
     public function getUnsubs()
     {
-      return $this->Unsubs;
+        return $this->Unsubs;
     }
 
     /**
@@ -402,8 +401,8 @@ class CampaignStats
      */
     public function setUnsubs($Unsubs)
     {
-      $this->Unsubs = $Unsubs;
-      return $this;
+        $this->Unsubs = $Unsubs;
+        return $this;
     }
 
     /**
@@ -411,7 +410,7 @@ class CampaignStats
      */
     public function getHardBounces()
     {
-      return $this->HardBounces;
+        return $this->HardBounces;
     }
 
     /**
@@ -420,8 +419,8 @@ class CampaignStats
      */
     public function setHardBounces($HardBounces)
     {
-      $this->HardBounces = $HardBounces;
-      return $this;
+        $this->HardBounces = $HardBounces;
+        return $this;
     }
 
     /**
@@ -429,7 +428,7 @@ class CampaignStats
      */
     public function getSoftBounces()
     {
-      return $this->SoftBounces;
+        return $this->SoftBounces;
     }
 
     /**
@@ -438,8 +437,7 @@ class CampaignStats
      */
     public function setSoftBounces($SoftBounces)
     {
-      $this->SoftBounces = $SoftBounces;
-      return $this;
+        $this->SoftBounces = $SoftBounces;
+        return $this;
     }
-
 }

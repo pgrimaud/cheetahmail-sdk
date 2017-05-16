@@ -14,7 +14,7 @@ class GetSourceOfCampaignResponse
      */
     public function __construct($GetSourceOfCampaignResult)
     {
-      $this->GetSourceOfCampaignResult = $GetSourceOfCampaignResult;
+        $this->GetSourceOfCampaignResult = $GetSourceOfCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class GetSourceOfCampaignResponse
      */
     public function getGetSourceOfCampaignResult()
     {
-      return $this->GetSourceOfCampaignResult;
+        return $this->GetSourceOfCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class GetSourceOfCampaignResponse
      */
     public function setGetSourceOfCampaignResult($GetSourceOfCampaignResult)
     {
-      $this->GetSourceOfCampaignResult = $GetSourceOfCampaignResult;
-      return $this;
+        $this->GetSourceOfCampaignResult = $GetSourceOfCampaignResult;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class SMSCampaignOverview
@@ -26,8 +25,8 @@ class SMSCampaignOverview
      */
     public function __construct($Id, \DateTime $SendDate)
     {
-      $this->Id = $Id;
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        $this->Id = $Id;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
     }
 
     /**
@@ -35,7 +34,7 @@ class SMSCampaignOverview
      */
     public function getId()
     {
-      return $this->Id;
+        return $this->Id;
     }
 
     /**
@@ -44,8 +43,8 @@ class SMSCampaignOverview
      */
     public function setId($Id)
     {
-      $this->Id = $Id;
-      return $this;
+        $this->Id = $Id;
+        return $this;
     }
 
     /**
@@ -53,7 +52,7 @@ class SMSCampaignOverview
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -62,8 +61,8 @@ class SMSCampaignOverview
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
 
     /**
@@ -71,15 +70,15 @@ class SMSCampaignOverview
      */
     public function getSendDate()
     {
-      if ($this->SendDate == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->SendDate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->SendDate == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->SendDate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -88,8 +87,7 @@ class SMSCampaignOverview
      */
     public function setSendDate(\DateTime $SendDate)
     {
-      $this->SendDate = $SendDate->format(\DateTime::ATOM);
-      return $this;
+        $this->SendDate = $SendDate->format(\DateTime::ATOM);
+        return $this;
     }
-
 }

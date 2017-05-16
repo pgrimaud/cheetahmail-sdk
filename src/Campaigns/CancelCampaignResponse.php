@@ -14,7 +14,7 @@ class CancelCampaignResponse
      */
     public function __construct($CancelCampaignResult)
     {
-      $this->CancelCampaignResult = $CancelCampaignResult;
+        $this->CancelCampaignResult = $CancelCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class CancelCampaignResponse
      */
     public function getCancelCampaignResult()
     {
-      return $this->CancelCampaignResult;
+        return $this->CancelCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class CancelCampaignResponse
      */
     public function setCancelCampaignResult($CancelCampaignResult)
     {
-      $this->CancelCampaignResult = $CancelCampaignResult;
-      return $this;
+        $this->CancelCampaignResult = $CancelCampaignResult;
+        return $this;
     }
-
 }

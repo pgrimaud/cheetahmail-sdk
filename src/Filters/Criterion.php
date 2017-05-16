@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class Criterion
@@ -26,8 +25,8 @@ class Criterion
      */
     public function __construct($IdField, $Operation)
     {
-      $this->IdField = $IdField;
-      $this->Operation = $Operation;
+        $this->IdField = $IdField;
+        $this->Operation = $Operation;
     }
 
     /**
@@ -35,7 +34,7 @@ class Criterion
      */
     public function getIdField()
     {
-      return $this->IdField;
+        return $this->IdField;
     }
 
     /**
@@ -44,8 +43,8 @@ class Criterion
      */
     public function setIdField($IdField)
     {
-      $this->IdField = $IdField;
-      return $this;
+        $this->IdField = $IdField;
+        return $this;
     }
 
     /**
@@ -53,7 +52,7 @@ class Criterion
      */
     public function getOperation()
     {
-      return $this->Operation;
+        return $this->Operation;
     }
 
     /**
@@ -62,8 +61,8 @@ class Criterion
      */
     public function setOperation($Operation)
     {
-      $this->Operation = $Operation;
-      return $this;
+        $this->Operation = $Operation;
+        return $this;
     }
 
     /**
@@ -71,7 +70,7 @@ class Criterion
      */
     public function getValue()
     {
-      return $this->Value;
+        return $this->Value;
     }
 
     /**
@@ -80,8 +79,7 @@ class Criterion
      */
     public function setValue($Value)
     {
-      $this->Value = $Value;
-      return $this;
+        $this->Value = $Value;
+        return $this;
     }
-
 }

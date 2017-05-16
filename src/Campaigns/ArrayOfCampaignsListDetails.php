@@ -12,7 +12,6 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -20,7 +19,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function getCampaignsListDetails()
     {
-      return $this->CampaignsListDetails;
+        return $this->CampaignsListDetails;
     }
 
     /**
@@ -29,8 +28,8 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function setCampaignsListDetails(array $CampaignsListDetails = null)
     {
-      $this->CampaignsListDetails = $CampaignsListDetails;
-      return $this;
+        $this->CampaignsListDetails = $CampaignsListDetails;
+        return $this;
     }
 
     /**
@@ -41,7 +40,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->CampaignsListDetails[$offset]);
+        return isset($this->CampaignsListDetails[$offset]);
     }
 
     /**
@@ -52,7 +51,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->CampaignsListDetails[$offset];
+        return $this->CampaignsListDetails[$offset];
     }
 
     /**
@@ -64,11 +63,11 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->CampaignsListDetails[] = $value;
-      } else {
-        $this->CampaignsListDetails[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->CampaignsListDetails[] = $value;
+        } else {
+            $this->CampaignsListDetails[$offset] = $value;
+        }
     }
 
     /**
@@ -79,7 +78,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->CampaignsListDetails[$offset]);
+        unset($this->CampaignsListDetails[$offset]);
     }
 
     /**
@@ -89,7 +88,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->CampaignsListDetails);
+        return current($this->CampaignsListDetails);
     }
 
     /**
@@ -100,7 +99,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->CampaignsListDetails);
+        next($this->CampaignsListDetails);
     }
 
     /**
@@ -110,7 +109,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->CampaignsListDetails);
+        return key($this->CampaignsListDetails);
     }
 
     /**
@@ -120,7 +119,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -131,7 +130,7 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->CampaignsListDetails);
+        reset($this->CampaignsListDetails);
     }
 
     /**
@@ -141,7 +140,6 @@ class ArrayOfCampaignsListDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->CampaignsListDetails);
+        return count($this->CampaignsListDetails);
     }
-
 }

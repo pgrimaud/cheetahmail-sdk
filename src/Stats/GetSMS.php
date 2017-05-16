@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class GetSMS
@@ -15,7 +14,7 @@ class GetSMS
      */
     public function __construct($SMSCampaignId)
     {
-      $this->SMSCampaignId = $SMSCampaignId;
+        $this->SMSCampaignId = $SMSCampaignId;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetSMS
      */
     public function getSMSCampaignId()
     {
-      return $this->SMSCampaignId;
+        return $this->SMSCampaignId;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetSMS
      */
     public function setSMSCampaignId($SMSCampaignId)
     {
-      $this->SMSCampaignId = $SMSCampaignId;
-      return $this;
+        $this->SMSCampaignId = $SMSCampaignId;
+        return $this;
     }
-
 }

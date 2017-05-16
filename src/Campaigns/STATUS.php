@@ -15,6 +15,4 @@ class STATUS
     const CYCLIQUE = 'CYCLIQUE';
     const DEPROGRAMME = 'DEPROGRAMME';
     const CHRONOCONTACT = 'CHRONOCONTACT';
-
-
 }

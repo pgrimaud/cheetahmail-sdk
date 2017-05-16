@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class CountFilterResponse
@@ -15,7 +14,7 @@ class CountFilterResponse
      */
     public function __construct($CountFilterResult)
     {
-      $this->CountFilterResult = $CountFilterResult;
+        $this->CountFilterResult = $CountFilterResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class CountFilterResponse
      */
     public function getCountFilterResult()
     {
-      return $this->CountFilterResult;
+        return $this->CountFilterResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class CountFilterResponse
      */
     public function setCountFilterResult($CountFilterResult)
     {
-      $this->CountFilterResult = $CountFilterResult;
-      return $this;
+        $this->CountFilterResult = $CountFilterResult;
+        return $this;
     }
-
 }

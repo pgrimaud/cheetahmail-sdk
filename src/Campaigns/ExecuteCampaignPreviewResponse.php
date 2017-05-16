@@ -14,7 +14,7 @@ class ExecuteCampaignPreviewResponse
      */
     public function __construct($ExecuteCampaignPreviewResult)
     {
-      $this->ExecuteCampaignPreviewResult = $ExecuteCampaignPreviewResult;
+        $this->ExecuteCampaignPreviewResult = $ExecuteCampaignPreviewResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class ExecuteCampaignPreviewResponse
      */
     public function getExecuteCampaignPreviewResult()
     {
-      return $this->ExecuteCampaignPreviewResult;
+        return $this->ExecuteCampaignPreviewResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class ExecuteCampaignPreviewResponse
      */
     public function setExecuteCampaignPreviewResult($ExecuteCampaignPreviewResult)
     {
-      $this->ExecuteCampaignPreviewResult = $ExecuteCampaignPreviewResult;
-      return $this;
+        $this->ExecuteCampaignPreviewResult = $ExecuteCampaignPreviewResult;
+        return $this;
     }
-
 }

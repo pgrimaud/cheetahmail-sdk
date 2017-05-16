@@ -14,7 +14,7 @@ class AddSentResponse
      */
     public function __construct($AddSentResult)
     {
-      $this->AddSentResult = $AddSentResult;
+        $this->AddSentResult = $AddSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class AddSentResponse
      */
     public function getAddSentResult()
     {
-      return $this->AddSentResult;
+        return $this->AddSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class AddSentResponse
      */
     public function setAddSentResult($AddSentResult)
     {
-      $this->AddSentResult = $AddSentResult;
-      return $this;
+        $this->AddSentResult = $AddSentResult;
+        return $this;
     }
-
 }

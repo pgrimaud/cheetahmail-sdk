@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class Create
@@ -21,8 +20,8 @@ class Create
      */
     public function __construct($isPrivate, $description)
     {
-      $this->isPrivate = $isPrivate;
-      $this->description = $description;
+        $this->isPrivate = $isPrivate;
+        $this->description = $description;
     }
 
     /**
@@ -30,7 +29,7 @@ class Create
      */
     public function getIsPrivate()
     {
-      return $this->isPrivate;
+        return $this->isPrivate;
     }
 
     /**
@@ -39,8 +38,8 @@ class Create
      */
     public function setIsPrivate($isPrivate)
     {
-      $this->isPrivate = $isPrivate;
-      return $this;
+        $this->isPrivate = $isPrivate;
+        return $this;
     }
 
     /**
@@ -48,7 +47,7 @@ class Create
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -57,8 +56,7 @@ class Create
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
-
 }

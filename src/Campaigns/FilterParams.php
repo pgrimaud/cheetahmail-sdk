@@ -32,10 +32,10 @@ class FilterParams
      */
     public function __construct($behavioralFilterId, $fieldFilterId, $sqlQueryFilterId, $targetId)
     {
-      $this->behavioralFilterId = $behavioralFilterId;
-      $this->fieldFilterId = $fieldFilterId;
-      $this->sqlQueryFilterId = $sqlQueryFilterId;
-      $this->targetId = $targetId;
+        $this->behavioralFilterId = $behavioralFilterId;
+        $this->fieldFilterId = $fieldFilterId;
+        $this->sqlQueryFilterId = $sqlQueryFilterId;
+        $this->targetId = $targetId;
     }
 
     /**
@@ -43,7 +43,7 @@ class FilterParams
      */
     public function getBehavioralFilterId()
     {
-      return $this->behavioralFilterId;
+        return $this->behavioralFilterId;
     }
 
     /**
@@ -52,8 +52,8 @@ class FilterParams
      */
     public function setBehavioralFilterId($behavioralFilterId)
     {
-      $this->behavioralFilterId = $behavioralFilterId;
-      return $this;
+        $this->behavioralFilterId = $behavioralFilterId;
+        return $this;
     }
 
     /**
@@ -61,7 +61,7 @@ class FilterParams
      */
     public function getFieldFilterId()
     {
-      return $this->fieldFilterId;
+        return $this->fieldFilterId;
     }
 
     /**
@@ -70,8 +70,8 @@ class FilterParams
      */
     public function setFieldFilterId($fieldFilterId)
     {
-      $this->fieldFilterId = $fieldFilterId;
-      return $this;
+        $this->fieldFilterId = $fieldFilterId;
+        return $this;
     }
 
     /**
@@ -79,7 +79,7 @@ class FilterParams
      */
     public function getSqlQueryFilterId()
     {
-      return $this->sqlQueryFilterId;
+        return $this->sqlQueryFilterId;
     }
 
     /**
@@ -88,8 +88,8 @@ class FilterParams
      */
     public function setSqlQueryFilterId($sqlQueryFilterId)
     {
-      $this->sqlQueryFilterId = $sqlQueryFilterId;
-      return $this;
+        $this->sqlQueryFilterId = $sqlQueryFilterId;
+        return $this;
     }
 
     /**
@@ -97,7 +97,7 @@ class FilterParams
      */
     public function getTargetId()
     {
-      return $this->targetId;
+        return $this->targetId;
     }
 
     /**
@@ -106,8 +106,7 @@ class FilterParams
      */
     public function setTargetId($targetId)
     {
-      $this->targetId = $targetId;
-      return $this;
+        $this->targetId = $targetId;
+        return $this;
     }
-
 }

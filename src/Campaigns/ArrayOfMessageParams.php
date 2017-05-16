@@ -12,7 +12,6 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -20,7 +19,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function getMessageParams()
     {
-      return $this->MessageParams;
+        return $this->MessageParams;
     }
 
     /**
@@ -29,8 +28,8 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function setMessageParams(array $MessageParams = null)
     {
-      $this->MessageParams = $MessageParams;
-      return $this;
+        $this->MessageParams = $MessageParams;
+        return $this;
     }
 
     /**
@@ -41,7 +40,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->MessageParams[$offset]);
+        return isset($this->MessageParams[$offset]);
     }
 
     /**
@@ -52,7 +51,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->MessageParams[$offset];
+        return $this->MessageParams[$offset];
     }
 
     /**
@@ -64,11 +63,11 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->MessageParams[] = $value;
-      } else {
-        $this->MessageParams[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->MessageParams[] = $value;
+        } else {
+            $this->MessageParams[$offset] = $value;
+        }
     }
 
     /**
@@ -79,7 +78,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->MessageParams[$offset]);
+        unset($this->MessageParams[$offset]);
     }
 
     /**
@@ -89,7 +88,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->MessageParams);
+        return current($this->MessageParams);
     }
 
     /**
@@ -100,7 +99,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->MessageParams);
+        next($this->MessageParams);
     }
 
     /**
@@ -110,7 +109,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->MessageParams);
+        return key($this->MessageParams);
     }
 
     /**
@@ -120,7 +119,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -131,7 +130,7 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->MessageParams);
+        reset($this->MessageParams);
     }
 
     /**
@@ -141,7 +140,6 @@ class ArrayOfMessageParams implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->MessageParams);
+        return count($this->MessageParams);
     }
-
 }

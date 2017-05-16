@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class CountFilter
@@ -15,7 +14,7 @@ class CountFilter
      */
     public function __construct($_idFilter)
     {
-      $this->_idFilter = $_idFilter;
+        $this->_idFilter = $_idFilter;
     }
 
     /**
@@ -23,7 +22,7 @@ class CountFilter
      */
     public function get_idFilter()
     {
-      return $this->_idFilter;
+        return $this->_idFilter;
     }
 
     /**
@@ -32,8 +31,7 @@ class CountFilter
      */
     public function set_idFilter($_idFilter)
     {
-      $this->_idFilter = $_idFilter;
-      return $this;
+        $this->_idFilter = $_idFilter;
+        return $this;
     }
-
 }

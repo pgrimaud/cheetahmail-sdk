@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class ListSMSResponse
@@ -15,7 +14,7 @@ class ListSMSResponse
      */
     public function __construct($ListSMSResult)
     {
-      $this->ListSMSResult = $ListSMSResult;
+        $this->ListSMSResult = $ListSMSResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class ListSMSResponse
      */
     public function getListSMSResult()
     {
-      return $this->ListSMSResult;
+        return $this->ListSMSResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class ListSMSResponse
      */
     public function setListSMSResult($ListSMSResult)
     {
-      $this->ListSMSResult = $ListSMSResult;
-      return $this;
+        $this->ListSMSResult = $ListSMSResult;
+        return $this;
     }
-
 }

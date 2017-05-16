@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Stats;
 
 class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function getCampaignOverview()
     {
-      return $this->CampaignOverview;
+        return $this->CampaignOverview;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function setCampaignOverview(array $CampaignOverview = null)
     {
-      $this->CampaignOverview = $CampaignOverview;
-      return $this;
+        $this->CampaignOverview = $CampaignOverview;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->CampaignOverview[$offset]);
+        return isset($this->CampaignOverview[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->CampaignOverview[$offset];
+        return $this->CampaignOverview[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->CampaignOverview[] = $value;
-      } else {
-        $this->CampaignOverview[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->CampaignOverview[] = $value;
+        } else {
+            $this->CampaignOverview[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->CampaignOverview[$offset]);
+        unset($this->CampaignOverview[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->CampaignOverview);
+        return current($this->CampaignOverview);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->CampaignOverview);
+        next($this->CampaignOverview);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->CampaignOverview);
+        return key($this->CampaignOverview);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->CampaignOverview);
+        reset($this->CampaignOverview);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfCampaignOverview implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->CampaignOverview);
+        return count($this->CampaignOverview);
     }
-
 }

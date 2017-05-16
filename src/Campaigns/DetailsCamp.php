@@ -39,7 +39,7 @@ class DetailsCamp
      */
     public function __construct($id)
     {
-      $this->id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -47,7 +47,7 @@ class DetailsCamp
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -56,8 +56,8 @@ class DetailsCamp
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -65,7 +65,7 @@ class DetailsCamp
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -74,8 +74,8 @@ class DetailsCamp
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -83,7 +83,7 @@ class DetailsCamp
      */
     public function getStatus()
     {
-      return $this->status;
+        return $this->status;
     }
 
     /**
@@ -92,8 +92,8 @@ class DetailsCamp
      */
     public function setStatus($status)
     {
-      $this->status = $status;
-      return $this;
+        $this->status = $status;
+        return $this;
     }
 
     /**
@@ -101,7 +101,7 @@ class DetailsCamp
      */
     public function getDateCreation()
     {
-      return $this->dateCreation;
+        return $this->dateCreation;
     }
 
     /**
@@ -110,8 +110,8 @@ class DetailsCamp
      */
     public function setDateCreation($dateCreation)
     {
-      $this->dateCreation = $dateCreation;
-      return $this;
+        $this->dateCreation = $dateCreation;
+        return $this;
     }
 
     /**
@@ -119,7 +119,7 @@ class DetailsCamp
      */
     public function getDateModification()
     {
-      return $this->dateModification;
+        return $this->dateModification;
     }
 
     /**
@@ -128,8 +128,8 @@ class DetailsCamp
      */
     public function setDateModification($dateModification)
     {
-      $this->dateModification = $dateModification;
-      return $this;
+        $this->dateModification = $dateModification;
+        return $this;
     }
 
     /**
@@ -137,7 +137,7 @@ class DetailsCamp
      */
     public function getDateFin()
     {
-      return $this->dateFin;
+        return $this->dateFin;
     }
 
     /**
@@ -146,8 +146,7 @@ class DetailsCamp
      */
     public function setDateFin($dateFin)
     {
-      $this->dateFin = $dateFin;
-      return $this;
+        $this->dateFin = $dateFin;
+        return $this;
     }
-
 }

@@ -14,7 +14,7 @@ class CreateWithMultipleSentsResponse
      */
     public function __construct($CreateWithMultipleSentsResult)
     {
-      $this->CreateWithMultipleSentsResult = $CreateWithMultipleSentsResult;
+        $this->CreateWithMultipleSentsResult = $CreateWithMultipleSentsResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class CreateWithMultipleSentsResponse
      */
     public function getCreateWithMultipleSentsResult()
     {
-      return $this->CreateWithMultipleSentsResult;
+        return $this->CreateWithMultipleSentsResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class CreateWithMultipleSentsResponse
      */
     public function setCreateWithMultipleSentsResult($CreateWithMultipleSentsResult)
     {
-      $this->CreateWithMultipleSentsResult = $CreateWithMultipleSentsResult;
-      return $this;
+        $this->CreateWithMultipleSentsResult = $CreateWithMultipleSentsResult;
+        return $this;
     }
-
 }

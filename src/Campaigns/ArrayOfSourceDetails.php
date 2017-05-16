@@ -12,7 +12,6 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -20,7 +19,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function getSourceDetails()
     {
-      return $this->SourceDetails;
+        return $this->SourceDetails;
     }
 
     /**
@@ -29,8 +28,8 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function setSourceDetails(array $SourceDetails = null)
     {
-      $this->SourceDetails = $SourceDetails;
-      return $this;
+        $this->SourceDetails = $SourceDetails;
+        return $this;
     }
 
     /**
@@ -41,7 +40,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->SourceDetails[$offset]);
+        return isset($this->SourceDetails[$offset]);
     }
 
     /**
@@ -52,7 +51,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->SourceDetails[$offset];
+        return $this->SourceDetails[$offset];
     }
 
     /**
@@ -64,11 +63,11 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->SourceDetails[] = $value;
-      } else {
-        $this->SourceDetails[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->SourceDetails[] = $value;
+        } else {
+            $this->SourceDetails[$offset] = $value;
+        }
     }
 
     /**
@@ -79,7 +78,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->SourceDetails[$offset]);
+        unset($this->SourceDetails[$offset]);
     }
 
     /**
@@ -89,7 +88,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->SourceDetails);
+        return current($this->SourceDetails);
     }
 
     /**
@@ -100,7 +99,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->SourceDetails);
+        next($this->SourceDetails);
     }
 
     /**
@@ -110,7 +109,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->SourceDetails);
+        return key($this->SourceDetails);
     }
 
     /**
@@ -120,7 +119,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -131,7 +130,7 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->SourceDetails);
+        reset($this->SourceDetails);
     }
 
     /**
@@ -141,7 +140,6 @@ class ArrayOfSourceDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->SourceDetails);
+        return count($this->SourceDetails);
     }
-
 }

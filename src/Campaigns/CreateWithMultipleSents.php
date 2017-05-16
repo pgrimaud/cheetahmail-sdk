@@ -26,9 +26,9 @@ class CreateWithMultipleSents
      */
     public function __construct($campaignParams, $sentParams, $messageParams)
     {
-      $this->campaignParams = $campaignParams;
-      $this->sentParams = $sentParams;
-      $this->messageParams = $messageParams;
+        $this->campaignParams = $campaignParams;
+        $this->sentParams = $sentParams;
+        $this->messageParams = $messageParams;
     }
 
     /**
@@ -36,7 +36,7 @@ class CreateWithMultipleSents
      */
     public function getCampaignParams()
     {
-      return $this->campaignParams;
+        return $this->campaignParams;
     }
 
     /**
@@ -45,8 +45,8 @@ class CreateWithMultipleSents
      */
     public function setCampaignParams($campaignParams)
     {
-      $this->campaignParams = $campaignParams;
-      return $this;
+        $this->campaignParams = $campaignParams;
+        return $this;
     }
 
     /**
@@ -54,7 +54,7 @@ class CreateWithMultipleSents
      */
     public function getSentParams()
     {
-      return $this->sentParams;
+        return $this->sentParams;
     }
 
     /**
@@ -63,8 +63,8 @@ class CreateWithMultipleSents
      */
     public function setSentParams($sentParams)
     {
-      $this->sentParams = $sentParams;
-      return $this;
+        $this->sentParams = $sentParams;
+        return $this;
     }
 
     /**
@@ -72,7 +72,7 @@ class CreateWithMultipleSents
      */
     public function getMessageParams()
     {
-      return $this->messageParams;
+        return $this->messageParams;
     }
 
     /**
@@ -81,8 +81,7 @@ class CreateWithMultipleSents
      */
     public function setMessageParams($messageParams)
     {
-      $this->messageParams = $messageParams;
-      return $this;
+        $this->messageParams = $messageParams;
+        return $this;
     }
-
 }

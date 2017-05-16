@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfString()
     {
-      return $this->ArrayOfString;
+        return $this->ArrayOfString;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfString(array $ArrayOfString = null)
     {
-      $this->ArrayOfString = $ArrayOfString;
-      return $this;
+        $this->ArrayOfString = $ArrayOfString;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->ArrayOfString[$offset]);
+        return isset($this->ArrayOfString[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->ArrayOfString[$offset];
+        return $this->ArrayOfString[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->ArrayOfString[] = $value;
-      } else {
-        $this->ArrayOfString[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->ArrayOfString[] = $value;
+        } else {
+            $this->ArrayOfString[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->ArrayOfString[$offset]);
+        unset($this->ArrayOfString[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->ArrayOfString);
+        return current($this->ArrayOfString);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->ArrayOfString);
+        next($this->ArrayOfString);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->ArrayOfString);
+        return key($this->ArrayOfString);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->ArrayOfString);
+        reset($this->ArrayOfString);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfArrayOfString implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->ArrayOfString);
+        return count($this->ArrayOfString);
     }
-
 }

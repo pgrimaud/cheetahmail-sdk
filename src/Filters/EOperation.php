@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class EOperation
@@ -15,6 +14,4 @@ class EOperation
     const BETWEEN = 'BETWEEN';
     const AGO = 'AGO';
     const IN = 'IN';
-
-
 }

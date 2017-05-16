@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class Create
@@ -33,10 +32,10 @@ class Create
      */
     public function __construct($Name, $IsPrivate, $Emails, $Lang)
     {
-      $this->Name = $Name;
-      $this->IsPrivate = $IsPrivate;
-      $this->Emails = $Emails;
-      $this->Lang = $Lang;
+        $this->Name = $Name;
+        $this->IsPrivate = $IsPrivate;
+        $this->Emails = $Emails;
+        $this->Lang = $Lang;
     }
 
     /**
@@ -44,7 +43,7 @@ class Create
      */
     public function getName()
     {
-      return $this->Name;
+        return $this->Name;
     }
 
     /**
@@ -53,8 +52,8 @@ class Create
      */
     public function setName($Name)
     {
-      $this->Name = $Name;
-      return $this;
+        $this->Name = $Name;
+        return $this;
     }
 
     /**
@@ -62,7 +61,7 @@ class Create
      */
     public function getIsPrivate()
     {
-      return $this->IsPrivate;
+        return $this->IsPrivate;
     }
 
     /**
@@ -71,8 +70,8 @@ class Create
      */
     public function setIsPrivate($IsPrivate)
     {
-      $this->IsPrivate = $IsPrivate;
-      return $this;
+        $this->IsPrivate = $IsPrivate;
+        return $this;
     }
 
     /**
@@ -80,7 +79,7 @@ class Create
      */
     public function getEmails()
     {
-      return $this->Emails;
+        return $this->Emails;
     }
 
     /**
@@ -89,8 +88,8 @@ class Create
      */
     public function setEmails($Emails)
     {
-      $this->Emails = $Emails;
-      return $this;
+        $this->Emails = $Emails;
+        return $this;
     }
 
     /**
@@ -98,7 +97,7 @@ class Create
      */
     public function getLang()
     {
-      return $this->Lang;
+        return $this->Lang;
     }
 
     /**
@@ -107,8 +106,7 @@ class Create
      */
     public function setLang($Lang)
     {
-      $this->Lang = $Lang;
-      return $this;
+        $this->Lang = $Lang;
+        return $this;
     }
-
 }

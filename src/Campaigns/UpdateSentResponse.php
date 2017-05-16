@@ -14,7 +14,7 @@ class UpdateSentResponse
      */
     public function __construct($UpdateSentResult)
     {
-      $this->UpdateSentResult = $UpdateSentResult;
+        $this->UpdateSentResult = $UpdateSentResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateSentResponse
      */
     public function getUpdateSentResult()
     {
-      return $this->UpdateSentResult;
+        return $this->UpdateSentResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class UpdateSentResponse
      */
     public function setUpdateSentResult($UpdateSentResult)
     {
-      $this->UpdateSentResult = $UpdateSentResult;
-      return $this;
+        $this->UpdateSentResult = $UpdateSentResult;
+        return $this;
     }
-
 }

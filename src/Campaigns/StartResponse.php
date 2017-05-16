@@ -14,7 +14,7 @@ class StartResponse
      */
     public function __construct($StartResult)
     {
-      $this->StartResult = $StartResult;
+        $this->StartResult = $StartResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class StartResponse
      */
     public function getStartResult()
     {
-      return $this->StartResult;
+        return $this->StartResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class StartResponse
      */
     public function setStartResult($StartResult)
     {
-      $this->StartResult = $StartResult;
-      return $this;
+        $this->StartResult = $StartResult;
+        return $this;
     }
-
 }

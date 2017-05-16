@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Notify;
 
 class NotifyGrp
@@ -36,8 +35,8 @@ class NotifyGrp
      */
     public function __construct($IdNotify, $IsPrivate)
     {
-      $this->IdNotify = $IdNotify;
-      $this->IsPrivate = $IsPrivate;
+        $this->IdNotify = $IdNotify;
+        $this->IsPrivate = $IsPrivate;
     }
 
     /**
@@ -45,7 +44,7 @@ class NotifyGrp
      */
     public function getIdNotify()
     {
-      return $this->IdNotify;
+        return $this->IdNotify;
     }
 
     /**
@@ -54,8 +53,8 @@ class NotifyGrp
      */
     public function setIdNotify($IdNotify)
     {
-      $this->IdNotify = $IdNotify;
-      return $this;
+        $this->IdNotify = $IdNotify;
+        return $this;
     }
 
     /**
@@ -63,7 +62,7 @@ class NotifyGrp
      */
     public function getName()
     {
-      return $this->Name;
+        return $this->Name;
     }
 
     /**
@@ -72,8 +71,8 @@ class NotifyGrp
      */
     public function setName($Name)
     {
-      $this->Name = $Name;
-      return $this;
+        $this->Name = $Name;
+        return $this;
     }
 
     /**
@@ -81,7 +80,7 @@ class NotifyGrp
      */
     public function getIsPrivate()
     {
-      return $this->IsPrivate;
+        return $this->IsPrivate;
     }
 
     /**
@@ -90,8 +89,8 @@ class NotifyGrp
      */
     public function setIsPrivate($IsPrivate)
     {
-      $this->IsPrivate = $IsPrivate;
-      return $this;
+        $this->IsPrivate = $IsPrivate;
+        return $this;
     }
 
     /**
@@ -99,7 +98,7 @@ class NotifyGrp
      */
     public function getEmails()
     {
-      return $this->Emails;
+        return $this->Emails;
     }
 
     /**
@@ -108,8 +107,8 @@ class NotifyGrp
      */
     public function setEmails($Emails)
     {
-      $this->Emails = $Emails;
-      return $this;
+        $this->Emails = $Emails;
+        return $this;
     }
 
     /**
@@ -117,7 +116,7 @@ class NotifyGrp
      */
     public function getLang()
     {
-      return $this->Lang;
+        return $this->Lang;
     }
 
     /**
@@ -126,8 +125,7 @@ class NotifyGrp
      */
     public function setLang($Lang)
     {
-      $this->Lang = $Lang;
-      return $this;
+        $this->Lang = $Lang;
+        return $this;
     }
-
 }

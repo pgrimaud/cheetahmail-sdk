@@ -14,7 +14,7 @@ class ReprogrammCampaignResponse
      */
     public function __construct($ReprogrammCampaignResult)
     {
-      $this->ReprogrammCampaignResult = $ReprogrammCampaignResult;
+        $this->ReprogrammCampaignResult = $ReprogrammCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class ReprogrammCampaignResponse
      */
     public function getReprogrammCampaignResult()
     {
-      return $this->ReprogrammCampaignResult;
+        return $this->ReprogrammCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class ReprogrammCampaignResponse
      */
     public function setReprogrammCampaignResult($ReprogrammCampaignResult)
     {
-      $this->ReprogrammCampaignResult = $ReprogrammCampaignResult;
-      return $this;
+        $this->ReprogrammCampaignResult = $ReprogrammCampaignResult;
+        return $this;
     }
-
 }

@@ -31,9 +31,9 @@ class CampaignParams
      */
     public function __construct($isPrivate, $filters, $folderId)
     {
-      $this->isPrivate = $isPrivate;
-      $this->filters = $filters;
-      $this->folderId = $folderId;
+        $this->isPrivate = $isPrivate;
+        $this->filters = $filters;
+        $this->folderId = $folderId;
     }
 
     /**
@@ -41,7 +41,7 @@ class CampaignParams
      */
     public function getIsPrivate()
     {
-      return $this->isPrivate;
+        return $this->isPrivate;
     }
 
     /**
@@ -50,8 +50,8 @@ class CampaignParams
      */
     public function setIsPrivate($isPrivate)
     {
-      $this->isPrivate = $isPrivate;
-      return $this;
+        $this->isPrivate = $isPrivate;
+        return $this;
     }
 
     /**
@@ -59,7 +59,7 @@ class CampaignParams
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -68,8 +68,8 @@ class CampaignParams
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -77,7 +77,7 @@ class CampaignParams
      */
     public function getFilters()
     {
-      return $this->filters;
+        return $this->filters;
     }
 
     /**
@@ -86,8 +86,8 @@ class CampaignParams
      */
     public function setFilters($filters)
     {
-      $this->filters = $filters;
-      return $this;
+        $this->filters = $filters;
+        return $this;
     }
 
     /**
@@ -95,7 +95,7 @@ class CampaignParams
      */
     public function getFolderId()
     {
-      return $this->folderId;
+        return $this->folderId;
     }
 
     /**
@@ -104,8 +104,7 @@ class CampaignParams
      */
     public function setFolderId($folderId)
     {
-      $this->folderId = $folderId;
-      return $this;
+        $this->folderId = $folderId;
+        return $this;
     }
-
 }

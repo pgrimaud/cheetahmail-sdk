@@ -14,7 +14,7 @@ class CloseCampaignResponse
      */
     public function __construct($CloseCampaignResult)
     {
-      $this->CloseCampaignResult = $CloseCampaignResult;
+        $this->CloseCampaignResult = $CloseCampaignResult;
     }
 
     /**
@@ -22,7 +22,7 @@ class CloseCampaignResponse
      */
     public function getCloseCampaignResult()
     {
-      return $this->CloseCampaignResult;
+        return $this->CloseCampaignResult;
     }
 
     /**
@@ -31,8 +31,7 @@ class CloseCampaignResponse
      */
     public function setCloseCampaignResult($CloseCampaignResult)
     {
-      $this->CloseCampaignResult = $CloseCampaignResult;
-      return $this;
+        $this->CloseCampaignResult = $CloseCampaignResult;
+        return $this;
     }
-
 }

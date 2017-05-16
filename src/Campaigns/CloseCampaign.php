@@ -14,7 +14,7 @@ class CloseCampaign
      */
     public function __construct($campaignId)
     {
-      $this->campaignId = $campaignId;
+        $this->campaignId = $campaignId;
     }
 
     /**
@@ -22,7 +22,7 @@ class CloseCampaign
      */
     public function getCampaignId()
     {
-      return $this->campaignId;
+        return $this->campaignId;
     }
 
     /**
@@ -31,8 +31,7 @@ class CloseCampaign
      */
     public function setCampaignId($campaignId)
     {
-      $this->campaignId = $campaignId;
-      return $this;
+        $this->campaignId = $campaignId;
+        return $this;
     }
-
 }

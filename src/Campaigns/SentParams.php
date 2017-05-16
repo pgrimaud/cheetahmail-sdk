@@ -46,9 +46,9 @@ class SentParams
      */
     public function __construct($speed, $configId, \DateTime $wishdate)
     {
-      $this->speed = $speed;
-      $this->configId = $configId;
-      $this->wishdate = $wishdate->format(\DateTime::ATOM);
+        $this->speed = $speed;
+        $this->configId = $configId;
+        $this->wishdate = $wishdate->format(\DateTime::ATOM);
     }
 
     /**
@@ -56,7 +56,7 @@ class SentParams
      */
     public function getSpeed()
     {
-      return $this->speed;
+        return $this->speed;
     }
 
     /**
@@ -65,8 +65,8 @@ class SentParams
      */
     public function setSpeed($speed)
     {
-      $this->speed = $speed;
-      return $this;
+        $this->speed = $speed;
+        return $this;
     }
 
     /**
@@ -74,7 +74,7 @@ class SentParams
      */
     public function getConfigId()
     {
-      return $this->configId;
+        return $this->configId;
     }
 
     /**
@@ -83,8 +83,8 @@ class SentParams
      */
     public function setConfigId($configId)
     {
-      $this->configId = $configId;
-      return $this;
+        $this->configId = $configId;
+        return $this;
     }
 
     /**
@@ -92,15 +92,15 @@ class SentParams
      */
     public function getWishdate()
     {
-      if ($this->wishdate == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->wishdate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->wishdate == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->wishdate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -109,8 +109,8 @@ class SentParams
      */
     public function setWishdate(\DateTime $wishdate)
     {
-      $this->wishdate = $wishdate->format(\DateTime::ATOM);
-      return $this;
+        $this->wishdate = $wishdate->format(\DateTime::ATOM);
+        return $this;
     }
 
     /**
@@ -118,7 +118,7 @@ class SentParams
      */
     public function getPercentil()
     {
-      return $this->percentil;
+        return $this->percentil;
     }
 
     /**
@@ -127,8 +127,8 @@ class SentParams
      */
     public function setPercentil($percentil)
     {
-      $this->percentil = $percentil;
-      return $this;
+        $this->percentil = $percentil;
+        return $this;
     }
 
     /**
@@ -136,7 +136,7 @@ class SentParams
      */
     public function getRandomize()
     {
-      return $this->randomize;
+        return $this->randomize;
     }
 
     /**
@@ -145,8 +145,8 @@ class SentParams
      */
     public function setRandomize($randomize)
     {
-      $this->randomize = $randomize;
-      return $this;
+        $this->randomize = $randomize;
+        return $this;
     }
 
     /**
@@ -154,7 +154,7 @@ class SentParams
      */
     public function getMailboxMonitor()
     {
-      return $this->mailboxMonitor;
+        return $this->mailboxMonitor;
     }
 
     /**
@@ -163,8 +163,8 @@ class SentParams
      */
     public function setMailboxMonitor($mailboxMonitor)
     {
-      $this->mailboxMonitor = $mailboxMonitor;
-      return $this;
+        $this->mailboxMonitor = $mailboxMonitor;
+        return $this;
     }
 
     /**
@@ -172,7 +172,7 @@ class SentParams
      */
     public function getEmailAnalytics()
     {
-      return $this->emailAnalytics;
+        return $this->emailAnalytics;
     }
 
     /**
@@ -181,8 +181,7 @@ class SentParams
      */
     public function setEmailAnalytics($emailAnalytics)
     {
-      $this->emailAnalytics = $emailAnalytics;
-      return $this;
+        $this->emailAnalytics = $emailAnalytics;
+        return $this;
     }
-
 }

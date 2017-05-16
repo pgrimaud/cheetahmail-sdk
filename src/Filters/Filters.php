@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Filters;
 
 class Filters extends \SoapClient
@@ -8,7 +7,7 @@ class Filters extends \SoapClient
     /**
      * @var array $classmap The defined classes
      */
-    private static $classmap = array (
+    private static $classmap = array(
       'Create' => 'Cheetahmail\\Filters\\Create',
       'CreateResponse' => 'Cheetahmail\\Filters\\CreateResponse',
       'AuthHeader' => 'Cheetahmail\\Filters\\AuthHeader',
@@ -35,18 +34,18 @@ class Filters extends \SoapClient
      */
     public function __construct(array $options = array(), $wsdl = null)
     {
-      foreach (self::$classmap as $key => $value) {
-        if (!isset($options['classmap'][$key])) {
-          $options['classmap'][$key] = $value;
+        foreach (self::$classmap as $key => $value) {
+            if (!isset($options['classmap'][$key])) {
+                $options['classmap'][$key] = $value;
+            }
         }
-      }
-      $options = array_merge(array (
+        $options = array_merge(array(
       'features' => 1,
     ), $options);
-      if (!$wsdl) {
-        $wsdl = '../data/filters.wsdl';
-      }
-      parent::__construct($wsdl, $options);
+        if (!$wsdl) {
+            $wsdl = '../data/filters.wsdl';
+        }
+        parent::__construct($wsdl, $options);
     }
 
     /**
@@ -57,7 +56,7 @@ class Filters extends \SoapClient
      */
     public function Create(Create $parameters)
     {
-      return $this->__soapCall('Create', array($parameters));
+        return $this->__soapCall('Create', array($parameters));
     }
 
     /**
@@ -68,7 +67,7 @@ class Filters extends \SoapClient
      */
     public function SetFields(SetFields $parameters)
     {
-      return $this->__soapCall('SetFields', array($parameters));
+        return $this->__soapCall('SetFields', array($parameters));
     }
 
     /**
@@ -79,7 +78,7 @@ class Filters extends \SoapClient
      */
     public function GetFields(GetFields $parameters)
     {
-      return $this->__soapCall('GetFields', array($parameters));
+        return $this->__soapCall('GetFields', array($parameters));
     }
 
     /**
@@ -90,7 +89,7 @@ class Filters extends \SoapClient
      */
     public function aList($parameters)
     {
-      return $this->__soapCall('List', array($parameters));
+        return $this->__soapCall('List', array($parameters));
     }
 
     /**
@@ -101,7 +100,7 @@ class Filters extends \SoapClient
      */
     public function CountFilter(CountFilter $parameters)
     {
-      return $this->__soapCall('CountFilter', array($parameters));
+        return $this->__soapCall('CountFilter', array($parameters));
     }
 
     /**
@@ -112,7 +111,6 @@ class Filters extends \SoapClient
      */
     public function GetSubscriberForFilter(GetSubscriberForFilter $parameters)
     {
-      return $this->__soapCall('GetSubscriberForFilter', array($parameters));
+        return $this->__soapCall('GetSubscriberForFilter', array($parameters));
     }
-
 }
