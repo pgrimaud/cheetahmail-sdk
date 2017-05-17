@@ -1,7 +1,7 @@
 {
   "name": "pgrimaud/cheetahmail-sdk",
   "type": "library",
-  "description": "",
+  "description": "CheetahMail PHP SDK - Consume CheetahMail's SOAP API",
   "homepage": "https://github.com/pgrimaud/cheetahmail-sdk",
   "license": "MIT",
   "authors": [
