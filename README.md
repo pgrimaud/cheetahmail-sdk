@@ -14,12 +14,15 @@ composer require pgrimaud/cheetahmail-sdk
 ```
 
 ## Services available
-
-- Campaigns
-- ChronoContact
-- Filters
-- Notify
-- Stats
+* Admin
+    * Notify
+* Campaigns
+    * Campaigns
+    * ChronoContact
+* Data
+    * Filters
+* Statistics
+    * Stats
 
 More services can be added if needed. Juste create a PR.
 
@@ -28,9 +31,9 @@ More services can be added if needed. Juste create a PR.
 Get a campaign :
 
 ```php
-use Cheetahmail\Campaigns\AuthHeader;
-use Cheetahmail\Campaigns\Campaigns;
-use Cheetahmail\Campaigns\GetCampaign;
+use Cheetahmail\Campaigns\Campaigns\AuthHeader;
+use Cheetahmail\Campaigns\Campaigns\Campaigns;
+use Cheetahmail\Campaigns\Campaigns\GetCampaign;
 
 $auth = new AuthHeader(1234);
 $auth->setUserName('1234_wssoap');
