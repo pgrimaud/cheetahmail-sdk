@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBodyGetListLinkResponse
@@ -15,7 +14,7 @@ class TrackBodyGetListLinkResponse
      */
     public function __construct($TrackBodyGetListLinkResult)
     {
-      $this->TrackBodyGetListLinkResult = $TrackBodyGetListLinkResult;
+        $this->TrackBodyGetListLinkResult = $TrackBodyGetListLinkResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class TrackBodyGetListLinkResponse
      */
     public function getTrackBodyGetListLinkResult()
     {
-      return $this->TrackBodyGetListLinkResult;
+        return $this->TrackBodyGetListLinkResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class TrackBodyGetListLinkResponse
      */
     public function setTrackBodyGetListLinkResult($TrackBodyGetListLinkResult)
     {
-      $this->TrackBodyGetListLinkResult = $TrackBodyGetListLinkResult;
-      return $this;
+        $this->TrackBodyGetListLinkResult = $TrackBodyGetListLinkResult;
+        return $this;
     }
-
 }

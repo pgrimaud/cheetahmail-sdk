@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class AddFriendByTisIdResponse
@@ -15,7 +14,7 @@ class AddFriendByTisIdResponse
      */
     public function __construct($AddFriendByTisIdResult)
     {
-      $this->AddFriendByTisIdResult = $AddFriendByTisIdResult;
+        $this->AddFriendByTisIdResult = $AddFriendByTisIdResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class AddFriendByTisIdResponse
      */
     public function getAddFriendByTisIdResult()
     {
-      return $this->AddFriendByTisIdResult;
+        return $this->AddFriendByTisIdResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class AddFriendByTisIdResponse
      */
     public function setAddFriendByTisIdResult($AddFriendByTisIdResult)
     {
-      $this->AddFriendByTisIdResult = $AddFriendByTisIdResult;
-      return $this;
+        $this->AddFriendByTisIdResult = $AddFriendByTisIdResult;
+        return $this;
     }
-
 }

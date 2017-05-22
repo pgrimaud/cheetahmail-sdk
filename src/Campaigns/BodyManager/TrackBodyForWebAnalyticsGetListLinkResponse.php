@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBodyForWebAnalyticsGetListLinkResponse
@@ -15,7 +14,7 @@ class TrackBodyForWebAnalyticsGetListLinkResponse
      */
     public function __construct($TrackBodyForWebAnalyticsGetListLinkResult)
     {
-      $this->TrackBodyForWebAnalyticsGetListLinkResult = $TrackBodyForWebAnalyticsGetListLinkResult;
+        $this->TrackBodyForWebAnalyticsGetListLinkResult = $TrackBodyForWebAnalyticsGetListLinkResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class TrackBodyForWebAnalyticsGetListLinkResponse
      */
     public function getTrackBodyForWebAnalyticsGetListLinkResult()
     {
-      return $this->TrackBodyForWebAnalyticsGetListLinkResult;
+        return $this->TrackBodyForWebAnalyticsGetListLinkResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class TrackBodyForWebAnalyticsGetListLinkResponse
      */
     public function setTrackBodyForWebAnalyticsGetListLinkResult($TrackBodyForWebAnalyticsGetListLinkResult)
     {
-      $this->TrackBodyForWebAnalyticsGetListLinkResult = $TrackBodyForWebAnalyticsGetListLinkResult;
-      return $this;
+        $this->TrackBodyForWebAnalyticsGetListLinkResult = $TrackBodyForWebAnalyticsGetListLinkResult;
+        return $this;
     }
-
 }

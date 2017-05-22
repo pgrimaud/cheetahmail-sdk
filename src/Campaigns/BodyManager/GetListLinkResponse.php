@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class GetListLinkResponse
@@ -15,7 +14,7 @@ class GetListLinkResponse
      */
     public function __construct($GetListLinkResult)
     {
-      $this->GetListLinkResult = $GetListLinkResult;
+        $this->GetListLinkResult = $GetListLinkResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetListLinkResponse
      */
     public function getGetListLinkResult()
     {
-      return $this->GetListLinkResult;
+        return $this->GetListLinkResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetListLinkResponse
      */
     public function setGetListLinkResult($GetListLinkResult)
     {
-      $this->GetListLinkResult = $GetListLinkResult;
-      return $this;
+        $this->GetListLinkResult = $GetListLinkResult;
+        return $this;
     }
-
 }

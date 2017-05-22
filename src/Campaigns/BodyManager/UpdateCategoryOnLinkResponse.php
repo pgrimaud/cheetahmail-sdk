@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UpdateCategoryOnLinkResponse
@@ -15,7 +14,7 @@ class UpdateCategoryOnLinkResponse
      */
     public function __construct($UpdateCategoryOnLinkResult)
     {
-      $this->UpdateCategoryOnLinkResult = $UpdateCategoryOnLinkResult;
+        $this->UpdateCategoryOnLinkResult = $UpdateCategoryOnLinkResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class UpdateCategoryOnLinkResponse
      */
     public function getUpdateCategoryOnLinkResult()
     {
-      return $this->UpdateCategoryOnLinkResult;
+        return $this->UpdateCategoryOnLinkResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class UpdateCategoryOnLinkResponse
      */
     public function setUpdateCategoryOnLinkResult($UpdateCategoryOnLinkResult)
     {
-      $this->UpdateCategoryOnLinkResult = $UpdateCategoryOnLinkResult;
-      return $this;
+        $this->UpdateCategoryOnLinkResult = $UpdateCategoryOnLinkResult;
+        return $this;
     }
-
 }

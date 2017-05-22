@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class RelayDetails
@@ -55,12 +54,12 @@ class RelayDetails
      */
     public function __construct($idMlist, $id, $idtis, $add, $idFirstCata, $idSecondCata)
     {
-      $this->idMlist = $idMlist;
-      $this->id = $id;
-      $this->idtis = $idtis;
-      $this->add = $add;
-      $this->idFirstCata = $idFirstCata;
-      $this->idSecondCata = $idSecondCata;
+        $this->idMlist = $idMlist;
+        $this->id = $id;
+        $this->idtis = $idtis;
+        $this->add = $add;
+        $this->idFirstCata = $idFirstCata;
+        $this->idSecondCata = $idSecondCata;
     }
 
     /**
@@ -68,7 +67,7 @@ class RelayDetails
      */
     public function getIdMlist()
     {
-      return $this->idMlist;
+        return $this->idMlist;
     }
 
     /**
@@ -77,8 +76,8 @@ class RelayDetails
      */
     public function setIdMlist($idMlist)
     {
-      $this->idMlist = $idMlist;
-      return $this;
+        $this->idMlist = $idMlist;
+        return $this;
     }
 
     /**
@@ -86,7 +85,7 @@ class RelayDetails
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -95,8 +94,8 @@ class RelayDetails
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -104,7 +103,7 @@ class RelayDetails
      */
     public function getIdtis()
     {
-      return $this->idtis;
+        return $this->idtis;
     }
 
     /**
@@ -113,8 +112,8 @@ class RelayDetails
      */
     public function setIdtis($idtis)
     {
-      $this->idtis = $idtis;
-      return $this;
+        $this->idtis = $idtis;
+        return $this;
     }
 
     /**
@@ -122,7 +121,7 @@ class RelayDetails
      */
     public function getLink()
     {
-      return $this->link;
+        return $this->link;
     }
 
     /**
@@ -131,8 +130,8 @@ class RelayDetails
      */
     public function setLink($link)
     {
-      $this->link = $link;
-      return $this;
+        $this->link = $link;
+        return $this;
     }
 
     /**
@@ -140,7 +139,7 @@ class RelayDetails
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -149,8 +148,8 @@ class RelayDetails
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -158,7 +157,7 @@ class RelayDetails
      */
     public function getAdd()
     {
-      return $this->add;
+        return $this->add;
     }
 
     /**
@@ -167,8 +166,8 @@ class RelayDetails
      */
     public function setAdd($add)
     {
-      $this->add = $add;
-      return $this;
+        $this->add = $add;
+        return $this;
     }
 
     /**
@@ -176,7 +175,7 @@ class RelayDetails
      */
     public function getIdFirstCata()
     {
-      return $this->idFirstCata;
+        return $this->idFirstCata;
     }
 
     /**
@@ -185,8 +184,8 @@ class RelayDetails
      */
     public function setIdFirstCata($idFirstCata)
     {
-      $this->idFirstCata = $idFirstCata;
-      return $this;
+        $this->idFirstCata = $idFirstCata;
+        return $this;
     }
 
     /**
@@ -194,7 +193,7 @@ class RelayDetails
      */
     public function getIdSecondCata()
     {
-      return $this->idSecondCata;
+        return $this->idSecondCata;
     }
 
     /**
@@ -203,8 +202,7 @@ class RelayDetails
      */
     public function setIdSecondCata($idSecondCata)
     {
-      $this->idSecondCata = $idSecondCata;
-      return $this;
+        $this->idSecondCata = $idSecondCata;
+        return $this;
     }
-
 }

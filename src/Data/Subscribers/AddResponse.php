@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class AddResponse
@@ -15,7 +14,7 @@ class AddResponse
      */
     public function __construct($AddResult)
     {
-      $this->AddResult = $AddResult;
+        $this->AddResult = $AddResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class AddResponse
      */
     public function getAddResult()
     {
-      return $this->AddResult;
+        return $this->AddResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class AddResponse
      */
     public function setAddResult($AddResult)
     {
-      $this->AddResult = $AddResult;
-      return $this;
+        $this->AddResult = $AddResult;
+        return $this;
     }
-
 }

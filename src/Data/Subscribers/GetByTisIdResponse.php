@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetByTisIdResponse
@@ -15,7 +14,7 @@ class GetByTisIdResponse
      */
     public function __construct($GetByTisIdResult)
     {
-      $this->GetByTisIdResult = $GetByTisIdResult;
+        $this->GetByTisIdResult = $GetByTisIdResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetByTisIdResponse
      */
     public function getGetByTisIdResult()
     {
-      return $this->GetByTisIdResult;
+        return $this->GetByTisIdResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetByTisIdResponse
      */
     public function setGetByTisIdResult($GetByTisIdResult)
     {
-      $this->GetByTisIdResult = $GetByTisIdResult;
-      return $this;
+        $this->GetByTisIdResult = $GetByTisIdResult;
+        return $this;
     }
-
 }

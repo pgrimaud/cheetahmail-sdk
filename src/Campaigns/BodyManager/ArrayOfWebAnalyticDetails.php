@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function getWebAnalyticDetails()
     {
-      return $this->WebAnalyticDetails;
+        return $this->WebAnalyticDetails;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function setWebAnalyticDetails(array $WebAnalyticDetails = null)
     {
-      $this->WebAnalyticDetails = $WebAnalyticDetails;
-      return $this;
+        $this->WebAnalyticDetails = $WebAnalyticDetails;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->WebAnalyticDetails[$offset]);
+        return isset($this->WebAnalyticDetails[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->WebAnalyticDetails[$offset];
+        return $this->WebAnalyticDetails[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->WebAnalyticDetails[] = $value;
-      } else {
-        $this->WebAnalyticDetails[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->WebAnalyticDetails[] = $value;
+        } else {
+            $this->WebAnalyticDetails[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->WebAnalyticDetails[$offset]);
+        unset($this->WebAnalyticDetails[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->WebAnalyticDetails);
+        return current($this->WebAnalyticDetails);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->WebAnalyticDetails);
+        next($this->WebAnalyticDetails);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->WebAnalyticDetails);
+        return key($this->WebAnalyticDetails);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->WebAnalyticDetails);
+        reset($this->WebAnalyticDetails);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfWebAnalyticDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->WebAnalyticDetails);
+        return count($this->WebAnalyticDetails);
     }
-
 }

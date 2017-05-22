@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackLink
@@ -39,11 +38,11 @@ class TrackLink
      */
     public function __construct($_strLink, $_strDescription, $_firstCategory, $_secondCategory, $_bAdd)
     {
-      $this->_strLink = $_strLink;
-      $this->_strDescription = $_strDescription;
-      $this->_firstCategory = $_firstCategory;
-      $this->_secondCategory = $_secondCategory;
-      $this->_bAdd = $_bAdd;
+        $this->_strLink = $_strLink;
+        $this->_strDescription = $_strDescription;
+        $this->_firstCategory = $_firstCategory;
+        $this->_secondCategory = $_secondCategory;
+        $this->_bAdd = $_bAdd;
     }
 
     /**
@@ -51,7 +50,7 @@ class TrackLink
      */
     public function get_strLink()
     {
-      return $this->_strLink;
+        return $this->_strLink;
     }
 
     /**
@@ -60,8 +59,8 @@ class TrackLink
      */
     public function set_strLink($_strLink)
     {
-      $this->_strLink = $_strLink;
-      return $this;
+        $this->_strLink = $_strLink;
+        return $this;
     }
 
     /**
@@ -69,7 +68,7 @@ class TrackLink
      */
     public function get_strDescription()
     {
-      return $this->_strDescription;
+        return $this->_strDescription;
     }
 
     /**
@@ -78,8 +77,8 @@ class TrackLink
      */
     public function set_strDescription($_strDescription)
     {
-      $this->_strDescription = $_strDescription;
-      return $this;
+        $this->_strDescription = $_strDescription;
+        return $this;
     }
 
     /**
@@ -87,7 +86,7 @@ class TrackLink
      */
     public function get_firstCategory()
     {
-      return $this->_firstCategory;
+        return $this->_firstCategory;
     }
 
     /**
@@ -96,8 +95,8 @@ class TrackLink
      */
     public function set_firstCategory($_firstCategory)
     {
-      $this->_firstCategory = $_firstCategory;
-      return $this;
+        $this->_firstCategory = $_firstCategory;
+        return $this;
     }
 
     /**
@@ -105,7 +104,7 @@ class TrackLink
      */
     public function get_secondCategory()
     {
-      return $this->_secondCategory;
+        return $this->_secondCategory;
     }
 
     /**
@@ -114,8 +113,8 @@ class TrackLink
      */
     public function set_secondCategory($_secondCategory)
     {
-      $this->_secondCategory = $_secondCategory;
-      return $this;
+        $this->_secondCategory = $_secondCategory;
+        return $this;
     }
 
     /**
@@ -123,7 +122,7 @@ class TrackLink
      */
     public function get_bAdd()
     {
-      return $this->_bAdd;
+        return $this->_bAdd;
     }
 
     /**
@@ -132,8 +131,7 @@ class TrackLink
      */
     public function set_bAdd($_bAdd)
     {
-      $this->_bAdd = $_bAdd;
-      return $this;
+        $this->_bAdd = $_bAdd;
+        return $this;
     }
-
 }

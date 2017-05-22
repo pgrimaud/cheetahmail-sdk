@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetFieldsDefinitionResponse
@@ -15,7 +14,7 @@ class GetFieldsDefinitionResponse
      */
     public function __construct($GetFieldsDefinitionResult)
     {
-      $this->GetFieldsDefinitionResult = $GetFieldsDefinitionResult;
+        $this->GetFieldsDefinitionResult = $GetFieldsDefinitionResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetFieldsDefinitionResponse
      */
     public function getGetFieldsDefinitionResult()
     {
-      return $this->GetFieldsDefinitionResult;
+        return $this->GetFieldsDefinitionResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetFieldsDefinitionResponse
      */
     public function setGetFieldsDefinitionResult($GetFieldsDefinitionResult)
     {
-      $this->GetFieldsDefinitionResult = $GetFieldsDefinitionResult;
-      return $this;
+        $this->GetFieldsDefinitionResult = $GetFieldsDefinitionResult;
+        return $this;
     }
-
 }

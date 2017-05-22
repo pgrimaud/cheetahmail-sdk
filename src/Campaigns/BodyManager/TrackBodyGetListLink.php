@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBodyGetListLink
@@ -21,8 +20,8 @@ class TrackBodyGetListLink
      */
     public function __construct($_strBody, $_bisHtml)
     {
-      $this->_strBody = $_strBody;
-      $this->_bisHtml = $_bisHtml;
+        $this->_strBody = $_strBody;
+        $this->_bisHtml = $_bisHtml;
     }
 
     /**
@@ -30,7 +29,7 @@ class TrackBodyGetListLink
      */
     public function get_strBody()
     {
-      return $this->_strBody;
+        return $this->_strBody;
     }
 
     /**
@@ -39,8 +38,8 @@ class TrackBodyGetListLink
      */
     public function set_strBody($_strBody)
     {
-      $this->_strBody = $_strBody;
-      return $this;
+        $this->_strBody = $_strBody;
+        return $this;
     }
 
     /**
@@ -48,7 +47,7 @@ class TrackBodyGetListLink
      */
     public function get_bisHtml()
     {
-      return $this->_bisHtml;
+        return $this->_bisHtml;
     }
 
     /**
@@ -57,8 +56,7 @@ class TrackBodyGetListLink
      */
     public function set_bisHtml($_bisHtml)
     {
-      $this->_bisHtml = $_bisHtml;
-      return $this;
+        $this->_bisHtml = $_bisHtml;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function getFieldDefinition()
     {
-      return $this->FieldDefinition;
+        return $this->FieldDefinition;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function setFieldDefinition(array $FieldDefinition = null)
     {
-      $this->FieldDefinition = $FieldDefinition;
-      return $this;
+        $this->FieldDefinition = $FieldDefinition;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->FieldDefinition[$offset]);
+        return isset($this->FieldDefinition[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->FieldDefinition[$offset];
+        return $this->FieldDefinition[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->FieldDefinition[] = $value;
-      } else {
-        $this->FieldDefinition[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->FieldDefinition[] = $value;
+        } else {
+            $this->FieldDefinition[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->FieldDefinition[$offset]);
+        unset($this->FieldDefinition[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->FieldDefinition);
+        return current($this->FieldDefinition);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->FieldDefinition);
+        next($this->FieldDefinition);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->FieldDefinition);
+        return key($this->FieldDefinition);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->FieldDefinition);
+        reset($this->FieldDefinition);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfFieldDefinition implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->FieldDefinition);
+        return count($this->FieldDefinition);
     }
-
 }

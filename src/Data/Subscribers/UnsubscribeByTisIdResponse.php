@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class UnsubscribeByTisIdResponse
@@ -15,7 +14,7 @@ class UnsubscribeByTisIdResponse
      */
     public function __construct($UnsubscribeByTisIdResult)
     {
-      $this->UnsubscribeByTisIdResult = $UnsubscribeByTisIdResult;
+        $this->UnsubscribeByTisIdResult = $UnsubscribeByTisIdResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class UnsubscribeByTisIdResponse
      */
     public function getUnsubscribeByTisIdResult()
     {
-      return $this->UnsubscribeByTisIdResult;
+        return $this->UnsubscribeByTisIdResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class UnsubscribeByTisIdResponse
      */
     public function setUnsubscribeByTisIdResult($UnsubscribeByTisIdResult)
     {
-      $this->UnsubscribeByTisIdResult = $UnsubscribeByTisIdResult;
-      return $this;
+        $this->UnsubscribeByTisIdResult = $UnsubscribeByTisIdResult;
+        return $this;
     }
-
 }

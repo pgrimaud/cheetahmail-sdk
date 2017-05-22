@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class DeleteResponse
@@ -15,7 +14,7 @@ class DeleteResponse
      */
     public function __construct($DeleteResult)
     {
-      $this->DeleteResult = $DeleteResult;
+        $this->DeleteResult = $DeleteResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class DeleteResponse
      */
     public function getDeleteResult()
     {
-      return $this->DeleteResult;
+        return $this->DeleteResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class DeleteResponse
      */
     public function setDeleteResult($DeleteResult)
     {
-      $this->DeleteResult = $DeleteResult;
-      return $this;
+        $this->DeleteResult = $DeleteResult;
+        return $this;
     }
-
 }

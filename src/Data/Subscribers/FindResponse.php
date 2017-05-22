@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class FindResponse
@@ -15,7 +14,7 @@ class FindResponse
      */
     public function __construct($FindResult)
     {
-      $this->FindResult = $FindResult;
+        $this->FindResult = $FindResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class FindResponse
      */
     public function getFindResult()
     {
-      return $this->FindResult;
+        return $this->FindResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class FindResponse
      */
     public function setFindResult($FindResult)
     {
-      $this->FindResult = $FindResult;
-      return $this;
+        $this->FindResult = $FindResult;
+        return $this;
     }
-
 }

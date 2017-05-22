@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class CreateCategory
@@ -15,7 +14,7 @@ class CreateCategory
      */
     public function __construct($_cdetail)
     {
-      $this->_cdetail = $_cdetail;
+        $this->_cdetail = $_cdetail;
     }
 
     /**
@@ -23,7 +22,7 @@ class CreateCategory
      */
     public function get_cdetail()
     {
-      return $this->_cdetail;
+        return $this->_cdetail;
     }
 
     /**
@@ -32,8 +31,7 @@ class CreateCategory
      */
     public function set_cdetail($_cdetail)
     {
-      $this->_cdetail = $_cdetail;
-      return $this;
+        $this->_cdetail = $_cdetail;
+        return $this;
     }
-
 }

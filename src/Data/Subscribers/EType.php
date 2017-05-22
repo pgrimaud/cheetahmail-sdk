@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class EType
@@ -12,6 +11,4 @@ class EType
     const Text = 'Text';
     const IntegerList = 'IntegerList';
     const Numeric = 'Numeric';
-
-
 }

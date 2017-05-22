@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function getCataDetails()
     {
-      return $this->CataDetails;
+        return $this->CataDetails;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function setCataDetails(array $CataDetails = null)
     {
-      $this->CataDetails = $CataDetails;
-      return $this;
+        $this->CataDetails = $CataDetails;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->CataDetails[$offset]);
+        return isset($this->CataDetails[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->CataDetails[$offset];
+        return $this->CataDetails[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->CataDetails[] = $value;
-      } else {
-        $this->CataDetails[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->CataDetails[] = $value;
+        } else {
+            $this->CataDetails[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->CataDetails[$offset]);
+        unset($this->CataDetails[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->CataDetails);
+        return current($this->CataDetails);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->CataDetails);
+        next($this->CataDetails);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->CataDetails);
+        return key($this->CataDetails);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->CataDetails);
+        reset($this->CataDetails);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfCataDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->CataDetails);
+        return count($this->CataDetails);
     }
-
 }

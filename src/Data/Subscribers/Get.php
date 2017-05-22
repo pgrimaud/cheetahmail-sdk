@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class Get
@@ -15,7 +14,7 @@ class Get
      */
     public function __construct($subscriberId)
     {
-      $this->subscriberId = $subscriberId;
+        $this->subscriberId = $subscriberId;
     }
 
     /**
@@ -23,7 +22,7 @@ class Get
      */
     public function getSubscriberId()
     {
-      return $this->subscriberId;
+        return $this->subscriberId;
     }
 
     /**
@@ -32,8 +31,7 @@ class Get
      */
     public function setSubscriberId($subscriberId)
     {
-      $this->subscriberId = $subscriberId;
-      return $this;
+        $this->subscriberId = $subscriberId;
+        return $this;
     }
-
 }

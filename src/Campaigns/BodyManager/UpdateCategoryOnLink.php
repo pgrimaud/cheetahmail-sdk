@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UpdateCategoryOnLink
@@ -15,7 +14,7 @@ class UpdateCategoryOnLink
      */
     public function __construct($_rdetail)
     {
-      $this->_rdetail = $_rdetail;
+        $this->_rdetail = $_rdetail;
     }
 
     /**
@@ -23,7 +22,7 @@ class UpdateCategoryOnLink
      */
     public function get_rdetail()
     {
-      return $this->_rdetail;
+        return $this->_rdetail;
     }
 
     /**
@@ -32,8 +31,7 @@ class UpdateCategoryOnLink
      */
     public function set_rdetail($_rdetail)
     {
-      $this->_rdetail = $_rdetail;
-      return $this;
+        $this->_rdetail = $_rdetail;
+        return $this;
     }
-
 }

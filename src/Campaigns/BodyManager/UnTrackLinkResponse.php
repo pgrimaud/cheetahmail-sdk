@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UnTrackLinkResponse
@@ -15,7 +14,7 @@ class UnTrackLinkResponse
      */
     public function __construct($UnTrackLinkResult)
     {
-      $this->UnTrackLinkResult = $UnTrackLinkResult;
+        $this->UnTrackLinkResult = $UnTrackLinkResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class UnTrackLinkResponse
      */
     public function getUnTrackLinkResult()
     {
-      return $this->UnTrackLinkResult;
+        return $this->UnTrackLinkResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class UnTrackLinkResponse
      */
     public function setUnTrackLinkResult($UnTrackLinkResult)
     {
-      $this->UnTrackLinkResult = $UnTrackLinkResult;
-      return $this;
+        $this->UnTrackLinkResult = $UnTrackLinkResult;
+        return $this;
     }
-
 }

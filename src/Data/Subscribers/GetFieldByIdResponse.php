@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetFieldByIdResponse
@@ -15,7 +14,7 @@ class GetFieldByIdResponse
      */
     public function __construct($GetFieldByIdResult)
     {
-      $this->GetFieldByIdResult = $GetFieldByIdResult;
+        $this->GetFieldByIdResult = $GetFieldByIdResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetFieldByIdResponse
      */
     public function getGetFieldByIdResult()
     {
-      return $this->GetFieldByIdResult;
+        return $this->GetFieldByIdResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetFieldByIdResponse
      */
     public function setGetFieldByIdResult($GetFieldByIdResult)
     {
-      $this->GetFieldByIdResult = $GetFieldByIdResult;
-      return $this;
+        $this->GetFieldByIdResult = $GetFieldByIdResult;
+        return $this;
     }
-
 }

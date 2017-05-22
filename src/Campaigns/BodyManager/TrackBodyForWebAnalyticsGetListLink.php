@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBodyForWebAnalyticsGetListLink
@@ -39,11 +38,11 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function __construct($_strBody, $_bisHtml, $_idCamp, $_idSent, $_idWA)
     {
-      $this->_strBody = $_strBody;
-      $this->_bisHtml = $_bisHtml;
-      $this->_idCamp = $_idCamp;
-      $this->_idSent = $_idSent;
-      $this->_idWA = $_idWA;
+        $this->_strBody = $_strBody;
+        $this->_bisHtml = $_bisHtml;
+        $this->_idCamp = $_idCamp;
+        $this->_idSent = $_idSent;
+        $this->_idWA = $_idWA;
     }
 
     /**
@@ -51,7 +50,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function get_strBody()
     {
-      return $this->_strBody;
+        return $this->_strBody;
     }
 
     /**
@@ -60,8 +59,8 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function set_strBody($_strBody)
     {
-      $this->_strBody = $_strBody;
-      return $this;
+        $this->_strBody = $_strBody;
+        return $this;
     }
 
     /**
@@ -69,7 +68,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function get_bisHtml()
     {
-      return $this->_bisHtml;
+        return $this->_bisHtml;
     }
 
     /**
@@ -78,8 +77,8 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function set_bisHtml($_bisHtml)
     {
-      $this->_bisHtml = $_bisHtml;
-      return $this;
+        $this->_bisHtml = $_bisHtml;
+        return $this;
     }
 
     /**
@@ -87,7 +86,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function get_idCamp()
     {
-      return $this->_idCamp;
+        return $this->_idCamp;
     }
 
     /**
@@ -96,8 +95,8 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function set_idCamp($_idCamp)
     {
-      $this->_idCamp = $_idCamp;
-      return $this;
+        $this->_idCamp = $_idCamp;
+        return $this;
     }
 
     /**
@@ -105,7 +104,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function get_idSent()
     {
-      return $this->_idSent;
+        return $this->_idSent;
     }
 
     /**
@@ -114,8 +113,8 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function set_idSent($_idSent)
     {
-      $this->_idSent = $_idSent;
-      return $this;
+        $this->_idSent = $_idSent;
+        return $this;
     }
 
     /**
@@ -123,7 +122,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function get_idWA()
     {
-      return $this->_idWA;
+        return $this->_idWA;
     }
 
     /**
@@ -132,8 +131,7 @@ class TrackBodyForWebAnalyticsGetListLink
      */
     public function set_idWA($_idWA)
     {
-      $this->_idWA = $_idWA;
-      return $this;
+        $this->_idWA = $_idWA;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class FieldDefinition
@@ -31,8 +30,8 @@ class FieldDefinition
      */
     public function __construct($Id, $Type)
     {
-      $this->Id = $Id;
-      $this->Type = $Type;
+        $this->Id = $Id;
+        $this->Type = $Type;
     }
 
     /**
@@ -40,7 +39,7 @@ class FieldDefinition
      */
     public function getId()
     {
-      return $this->Id;
+        return $this->Id;
     }
 
     /**
@@ -49,8 +48,8 @@ class FieldDefinition
      */
     public function setId($Id)
     {
-      $this->Id = $Id;
-      return $this;
+        $this->Id = $Id;
+        return $this;
     }
 
     /**
@@ -58,7 +57,7 @@ class FieldDefinition
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -67,8 +66,8 @@ class FieldDefinition
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
 
     /**
@@ -76,7 +75,7 @@ class FieldDefinition
      */
     public function getType()
     {
-      return $this->Type;
+        return $this->Type;
     }
 
     /**
@@ -85,8 +84,8 @@ class FieldDefinition
      */
     public function setType($Type)
     {
-      $this->Type = $Type;
-      return $this;
+        $this->Type = $Type;
+        return $this;
     }
 
     /**
@@ -94,7 +93,7 @@ class FieldDefinition
      */
     public function getDetail()
     {
-      return $this->Detail;
+        return $this->Detail;
     }
 
     /**
@@ -103,8 +102,7 @@ class FieldDefinition
      */
     public function setDetail($Detail)
     {
-      $this->Detail = $Detail;
-      return $this;
+        $this->Detail = $Detail;
+        return $this;
     }
-
 }

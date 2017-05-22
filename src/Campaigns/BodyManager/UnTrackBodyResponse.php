@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UnTrackBodyResponse
@@ -15,7 +14,7 @@ class UnTrackBodyResponse
      */
     public function __construct($UnTrackBodyResult)
     {
-      $this->UnTrackBodyResult = $UnTrackBodyResult;
+        $this->UnTrackBodyResult = $UnTrackBodyResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class UnTrackBodyResponse
      */
     public function getUnTrackBodyResult()
     {
-      return $this->UnTrackBodyResult;
+        return $this->UnTrackBodyResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class UnTrackBodyResponse
      */
     public function setUnTrackBodyResult($UnTrackBodyResult)
     {
-      $this->UnTrackBodyResult = $UnTrackBodyResult;
-      return $this;
+        $this->UnTrackBodyResult = $UnTrackBodyResult;
+        return $this;
     }
-
 }

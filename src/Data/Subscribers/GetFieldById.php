@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetFieldById
@@ -21,8 +20,8 @@ class GetFieldById
      */
     public function __construct($subscriberId, $numCol)
     {
-      $this->subscriberId = $subscriberId;
-      $this->numCol = $numCol;
+        $this->subscriberId = $subscriberId;
+        $this->numCol = $numCol;
     }
 
     /**
@@ -30,7 +29,7 @@ class GetFieldById
      */
     public function getSubscriberId()
     {
-      return $this->subscriberId;
+        return $this->subscriberId;
     }
 
     /**
@@ -39,8 +38,8 @@ class GetFieldById
      */
     public function setSubscriberId($subscriberId)
     {
-      $this->subscriberId = $subscriberId;
-      return $this;
+        $this->subscriberId = $subscriberId;
+        return $this;
     }
 
     /**
@@ -48,7 +47,7 @@ class GetFieldById
      */
     public function getNumCol()
     {
-      return $this->numCol;
+        return $this->numCol;
     }
 
     /**
@@ -57,8 +56,7 @@ class GetFieldById
      */
     public function setNumCol($numCol)
     {
-      $this->numCol = $numCol;
-      return $this;
+        $this->numCol = $numCol;
+        return $this;
     }
-
 }

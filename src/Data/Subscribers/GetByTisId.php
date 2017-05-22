@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetByTisId
@@ -15,7 +14,7 @@ class GetByTisId
      */
     public function __construct($tisId)
     {
-      $this->tisId = $tisId;
+        $this->tisId = $tisId;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetByTisId
      */
     public function getTisId()
     {
-      return $this->tisId;
+        return $this->tisId;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetByTisId
      */
     public function setTisId($tisId)
     {
-      $this->tisId = $tisId;
-      return $this;
+        $this->tisId = $tisId;
+        return $this;
     }
-
 }

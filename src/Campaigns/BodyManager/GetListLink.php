@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class GetListLink
@@ -15,7 +14,7 @@ class GetListLink
      */
     public function __construct($_nidCata)
     {
-      $this->_nidCata = $_nidCata;
+        $this->_nidCata = $_nidCata;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetListLink
      */
     public function get_nidCata()
     {
-      return $this->_nidCata;
+        return $this->_nidCata;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetListLink
      */
     public function set_nidCata($_nidCata)
     {
-      $this->_nidCata = $_nidCata;
-      return $this;
+        $this->_nidCata = $_nidCata;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function getRelayDetails()
     {
-      return $this->RelayDetails;
+        return $this->RelayDetails;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function setRelayDetails(array $RelayDetails = null)
     {
-      $this->RelayDetails = $RelayDetails;
-      return $this;
+        $this->RelayDetails = $RelayDetails;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->RelayDetails[$offset]);
+        return isset($this->RelayDetails[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->RelayDetails[$offset];
+        return $this->RelayDetails[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->RelayDetails[] = $value;
-      } else {
-        $this->RelayDetails[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->RelayDetails[] = $value;
+        } else {
+            $this->RelayDetails[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->RelayDetails[$offset]);
+        unset($this->RelayDetails[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->RelayDetails);
+        return current($this->RelayDetails);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->RelayDetails);
+        next($this->RelayDetails);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->RelayDetails);
+        return key($this->RelayDetails);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->RelayDetails);
+        reset($this->RelayDetails);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfRelayDetails implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->RelayDetails);
+        return count($this->RelayDetails);
     }
-
 }

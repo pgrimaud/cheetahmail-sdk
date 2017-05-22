@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class BodyManager extends \SoapClient
@@ -278,5 +277,4 @@ class BodyManager extends \SoapClient
     {
         return $this->__soapCall('UpdateCategoryOnLink', array($parameters));
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class GetCategoryResponse
@@ -15,7 +14,7 @@ class GetCategoryResponse
      */
     public function __construct($GetCategoryResult)
     {
-      $this->GetCategoryResult = $GetCategoryResult;
+        $this->GetCategoryResult = $GetCategoryResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetCategoryResponse
      */
     public function getGetCategoryResult()
     {
-      return $this->GetCategoryResult;
+        return $this->GetCategoryResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetCategoryResponse
      */
     public function setGetCategoryResult($GetCategoryResult)
     {
-      $this->GetCategoryResult = $GetCategoryResult;
-      return $this;
+        $this->GetCategoryResult = $GetCategoryResult;
+        return $this;
     }
-
 }

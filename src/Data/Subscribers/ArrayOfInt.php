@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
@@ -13,7 +12,6 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -21,7 +19,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function getInt()
     {
-      return $this->int;
+        return $this->int;
     }
 
     /**
@@ -30,8 +28,8 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function setInt(array $int = null)
     {
-      $this->int = $int;
-      return $this;
+        $this->int = $int;
+        return $this;
     }
 
     /**
@@ -42,7 +40,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset)
     {
-      return isset($this->int[$offset]);
+        return isset($this->int[$offset]);
     }
 
     /**
@@ -53,7 +51,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset)
     {
-      return $this->int[$offset];
+        return $this->int[$offset];
     }
 
     /**
@@ -65,11 +63,11 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value)
     {
-      if (!isset($offset)) {
-        $this->int[] = $value;
-      } else {
-        $this->int[$offset] = $value;
-      }
+        if (!isset($offset)) {
+            $this->int[] = $value;
+        } else {
+            $this->int[$offset] = $value;
+        }
     }
 
     /**
@@ -80,7 +78,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset)
     {
-      unset($this->int[$offset]);
+        unset($this->int[$offset]);
     }
 
     /**
@@ -90,7 +88,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function current()
     {
-      return current($this->int);
+        return current($this->int);
     }
 
     /**
@@ -101,7 +99,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function next()
     {
-      next($this->int);
+        next($this->int);
     }
 
     /**
@@ -111,7 +109,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function key()
     {
-      return key($this->int);
+        return key($this->int);
     }
 
     /**
@@ -121,7 +119,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid()
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -132,7 +130,7 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind()
     {
-      reset($this->int);
+        reset($this->int);
     }
 
     /**
@@ -142,7 +140,6 @@ class ArrayOfInt implements \ArrayAccess, \Iterator, \Countable
      */
     public function count()
     {
-      return count($this->int);
+        return count($this->int);
     }
-
 }

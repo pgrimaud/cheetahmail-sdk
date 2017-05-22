@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class Find
@@ -15,7 +14,7 @@ class Find
      */
     public function __construct($criteria)
     {
-      $this->criteria = $criteria;
+        $this->criteria = $criteria;
     }
 
     /**
@@ -23,7 +22,7 @@ class Find
      */
     public function getCriteria()
     {
-      return $this->criteria;
+        return $this->criteria;
     }
 
     /**
@@ -32,8 +31,7 @@ class Find
      */
     public function setCriteria($criteria)
     {
-      $this->criteria = $criteria;
-      return $this;
+        $this->criteria = $criteria;
+        return $this;
     }
-
 }

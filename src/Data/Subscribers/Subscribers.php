@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class Subscribers extends \SoapClient
@@ -248,5 +247,4 @@ class Subscribers extends \SoapClient
     {
         return $this->__soapCall('CheckPhoneNumber', array($parameters));
     }
-
 }

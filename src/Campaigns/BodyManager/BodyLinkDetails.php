@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class BodyLinkDetails
@@ -18,7 +17,6 @@ class BodyLinkDetails
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -26,7 +24,7 @@ class BodyLinkDetails
      */
     public function getLinks()
     {
-      return $this->Links;
+        return $this->Links;
     }
 
     /**
@@ -35,8 +33,8 @@ class BodyLinkDetails
      */
     public function setLinks($Links)
     {
-      $this->Links = $Links;
-      return $this;
+        $this->Links = $Links;
+        return $this;
     }
 
     /**
@@ -44,7 +42,7 @@ class BodyLinkDetails
      */
     public function getTrackBody()
     {
-      return $this->TrackBody;
+        return $this->TrackBody;
     }
 
     /**
@@ -53,8 +51,7 @@ class BodyLinkDetails
      */
     public function setTrackBody($TrackBody)
     {
-      $this->TrackBody = $TrackBody;
-      return $this;
+        $this->TrackBody = $TrackBody;
+        return $this;
     }
-
 }

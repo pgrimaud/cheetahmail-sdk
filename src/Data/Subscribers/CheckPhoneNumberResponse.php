@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class CheckPhoneNumberResponse
@@ -15,7 +14,7 @@ class CheckPhoneNumberResponse
      */
     public function __construct($CheckPhoneNumberResult)
     {
-      $this->CheckPhoneNumberResult = $CheckPhoneNumberResult;
+        $this->CheckPhoneNumberResult = $CheckPhoneNumberResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class CheckPhoneNumberResponse
      */
     public function getCheckPhoneNumberResult()
     {
-      return $this->CheckPhoneNumberResult;
+        return $this->CheckPhoneNumberResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class CheckPhoneNumberResponse
      */
     public function setCheckPhoneNumberResult($CheckPhoneNumberResult)
     {
-      $this->CheckPhoneNumberResult = $CheckPhoneNumberResult;
-      return $this;
+        $this->CheckPhoneNumberResult = $CheckPhoneNumberResult;
+        return $this;
     }
-
 }

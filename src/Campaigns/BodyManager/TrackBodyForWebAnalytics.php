@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBodyForWebAnalytics
@@ -51,13 +50,13 @@ class TrackBodyForWebAnalytics
      */
     public function __construct($_strBody, $_firstCategory, $_secondCategory, $_bisHtml, $_idCamp, $_idSent, $_idWA)
     {
-      $this->_strBody = $_strBody;
-      $this->_firstCategory = $_firstCategory;
-      $this->_secondCategory = $_secondCategory;
-      $this->_bisHtml = $_bisHtml;
-      $this->_idCamp = $_idCamp;
-      $this->_idSent = $_idSent;
-      $this->_idWA = $_idWA;
+        $this->_strBody = $_strBody;
+        $this->_firstCategory = $_firstCategory;
+        $this->_secondCategory = $_secondCategory;
+        $this->_bisHtml = $_bisHtml;
+        $this->_idCamp = $_idCamp;
+        $this->_idSent = $_idSent;
+        $this->_idWA = $_idWA;
     }
 
     /**
@@ -65,7 +64,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_strBody()
     {
-      return $this->_strBody;
+        return $this->_strBody;
     }
 
     /**
@@ -74,8 +73,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_strBody($_strBody)
     {
-      $this->_strBody = $_strBody;
-      return $this;
+        $this->_strBody = $_strBody;
+        return $this;
     }
 
     /**
@@ -83,7 +82,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_firstCategory()
     {
-      return $this->_firstCategory;
+        return $this->_firstCategory;
     }
 
     /**
@@ -92,8 +91,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_firstCategory($_firstCategory)
     {
-      $this->_firstCategory = $_firstCategory;
-      return $this;
+        $this->_firstCategory = $_firstCategory;
+        return $this;
     }
 
     /**
@@ -101,7 +100,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_secondCategory()
     {
-      return $this->_secondCategory;
+        return $this->_secondCategory;
     }
 
     /**
@@ -110,8 +109,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_secondCategory($_secondCategory)
     {
-      $this->_secondCategory = $_secondCategory;
-      return $this;
+        $this->_secondCategory = $_secondCategory;
+        return $this;
     }
 
     /**
@@ -119,7 +118,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_bisHtml()
     {
-      return $this->_bisHtml;
+        return $this->_bisHtml;
     }
 
     /**
@@ -128,8 +127,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_bisHtml($_bisHtml)
     {
-      $this->_bisHtml = $_bisHtml;
-      return $this;
+        $this->_bisHtml = $_bisHtml;
+        return $this;
     }
 
     /**
@@ -137,7 +136,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_idCamp()
     {
-      return $this->_idCamp;
+        return $this->_idCamp;
     }
 
     /**
@@ -146,8 +145,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_idCamp($_idCamp)
     {
-      $this->_idCamp = $_idCamp;
-      return $this;
+        $this->_idCamp = $_idCamp;
+        return $this;
     }
 
     /**
@@ -155,7 +154,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_idSent()
     {
-      return $this->_idSent;
+        return $this->_idSent;
     }
 
     /**
@@ -164,8 +163,8 @@ class TrackBodyForWebAnalytics
      */
     public function set_idSent($_idSent)
     {
-      $this->_idSent = $_idSent;
-      return $this;
+        $this->_idSent = $_idSent;
+        return $this;
     }
 
     /**
@@ -173,7 +172,7 @@ class TrackBodyForWebAnalytics
      */
     public function get_idWA()
     {
-      return $this->_idWA;
+        return $this->_idWA;
     }
 
     /**
@@ -182,8 +181,7 @@ class TrackBodyForWebAnalytics
      */
     public function set_idWA($_idWA)
     {
-      $this->_idWA = $_idWA;
-      return $this;
+        $this->_idWA = $_idWA;
+        return $this;
     }
-
 }

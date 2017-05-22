@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackBody
@@ -33,10 +32,10 @@ class TrackBody
      */
     public function __construct($_strBody, $_firstCategory, $_secondCategory, $_bisHtml)
     {
-      $this->_strBody = $_strBody;
-      $this->_firstCategory = $_firstCategory;
-      $this->_secondCategory = $_secondCategory;
-      $this->_bisHtml = $_bisHtml;
+        $this->_strBody = $_strBody;
+        $this->_firstCategory = $_firstCategory;
+        $this->_secondCategory = $_secondCategory;
+        $this->_bisHtml = $_bisHtml;
     }
 
     /**
@@ -44,7 +43,7 @@ class TrackBody
      */
     public function get_strBody()
     {
-      return $this->_strBody;
+        return $this->_strBody;
     }
 
     /**
@@ -53,8 +52,8 @@ class TrackBody
      */
     public function set_strBody($_strBody)
     {
-      $this->_strBody = $_strBody;
-      return $this;
+        $this->_strBody = $_strBody;
+        return $this;
     }
 
     /**
@@ -62,7 +61,7 @@ class TrackBody
      */
     public function get_firstCategory()
     {
-      return $this->_firstCategory;
+        return $this->_firstCategory;
     }
 
     /**
@@ -71,8 +70,8 @@ class TrackBody
      */
     public function set_firstCategory($_firstCategory)
     {
-      $this->_firstCategory = $_firstCategory;
-      return $this;
+        $this->_firstCategory = $_firstCategory;
+        return $this;
     }
 
     /**
@@ -80,7 +79,7 @@ class TrackBody
      */
     public function get_secondCategory()
     {
-      return $this->_secondCategory;
+        return $this->_secondCategory;
     }
 
     /**
@@ -89,8 +88,8 @@ class TrackBody
      */
     public function set_secondCategory($_secondCategory)
     {
-      $this->_secondCategory = $_secondCategory;
-      return $this;
+        $this->_secondCategory = $_secondCategory;
+        return $this;
     }
 
     /**
@@ -98,7 +97,7 @@ class TrackBody
      */
     public function get_bisHtml()
     {
-      return $this->_bisHtml;
+        return $this->_bisHtml;
     }
 
     /**
@@ -107,8 +106,7 @@ class TrackBody
      */
     public function set_bisHtml($_bisHtml)
     {
-      $this->_bisHtml = $_bisHtml;
-      return $this;
+        $this->_bisHtml = $_bisHtml;
+        return $this;
     }
-
 }

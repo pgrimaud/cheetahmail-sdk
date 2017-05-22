@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackListLink
@@ -15,7 +14,7 @@ class TrackListLink
      */
     public function __construct($_tracks)
     {
-      $this->_tracks = $_tracks;
+        $this->_tracks = $_tracks;
     }
 
     /**
@@ -23,7 +22,7 @@ class TrackListLink
      */
     public function get_tracks()
     {
-      return $this->_tracks;
+        return $this->_tracks;
     }
 
     /**
@@ -32,8 +31,7 @@ class TrackListLink
      */
     public function set_tracks($_tracks)
     {
-      $this->_tracks = $_tracks;
-      return $this;
+        $this->_tracks = $_tracks;
+        return $this;
     }
-
 }

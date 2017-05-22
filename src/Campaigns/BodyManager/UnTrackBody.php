@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UnTrackBody
@@ -15,7 +14,7 @@ class UnTrackBody
      */
     public function __construct($_strBody)
     {
-      $this->_strBody = $_strBody;
+        $this->_strBody = $_strBody;
     }
 
     /**
@@ -23,7 +22,7 @@ class UnTrackBody
      */
     public function get_strBody()
     {
-      return $this->_strBody;
+        return $this->_strBody;
     }
 
     /**
@@ -32,8 +31,7 @@ class UnTrackBody
      */
     public function set_strBody($_strBody)
     {
-      $this->_strBody = $_strBody;
-      return $this;
+        $this->_strBody = $_strBody;
+        return $this;
     }
-
 }

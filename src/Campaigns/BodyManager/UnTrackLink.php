@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class UnTrackLink
@@ -15,7 +14,7 @@ class UnTrackLink
      */
     public function __construct($_nIdTrack)
     {
-      $this->_nIdTrack = $_nIdTrack;
+        $this->_nIdTrack = $_nIdTrack;
     }
 
     /**
@@ -23,7 +22,7 @@ class UnTrackLink
      */
     public function get_nIdTrack()
     {
-      return $this->_nIdTrack;
+        return $this->_nIdTrack;
     }
 
     /**
@@ -32,8 +31,7 @@ class UnTrackLink
      */
     public function set_nIdTrack($_nIdTrack)
     {
-      $this->_nIdTrack = $_nIdTrack;
-      return $this;
+        $this->_nIdTrack = $_nIdTrack;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class CheckPhoneNumber
@@ -21,8 +20,8 @@ class CheckPhoneNumber
      */
     public function __construct($subscriberId, $numColonne)
     {
-      $this->subscriberId = $subscriberId;
-      $this->numColonne = $numColonne;
+        $this->subscriberId = $subscriberId;
+        $this->numColonne = $numColonne;
     }
 
     /**
@@ -30,7 +29,7 @@ class CheckPhoneNumber
      */
     public function getSubscriberId()
     {
-      return $this->subscriberId;
+        return $this->subscriberId;
     }
 
     /**
@@ -39,8 +38,8 @@ class CheckPhoneNumber
      */
     public function setSubscriberId($subscriberId)
     {
-      $this->subscriberId = $subscriberId;
-      return $this;
+        $this->subscriberId = $subscriberId;
+        return $this;
     }
 
     /**
@@ -48,7 +47,7 @@ class CheckPhoneNumber
      */
     public function getNumColonne()
     {
-      return $this->numColonne;
+        return $this->numColonne;
     }
 
     /**
@@ -57,8 +56,7 @@ class CheckPhoneNumber
      */
     public function setNumColonne($numColonne)
     {
-      $this->numColonne = $numColonne;
-      return $this;
+        $this->numColonne = $numColonne;
+        return $this;
     }
-
 }

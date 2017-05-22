@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class NewCataDetails
@@ -20,7 +19,7 @@ class NewCataDetails
      */
     public function __construct($active)
     {
-      $this->active = $active;
+        $this->active = $active;
     }
 
     /**
@@ -28,7 +27,7 @@ class NewCataDetails
      */
     public function getDescription()
     {
-      return $this->description;
+        return $this->description;
     }
 
     /**
@@ -37,8 +36,8 @@ class NewCataDetails
      */
     public function setDescription($description)
     {
-      $this->description = $description;
-      return $this;
+        $this->description = $description;
+        return $this;
     }
 
     /**
@@ -46,7 +45,7 @@ class NewCataDetails
      */
     public function getActive()
     {
-      return $this->active;
+        return $this->active;
     }
 
     /**
@@ -55,8 +54,7 @@ class NewCataDetails
      */
     public function setActive($active)
     {
-      $this->active = $active;
-      return $this;
+        $this->active = $active;
+        return $this;
     }
-
 }

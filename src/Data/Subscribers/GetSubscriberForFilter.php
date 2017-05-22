@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class GetSubscriberForFilter
@@ -15,7 +14,7 @@ class GetSubscriberForFilter
      */
     public function __construct($_nidFilter)
     {
-      $this->_nidFilter = $_nidFilter;
+        $this->_nidFilter = $_nidFilter;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetSubscriberForFilter
      */
     public function get_nidFilter()
     {
-      return $this->_nidFilter;
+        return $this->_nidFilter;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetSubscriberForFilter
      */
     public function set_nidFilter($_nidFilter)
     {
-      $this->_nidFilter = $_nidFilter;
-      return $this;
+        $this->_nidFilter = $_nidFilter;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class WebAnalyticDetails
@@ -20,7 +19,7 @@ class WebAnalyticDetails
      */
     public function __construct($IdWA)
     {
-      $this->IdWA = $IdWA;
+        $this->IdWA = $IdWA;
     }
 
     /**
@@ -28,7 +27,7 @@ class WebAnalyticDetails
      */
     public function getIdWA()
     {
-      return $this->IdWA;
+        return $this->IdWA;
     }
 
     /**
@@ -37,8 +36,8 @@ class WebAnalyticDetails
      */
     public function setIdWA($IdWA)
     {
-      $this->IdWA = $IdWA;
-      return $this;
+        $this->IdWA = $IdWA;
+        return $this;
     }
 
     /**
@@ -46,7 +45,7 @@ class WebAnalyticDetails
      */
     public function getLibelle()
     {
-      return $this->Libelle;
+        return $this->Libelle;
     }
 
     /**
@@ -55,8 +54,7 @@ class WebAnalyticDetails
      */
     public function setLibelle($Libelle)
     {
-      $this->Libelle = $Libelle;
-      return $this;
+        $this->Libelle = $Libelle;
+        return $this;
     }
-
 }

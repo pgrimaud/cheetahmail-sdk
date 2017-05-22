@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class GetListWebAnalyticsResponse
@@ -15,7 +14,7 @@ class GetListWebAnalyticsResponse
      */
     public function __construct($GetListWebAnalyticsResult)
     {
-      $this->GetListWebAnalyticsResult = $GetListWebAnalyticsResult;
+        $this->GetListWebAnalyticsResult = $GetListWebAnalyticsResult;
     }
 
     /**
@@ -23,7 +22,7 @@ class GetListWebAnalyticsResponse
      */
     public function getGetListWebAnalyticsResult()
     {
-      return $this->GetListWebAnalyticsResult;
+        return $this->GetListWebAnalyticsResult;
     }
 
     /**
@@ -32,8 +31,7 @@ class GetListWebAnalyticsResponse
      */
     public function setGetListWebAnalyticsResult($GetListWebAnalyticsResult)
     {
-      $this->GetListWebAnalyticsResult = $GetListWebAnalyticsResult;
-      return $this;
+        $this->GetListWebAnalyticsResult = $GetListWebAnalyticsResult;
+        return $this;
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Campaigns\BodyManager;
 
 class TrackLinkForWA
@@ -33,10 +32,10 @@ class TrackLinkForWA
      */
     public function __construct($_IdTrack, $_idWA, $_idCamp, $_idSent)
     {
-      $this->_IdTrack = $_IdTrack;
-      $this->_idWA = $_idWA;
-      $this->_idCamp = $_idCamp;
-      $this->_idSent = $_idSent;
+        $this->_IdTrack = $_IdTrack;
+        $this->_idWA = $_idWA;
+        $this->_idCamp = $_idCamp;
+        $this->_idSent = $_idSent;
     }
 
     /**
@@ -44,7 +43,7 @@ class TrackLinkForWA
      */
     public function get_IdTrack()
     {
-      return $this->_IdTrack;
+        return $this->_IdTrack;
     }
 
     /**
@@ -53,8 +52,8 @@ class TrackLinkForWA
      */
     public function set_IdTrack($_IdTrack)
     {
-      $this->_IdTrack = $_IdTrack;
-      return $this;
+        $this->_IdTrack = $_IdTrack;
+        return $this;
     }
 
     /**
@@ -62,7 +61,7 @@ class TrackLinkForWA
      */
     public function get_idWA()
     {
-      return $this->_idWA;
+        return $this->_idWA;
     }
 
     /**
@@ -71,8 +70,8 @@ class TrackLinkForWA
      */
     public function set_idWA($_idWA)
     {
-      $this->_idWA = $_idWA;
-      return $this;
+        $this->_idWA = $_idWA;
+        return $this;
     }
 
     /**
@@ -80,7 +79,7 @@ class TrackLinkForWA
      */
     public function get_idCamp()
     {
-      return $this->_idCamp;
+        return $this->_idCamp;
     }
 
     /**
@@ -89,8 +88,8 @@ class TrackLinkForWA
      */
     public function set_idCamp($_idCamp)
     {
-      $this->_idCamp = $_idCamp;
-      return $this;
+        $this->_idCamp = $_idCamp;
+        return $this;
     }
 
     /**
@@ -98,7 +97,7 @@ class TrackLinkForWA
      */
     public function get_idSent()
     {
-      return $this->_idSent;
+        return $this->_idSent;
     }
 
     /**
@@ -107,8 +106,7 @@ class TrackLinkForWA
      */
     public function set_idSent($_idSent)
     {
-      $this->_idSent = $_idSent;
-      return $this;
+        $this->_idSent = $_idSent;
+        return $this;
     }
-
 }

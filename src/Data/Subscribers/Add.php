@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetahmail\Data\Subscribers;
 
 class Add
@@ -27,9 +26,9 @@ class Add
      */
     public function __construct($email, $IPAddress, $origin)
     {
-      $this->email = $email;
-      $this->IPAddress = $IPAddress;
-      $this->origin = $origin;
+        $this->email = $email;
+        $this->IPAddress = $IPAddress;
+        $this->origin = $origin;
     }
 
     /**
@@ -37,7 +36,7 @@ class Add
      */
     public function getEmail()
     {
-      return $this->email;
+        return $this->email;
     }
 
     /**
@@ -46,8 +45,8 @@ class Add
      */
     public function setEmail($email)
     {
-      $this->email = $email;
-      return $this;
+        $this->email = $email;
+        return $this;
     }
 
     /**
@@ -55,7 +54,7 @@ class Add
      */
     public function getIPAddress()
     {
-      return $this->IPAddress;
+        return $this->IPAddress;
     }
 
     /**
@@ -64,8 +63,8 @@ class Add
      */
     public function setIPAddress($IPAddress)
     {
-      $this->IPAddress = $IPAddress;
-      return $this;
+        $this->IPAddress = $IPAddress;
+        return $this;
     }
 
     /**
@@ -73,7 +72,7 @@ class Add
      */
     public function getOrigin()
     {
-      return $this->origin;
+        return $this->origin;
     }
 
     /**
@@ -82,8 +81,7 @@ class Add
      */
     public function setOrigin($origin)
     {
-      $this->origin = $origin;
-      return $this;
+        $this->origin = $origin;
+        return $this;
     }
-
 }
