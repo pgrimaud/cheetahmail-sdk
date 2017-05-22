@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Unsubscribe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnsubscribeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnsubscribeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnsubscribeByTisId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tisId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnsubscribeByTisIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnsubscribeByTisIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFriendByTisId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tisId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFriendByTisIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddFriendByTisIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFieldById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numCol" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFieldByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFieldByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByTisId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tisId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByTisIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByTisIdResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIdByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetIdByEmailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Find">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="criteria" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFieldsDefinition">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFieldsDefinitionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFieldsDefinitionResult" type="tns:ArrayOfFieldDefinition" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFieldDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FieldDefinition" type="tns:FieldDefinition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FieldDefinition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:EType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DEFAULT" />
+          <s:enumeration value="EmailAddress" />
+          <s:enumeration value="Date" />
+          <s:enumeration value="SubscriberId" />
+          <s:enumeration value="Text" />
+          <s:enumeration value="IntegerList" />
+          <s:enumeration value="Numeric" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetSubscriberForFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_nidFilter" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSubscriberForFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSubscriberForFilterResult" type="tns:ArrayOfArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfArrayOfString" nillable="true" type="tns:ArrayOfArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPhoneNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subscriberId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numColonne" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPhoneNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPhoneNumberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeSoapIn">
+    <wsdl:part name="parameters" element="tns:Unsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeSoapOut">
+    <wsdl:part name="parameters" element="tns:UnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeByTisIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UnsubscribeByTisId" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeByTisIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UnsubscribeByTisIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeByTisIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendByTisIdSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFriendByTisId" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendByTisIdSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFriendByTisIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendByTisIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFieldById" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFieldByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldByIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByTisIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByTisId" />
+  </wsdl:message>
+  <wsdl:message name="GetByTisIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByTisIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByTisIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByEmailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetIdByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIdByEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetIdByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIdByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIdByEmailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="FindSoapIn">
+    <wsdl:part name="parameters" element="tns:Find" />
+  </wsdl:message>
+  <wsdl:message name="FindSoapOut">
+    <wsdl:part name="parameters" element="tns:FindResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldsDefinitionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFieldsDefinition" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldsDefinitionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFieldsDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFieldsDefinitionAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSubscriberForFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSubscriberForFilter" />
+  </wsdl:message>
+  <wsdl:message name="GetSubscriberForFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSubscriberForFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSubscriberForFilterAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneNumberAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="SubscribersSoap">
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a Subscriber</wsdl:documentation>
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates a subscriber's information</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a subscriber</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Unsubscribes a subscriber</wsdl:documentation>
+      <wsdl:input message="tns:UnsubscribeSoapIn" />
+      <wsdl:output message="tns:UnsubscribeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeByTisId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Unsubscribe a subscriber by TisId</wsdl:documentation>
+      <wsdl:input message="tns:UnsubscribeByTisIdSoapIn" />
+      <wsdl:output message="tns:UnsubscribeByTisIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendByTisId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Make a subscriber to godchild by TisId</wsdl:documentation>
+      <wsdl:input message="tns:AddFriendByTisIdSoapIn" />
+      <wsdl:output message="tns:AddFriendByTisIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a subscriber's information</wsdl:documentation>
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the content of a field for a subscriber</wsdl:documentation>
+      <wsdl:input message="tns:GetFieldByIdSoapIn" />
+      <wsdl:output message="tns:GetFieldByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByTisId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a subscriber's information</wsdl:documentation>
+      <wsdl:input message="tns:GetByTisIdSoapIn" />
+      <wsdl:output message="tns:GetByTisIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <wsdl:input message="tns:GetByEmailSoapIn" />
+      <wsdl:output message="tns:GetByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdByEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get subscribers Id from Email</wsdl:documentation>
+      <wsdl:input message="tns:GetIdByEmailSoapIn" />
+      <wsdl:output message="tns:GetIdByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a list of subscribers given a list of criteria</wsdl:documentation>
+      <wsdl:input message="tns:FindSoapIn" />
+      <wsdl:output message="tns:FindSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldsDefinition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the definition of all the fields</wsdl:documentation>
+      <wsdl:input message="tns:GetFieldsDefinitionSoapIn" />
+      <wsdl:output message="tns:GetFieldsDefinitionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberForFilter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a list of subscribers given  a filter ID</wsdl:documentation>
+      <wsdl:input message="tns:GetSubscriberForFilterSoapIn" />
+      <wsdl:output message="tns:GetSubscriberForFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check the syntax of a subscriber's phone number</wsdl:documentation>
+      <wsdl:input message="tns:CheckPhoneNumberSoapIn" />
+      <wsdl:output message="tns:CheckPhoneNumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubscribersSoap" type="tns:SubscribersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://ws.ems6.net/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <soap:operation soapAction="http://ws.ems6.net/Unsubscribe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeByTisId">
+      <soap:operation soapAction="http://ws.ems6.net/UnsubscribeByTisId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnsubscribeByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendByTisId">
+      <soap:operation soapAction="http://ws.ems6.net/AddFriendByTisId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddFriendByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldById">
+      <soap:operation soapAction="http://ws.ems6.net/GetFieldById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFieldByIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTisId">
+      <soap:operation soapAction="http://ws.ems6.net/GetByTisId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <soap:operation soapAction="http://ws.ems6.net/GetByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdByEmail">
+      <soap:operation soapAction="http://ws.ems6.net/GetIdByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetIdByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <soap:operation soapAction="http://ws.ems6.net/Find" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldsDefinition">
+      <soap:operation soapAction="http://ws.ems6.net/GetFieldsDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFieldsDefinitionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberForFilter">
+      <soap:operation soapAction="http://ws.ems6.net/GetSubscriberForFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSubscriberForFilterAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneNumber">
+      <soap:operation soapAction="http://ws.ems6.net/CheckPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckPhoneNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubscribersSoap12" type="tns:SubscribersSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://ws.ems6.net/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <soap12:operation soapAction="http://ws.ems6.net/Unsubscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeByTisId">
+      <soap12:operation soapAction="http://ws.ems6.net/UnsubscribeByTisId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnsubscribeByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendByTisId">
+      <soap12:operation soapAction="http://ws.ems6.net/AddFriendByTisId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddFriendByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldById">
+      <soap12:operation soapAction="http://ws.ems6.net/GetFieldById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFieldByIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTisId">
+      <soap12:operation soapAction="http://ws.ems6.net/GetByTisId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByTisIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <soap12:operation soapAction="http://ws.ems6.net/GetByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdByEmail">
+      <soap12:operation soapAction="http://ws.ems6.net/GetIdByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetIdByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <soap12:operation soapAction="http://ws.ems6.net/Find" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FindAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFieldsDefinition">
+      <soap12:operation soapAction="http://ws.ems6.net/GetFieldsDefinition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFieldsDefinitionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscriberForFilter">
+      <soap12:operation soapAction="http://ws.ems6.net/GetSubscriberForFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSubscriberForFilterAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneNumber">
+      <soap12:operation soapAction="http://ws.ems6.net/CheckPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckPhoneNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Subscribers">
+    <wsdl:port name="SubscribersSoap" binding="tns:SubscribersSoap">
+      <soap:address location="https://ws1.ems6.net/subscribers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SubscribersSoap12" binding="tns:SubscribersSoap12">
+      <soap12:address location="https://ws1.ems6.net/subscribers.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
