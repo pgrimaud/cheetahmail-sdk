@@ -17,10 +17,12 @@ composer require pgrimaud/cheetahmail-sdk
 * Admin
     * Notify
 * Campaigns
+    * BodyManager
     * Campaigns
     * ChronoContact
 * Data
     * Filters
+    * Subscribers
 * Statistics
     * Stats
 
