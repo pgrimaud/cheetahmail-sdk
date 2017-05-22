@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="GetListLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_nidCata" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListLinkResult" type="tns:ArrayOfRelayDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRelayDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RelayDetails" type="tns:RelayDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RelayDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idMlist" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idtis" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="link" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="add" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="idFirstCata" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idSecondCata" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="TrackLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_firstCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_secondCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_bAdd" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrackLinkResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackLinkForWA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IdTrack" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idWA" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idCamp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idSent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackLinkForWAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrackLinkForWAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_nIdTrack" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnTrackLinkResult" type="tns:RelayDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackListLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_tracks" type="tns:ArrayOfRelayDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackListLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrackListLinkResult" type="tns:ArrayOfRelayDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBody">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_firstCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_secondCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_bisHtml" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrackBodyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyForWebAnalytics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_firstCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_secondCategory" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_bisHtml" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idCamp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idSent" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idWA" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyForWebAnalyticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrackBodyForWebAnalyticsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyGetListLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_bisHtml" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyGetListLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrackBodyGetListLinkResult" type="tns:BodyLinkDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BodyLinkDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Links" type="tns:ArrayOfRelayDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackBody" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TrackBodyForWebAnalyticsGetListLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_bisHtml" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idCamp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idSent" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idWA" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackBodyForWebAnalyticsGetListLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrackBodyForWebAnalyticsGetListLinkResult" type="tns:BodyLinkDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackBody">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackBodyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnTrackBodyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackBodyWebAnalytics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strBody" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnTrackBodyWebAnalyticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnTrackBodyWebAnalyticsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListCategory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListCategoryResult" type="tns:ArrayOfCataDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCataDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CataDetails" type="tns:CataDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CataDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCata" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListWebAnalytics">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListWebAnalyticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListWebAnalyticsResult" type="tns:ArrayOfWebAnalyticDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebAnalyticDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebAnalyticDetails" type="tns:WebAnalyticDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebAnalyticDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdWA" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Libelle" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_nidCata" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCategoryResult" type="tns:CataDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_cdetail" type="tns:CataDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCategoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_cdetail" type="tns:NewCataDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="NewCataDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCategoryResult" type="tns:CataDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategoryOnLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_rdetail" type="tns:RelayDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategoryOnLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCategoryOnLinkResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetListLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListLink" />
+  </wsdl:message>
+  <wsdl:message name="GetListLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackLink" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkForWASoapIn">
+    <wsdl:part name="parameters" element="tns:TrackLinkForWA" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkForWASoapOut">
+    <wsdl:part name="parameters" element="tns:TrackLinkForWAResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkForWAAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:UnTrackLink" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:UnTrackLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackListLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackListLink" />
+  </wsdl:message>
+  <wsdl:message name="TrackListLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackListLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackListLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodySoapIn">
+    <wsdl:part name="parameters" element="tns:TrackBody" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodySoapOut">
+    <wsdl:part name="parameters" element="tns:TrackBodyResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackBodyForWebAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackBodyForWebAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyGetListLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackBodyGetListLink" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyGetListLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackBodyGetListLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyGetListLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsGetListLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackBodyForWebAnalyticsGetListLink" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsGetListLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackBodyForWebAnalyticsGetListLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackBodyForWebAnalyticsGetListLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodySoapIn">
+    <wsdl:part name="parameters" element="tns:UnTrackBody" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodySoapOut">
+    <wsdl:part name="parameters" element="tns:UnTrackBodyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodyWebAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:UnTrackBodyWebAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodyWebAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:UnTrackBodyWebAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnTrackBodyWebAnalyticsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetListCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetListCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetListCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetListCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListCategoryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetListWebAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListWebAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="GetListWebAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListWebAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListWebAnalyticsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategoryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCategory" />
+  </wsdl:message>
+  <wsdl:message name="CreateCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCategoryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategoryOnLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryOnLink" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategoryOnLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryOnLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategoryOnLinkAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="BodyManagerSoap">
+    <wsdl:operation name="GetListLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de recuperer la liste des liens d'une categorie</wsdl:documentation>
+      <wsdl:input message="tns:GetListLinkSoapIn" />
+      <wsdl:output message="tns:GetListLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un lien</wsdl:documentation>
+      <wsdl:input message="tns:TrackLinkSoapIn" />
+      <wsdl:output message="tns:TrackLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkForWA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un lien pour un webanalytic</wsdl:documentation>
+      <wsdl:input message="tns:TrackLinkForWASoapIn" />
+      <wsdl:output message="tns:TrackLinkForWASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de détracker un lien</wsdl:documentation>
+      <wsdl:input message="tns:UnTrackLinkSoapIn" />
+      <wsdl:output message="tns:UnTrackLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackListLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un liste de lien</wsdl:documentation>
+      <wsdl:input message="tns:TrackListLinkSoapIn" />
+      <wsdl:output message="tns:TrackListLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackBody">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un corp de texte</wsdl:documentation>
+      <wsdl:input message="tns:TrackBodySoapIn" />
+      <wsdl:output message="tns:TrackBodySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalytics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un corp de texte pour les WebAnalytics</wsdl:documentation>
+      <wsdl:input message="tns:TrackBodyForWebAnalyticsSoapIn" />
+      <wsdl:output message="tns:TrackBodyForWebAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyGetListLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un corp de texte et de récupérer la liste des liens trackés et le body</wsdl:documentation>
+      <wsdl:input message="tns:TrackBodyGetListLinkSoapIn" />
+      <wsdl:output message="tns:TrackBodyGetListLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalyticsGetListLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Méthode permettant de tracker un corp de texte pour les WebAnalytics et de récupérer la liste des liens trackés et le body</wsdl:documentation>
+      <wsdl:input message="tns:TrackBodyForWebAnalyticsGetListLinkSoapIn" />
+      <wsdl:output message="tns:TrackBodyForWebAnalyticsGetListLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBody">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de détracker un corp de texte</wsdl:documentation>
+      <wsdl:input message="tns:UnTrackBodySoapIn" />
+      <wsdl:output message="tns:UnTrackBodySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBodyWebAnalytics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de détracker un corp de texte contenant des liens trackés pour les WebAnalytics</wsdl:documentation>
+      <wsdl:input message="tns:UnTrackBodyWebAnalyticsSoapIn" />
+      <wsdl:output message="tns:UnTrackBodyWebAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de lister les catégories</wsdl:documentation>
+      <wsdl:input message="tns:GetListCategorySoapIn" />
+      <wsdl:output message="tns:GetListCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListWebAnalytics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de lister les webanalytics</wsdl:documentation>
+      <wsdl:input message="tns:GetListWebAnalyticsSoapIn" />
+      <wsdl:output message="tns:GetListWebAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant de récuperer une catégorie</wsdl:documentation>
+      <wsdl:input message="tns:GetCategorySoapIn" />
+      <wsdl:output message="tns:GetCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant d'updater une catégorie</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCategorySoapIn" />
+      <wsdl:output message="tns:UpdateCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant créer une catégorie</wsdl:documentation>
+      <wsdl:input message="tns:CreateCategorySoapIn" />
+      <wsdl:output message="tns:CreateCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategoryOnLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">méthode permettant d'updater les catégories sur le lien ou de les supprimer</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCategoryOnLinkSoapIn" />
+      <wsdl:output message="tns:UpdateCategoryOnLinkSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BodyManagerSoap" type="tns:BodyManagerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListLink">
+      <soap:operation soapAction="http://ws.ems6.net/GetListLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLink">
+      <soap:operation soapAction="http://ws.ems6.net/TrackLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkForWA">
+      <soap:operation soapAction="http://ws.ems6.net/TrackLinkForWA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackLinkForWAAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackLink">
+      <soap:operation soapAction="http://ws.ems6.net/UnTrackLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnTrackLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackListLink">
+      <soap:operation soapAction="http://ws.ems6.net/TrackListLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBody">
+      <soap:operation soapAction="http://ws.ems6.net/TrackBody" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackBodyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalytics">
+      <soap:operation soapAction="http://ws.ems6.net/TrackBodyForWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackBodyForWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyGetListLink">
+      <soap:operation soapAction="http://ws.ems6.net/TrackBodyGetListLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackBodyGetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalyticsGetListLink">
+      <soap:operation soapAction="http://ws.ems6.net/TrackBodyForWebAnalyticsGetListLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackBodyForWebAnalyticsGetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBody">
+      <soap:operation soapAction="http://ws.ems6.net/UnTrackBody" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnTrackBodyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBodyWebAnalytics">
+      <soap:operation soapAction="http://ws.ems6.net/UnTrackBodyWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnTrackBodyWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCategory">
+      <soap:operation soapAction="http://ws.ems6.net/GetListCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetListCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListWebAnalytics">
+      <soap:operation soapAction="http://ws.ems6.net/GetListWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetListWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap:operation soapAction="http://ws.ems6.net/GetCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCategory">
+      <soap:operation soapAction="http://ws.ems6.net/CreateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategoryOnLink">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateCategoryOnLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateCategoryOnLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BodyManagerSoap12" type="tns:BodyManagerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListLink">
+      <soap12:operation soapAction="http://ws.ems6.net/GetListLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLink">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkForWA">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackLinkForWA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackLinkForWAAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackLink">
+      <soap12:operation soapAction="http://ws.ems6.net/UnTrackLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnTrackLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackListLink">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackListLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBody">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackBody" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackBodyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalytics">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackBodyForWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackBodyForWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyGetListLink">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackBodyGetListLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackBodyGetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackBodyForWebAnalyticsGetListLink">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackBodyForWebAnalyticsGetListLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackBodyForWebAnalyticsGetListLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBody">
+      <soap12:operation soapAction="http://ws.ems6.net/UnTrackBody" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnTrackBodyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnTrackBodyWebAnalytics">
+      <soap12:operation soapAction="http://ws.ems6.net/UnTrackBodyWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnTrackBodyWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCategory">
+      <soap12:operation soapAction="http://ws.ems6.net/GetListCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetListCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListWebAnalytics">
+      <soap12:operation soapAction="http://ws.ems6.net/GetListWebAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetListWebAnalyticsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap12:operation soapAction="http://ws.ems6.net/GetCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCategory">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateCategoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategoryOnLink">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateCategoryOnLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCategoryOnLinkAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BodyManager">
+    <wsdl:port name="BodyManagerSoap" binding="tns:BodyManagerSoap">
+      <soap:address location="https://ws1.ems6.net/bodymanager.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BodyManagerSoap12" binding="tns:BodyManagerSoap12">
+      <soap12:address location="https://ws1.ems6.net/bodymanager.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
