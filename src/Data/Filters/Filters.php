@@ -1,6 +1,8 @@
 <?php
 namespace Cheetahmail\Data\Filters;
 
+use Cheetahmail\AuthHeaderInterface;
+
 class Filters extends \SoapClient
 {
     const EMS_WS_NAMESPACE = 'http://ws.ems6.net/';
@@ -31,11 +33,11 @@ class Filters extends \SoapClient
 
     /**
      * Filters constructor.
-     * @param AuthHeader $authHeader
+     * @param AuthHeaderInterface $authHeader
      * @param null $wsdl
      * @param array $options
      */
-    public function __construct(AuthHeader $authHeader, $wsdl = null, $options = [])
+    public function __construct(AuthHeaderInterface $authHeader, $wsdl = null, $options = [])
     {
         $this->__setSoapHeaders($this->createHeader($authHeader));
         $wsdl = $wsdl ?: __DIR__ . '/../../../data/data/filters.wsdl';
@@ -51,10 +53,10 @@ class Filters extends \SoapClient
     }
 
     /**
-     * @param AuthHeader $authHeader
+     * @param AuthHeaderInterface $authHeader
      * @return \SoapHeader
      */
-    public function createHeader(AuthHeader $authHeader)
+    public function createHeader(AuthHeaderInterface $authHeader)
     {
         $data           = new \StdClass();
         $data->UserName = new \SoapVar($authHeader->getUserName(), XSD_STRING, null, null, null, self::EMS_WS_NAMESPACE);

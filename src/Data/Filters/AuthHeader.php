@@ -1,7 +1,9 @@
 <?php
 namespace Cheetahmail\Data\Filters;
 
-class AuthHeader
+use Cheetahmail\AuthHeaderInterface;
+
+class AuthHeader implements AuthHeaderInterface
 {
 
     /**

@@ -1,7 +1,9 @@
 <?php
 namespace Cheetahmail\Campaigns\Campaigns;
 
-class AuthHeader
+use Cheetahmail\AuthHeaderInterface;
+
+class AuthHeader implements AuthHeaderInterface
 {
 
     /**

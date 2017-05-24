@@ -3,7 +3,6 @@ namespace Cheetahmail\Campaigns\ChronoContact;
 
 class CreateChrono
 {
-
     /**
      * @var string $ChronoName
      */

@@ -1,9 +1,10 @@
 <?php
 namespace Cheetahmail\Statistics\Stats;
 
-class AuthHeader
-{
+use Cheetahmail\AuthHeaderInterface;
 
+class AuthHeader implements AuthHeaderInterface
+{
     /**
      * @var string $UserName
      */

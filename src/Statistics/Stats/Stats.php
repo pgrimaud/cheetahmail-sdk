@@ -1,6 +1,8 @@
 <?php
 namespace Cheetahmail\Statistics\Stats;
 
+use Cheetahmail\AuthHeaderInterface;
+
 class Stats extends \SoapClient
 {
     const EMS_WS_NAMESPACE = 'http://ws.ems6.net/';
@@ -28,11 +30,11 @@ class Stats extends \SoapClient
 
     /**
      * Stats constructor.
-     * @param AuthHeader $authHeader
+     * @param AuthHeaderInterface $authHeader
      * @param null $wsdl
      * @param array $options
      */
-    public function __construct(AuthHeader $authHeader, $wsdl = null, $options = [])
+    public function __construct(AuthHeaderInterface $authHeader, $wsdl = null, $options = [])
     {
         $this->__setSoapHeaders($this->createHeader($authHeader));
         $wsdl = $wsdl ?: __DIR__ . '/../../../data/statistics/stats.wsdl';
@@ -48,10 +50,10 @@ class Stats extends \SoapClient
     }
 
     /**
-     * @param AuthHeader $authHeader
+     * @param AuthHeaderInterface $authHeader
      * @return \SoapHeader
      */
-    public function createHeader(AuthHeader $authHeader)
+    public function createHeader(AuthHeaderInterface $authHeader)
     {
         $data           = new \StdClass();
         $data->UserName = new \SoapVar($authHeader->getUserName(), XSD_STRING, null, null, null, self::EMS_WS_NAMESPACE);
