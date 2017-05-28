@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="ListConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="typeConf" type="tns:TypeConfig" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="TypeConfig">
+        <s:restriction base="s:string">
+          <s:enumeration value="All" />
+          <s:enumeration value="Dkim" />
+          <s:enumeration value="NonDkim" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ListConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListConfigResult" type="tns:ArrayOfConfigDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConfigDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConfigDetails" type="tns:ConfigDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConfigDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idMlist" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idConf" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailFromAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailRetNpai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailReply" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailTo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mailDep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlUnsubs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtUnsubs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlFooter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtFooter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="htmlHeader" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="txtHeader" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customHeaderKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customHeaderValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="verpSend" type="tns:Verp" />
+          <s:element minOccurs="1" maxOccurs="1" name="charset" type="tns:Charset" />
+          <s:element minOccurs="1" maxOccurs="1" name="miroir" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="isDkim" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Verp">
+        <s:restriction base="s:string">
+          <s:enumeration value="Complet" />
+          <s:enumeration value="Sauf_ReplyTo" />
+          <s:enumeration value="ReturnPath_Seulement" />
+          <s:enumeration value="Pas_de_traitement" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Charset">
+        <s:restriction base="s:string">
+          <s:enumeration value="ISO_2022_jp" />
+          <s:enumeration value="ISO_2022_kr" />
+          <s:enumeration value="ISO_8859_1" />
+          <s:enumeration value="ISO_8859_2" />
+          <s:enumeration value="ISO_8859_3" />
+          <s:enumeration value="ISO_8859_4" />
+          <s:enumeration value="ISO_8859_5" />
+          <s:enumeration value="ISO_8859_6" />
+          <s:enumeration value="ISO_8859_7" />
+          <s:enumeration value="ISO_8859_8" />
+          <s:enumeration value="ISO_ir_58" />
+          <s:enumeration value="ISO_8859_11" />
+          <s:enumeration value="UTF_8" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="CreateConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_config" type="tns:ConfigDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateConfigResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_config" type="tns:ConfigDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idConf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetConfigResult" type="tns:ConfigDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IdConf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfigIsDkim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfigIsDkimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfigIsDkimResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BaseIsDkim">
+        <s:complexType />
+      </s:element>
+      <s:element name="BaseIsDkimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BaseIsDkimResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDefaultConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListDomain">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListDomainResult" type="tns:ArrayOfDomain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDomain">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Domain" type="tns:Domain" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domain">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDomain" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idConf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDomainResult" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idConf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomain" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDomainResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetListUnsubscribe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="link" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetListUnsubscribeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetListUnsubscribeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnableListUnsubscribe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isEnable" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnableListUnsubscribeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnableListUnsubscribeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListUnsubscribe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListUnsubscribeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetListUnsubscribeResult" type="tns:ListUnsubscribe" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListUnsubscribe">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="link" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isEnable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListHeaderResult" type="tns:ArrayOfHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Header" type="tns:Header" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Header">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddHeaderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idconf" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveHeaderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:ListConfig" />
+  </wsdl:message>
+  <wsdl:message name="ListConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ListConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateConfig" />
+  </wsdl:message>
+  <wsdl:message name="CreateConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConfig" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfig" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteConfig" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ConfigIsDkimSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfigIsDkim" />
+  </wsdl:message>
+  <wsdl:message name="ConfigIsDkimSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfigIsDkimResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfigIsDkimAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="BaseIsDkimSoapIn">
+    <wsdl:part name="parameters" element="tns:BaseIsDkim" />
+  </wsdl:message>
+  <wsdl:message name="BaseIsDkimSoapOut">
+    <wsdl:part name="parameters" element="tns:BaseIsDkimResponse" />
+  </wsdl:message>
+  <wsdl:message name="BaseIsDkimAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultConfig" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDefaultConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultConfigAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:ListDomain" />
+  </wsdl:message>
+  <wsdl:message name="ListDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:ListDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListDomainAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomain" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDomain" />
+  </wsdl:message>
+  <wsdl:message name="SetDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDomainAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetListUnsubscribeSoapIn">
+    <wsdl:part name="parameters" element="tns:SetListUnsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="SetListUnsubscribeSoapOut">
+    <wsdl:part name="parameters" element="tns:SetListUnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetListUnsubscribeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EnableListUnsubscribeSoapIn">
+    <wsdl:part name="parameters" element="tns:EnableListUnsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="EnableListUnsubscribeSoapOut">
+    <wsdl:part name="parameters" element="tns:EnableListUnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnableListUnsubscribeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetListUnsubscribeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListUnsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="GetListUnsubscribeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListUnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListUnsubscribeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:ListHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:ListHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListHeaderAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddHeaderAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveHeaderAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ConfigsV2Soap">
+    <wsdl:operation name="ListConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lists all the campaign configurations attached to the database</wsdl:documentation>
+      <wsdl:input message="tns:ListConfigSoapIn" />
+      <wsdl:output message="tns:ListConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new campaign configuration</wsdl:documentation>
+      <wsdl:input message="tns:CreateConfigSoapIn" />
+      <wsdl:output message="tns:CreateConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates a campaign configuration</wsdl:documentation>
+      <wsdl:input message="tns:UpdateConfigSoapIn" />
+      <wsdl:output message="tns:UpdateConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information on a specific campaign configuration</wsdl:documentation>
+      <wsdl:input message="tns:GetConfigSoapIn" />
+      <wsdl:output message="tns:GetConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a campaign configuration</wsdl:documentation>
+      <wsdl:input message="tns:DeleteConfigSoapIn" />
+      <wsdl:output message="tns:DeleteConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigIsDkim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method used to determine if a campaign configuration is DKIM or not.</wsdl:documentation>
+      <wsdl:input message="tns:ConfigIsDkimSoapIn" />
+      <wsdl:output message="tns:ConfigIsDkimSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BaseIsDkim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method used to determine if DKIM is activated on the database.</wsdl:documentation>
+      <wsdl:input message="tns:BaseIsDkimSoapIn" />
+      <wsdl:output message="tns:BaseIsDkimSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultConfig">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method used to set a default config with an id config.</wsdl:documentation>
+      <wsdl:input message="tns:SetDefaultConfigSoapIn" />
+      <wsdl:output message="tns:SetDefaultConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lists all the campaign configuration domains. This methode works only for DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:ListDomainSoapIn" />
+      <wsdl:output message="tns:ListDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the domain associated to a specific DKIM configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:GetDomainSoapIn" />
+      <wsdl:output message="tns:GetDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets a spécific domain in a choosen DKIM Campaign configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:SetDomainSoapIn" />
+      <wsdl:output message="tns:SetDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetListUnsubscribe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates an unsubscribe link on a DKIM campaign configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:SetListUnsubscribeSoapIn" />
+      <wsdl:output message="tns:SetListUnsubscribeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableListUnsubscribe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Enables or disables a ListUnsubscribe link on a DKIM campaign configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:EnableListUnsubscribeSoapIn" />
+      <wsdl:output message="tns:EnableListUnsubscribeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListUnsubscribe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a ListUnsubscribe link attached to a specific DKIM campaign configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:GetListUnsubscribeSoapIn" />
+      <wsdl:output message="tns:GetListUnsubscribeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListHeader">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lists all the headers attached to a DKIM campaign configuration. This method only works with DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:ListHeaderSoapIn" />
+      <wsdl:output message="tns:ListHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHeader">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a header to a specific campaign configuration. This method only works on DKIM configs, max 10 headers per config.</wsdl:documentation>
+      <wsdl:input message="tns:AddHeaderSoapIn" />
+      <wsdl:output message="tns:AddHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveHeader">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the header from a campaign configuration. This method only works on DKIM configs.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveHeaderSoapIn" />
+      <wsdl:output message="tns:RemoveHeaderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConfigsV2Soap" type="tns:ConfigsV2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListConfig">
+      <soap:operation soapAction="http://ws.ems6.net/ListConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateConfig">
+      <soap:operation soapAction="http://ws.ems6.net/CreateConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap:operation soapAction="http://ws.ems6.net/GetConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConfig">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigIsDkim">
+      <soap:operation soapAction="http://ws.ems6.net/ConfigIsDkim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConfigIsDkimAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseIsDkim">
+      <soap:operation soapAction="http://ws.ems6.net/BaseIsDkim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BaseIsDkimAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultConfig">
+      <soap:operation soapAction="http://ws.ems6.net/SetDefaultConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetDefaultConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <soap:operation soapAction="http://ws.ems6.net/ListDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap:operation soapAction="http://ws.ems6.net/GetDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDomain">
+      <soap:operation soapAction="http://ws.ems6.net/SetDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetListUnsubscribe">
+      <soap:operation soapAction="http://ws.ems6.net/SetListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableListUnsubscribe">
+      <soap:operation soapAction="http://ws.ems6.net/EnableListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EnableListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListUnsubscribe">
+      <soap:operation soapAction="http://ws.ems6.net/GetListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListHeader">
+      <soap:operation soapAction="http://ws.ems6.net/ListHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHeader">
+      <soap:operation soapAction="http://ws.ems6.net/AddHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveHeader">
+      <soap:operation soapAction="http://ws.ems6.net/RemoveHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConfigsV2Soap12" type="tns:ConfigsV2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/ListConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/GetConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigIsDkim">
+      <soap12:operation soapAction="http://ws.ems6.net/ConfigIsDkim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConfigIsDkimAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaseIsDkim">
+      <soap12:operation soapAction="http://ws.ems6.net/BaseIsDkim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BaseIsDkimAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultConfig">
+      <soap12:operation soapAction="http://ws.ems6.net/SetDefaultConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetDefaultConfigAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDomain">
+      <soap12:operation soapAction="http://ws.ems6.net/ListDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap12:operation soapAction="http://ws.ems6.net/GetDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDomain">
+      <soap12:operation soapAction="http://ws.ems6.net/SetDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetDomainAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetListUnsubscribe">
+      <soap12:operation soapAction="http://ws.ems6.net/SetListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableListUnsubscribe">
+      <soap12:operation soapAction="http://ws.ems6.net/EnableListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EnableListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListUnsubscribe">
+      <soap12:operation soapAction="http://ws.ems6.net/GetListUnsubscribe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetListUnsubscribeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListHeader">
+      <soap12:operation soapAction="http://ws.ems6.net/ListHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHeader">
+      <soap12:operation soapAction="http://ws.ems6.net/AddHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveHeader">
+      <soap12:operation soapAction="http://ws.ems6.net/RemoveHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RemoveHeaderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConfigsV2">
+    <wsdl:port name="ConfigsV2Soap" binding="tns:ConfigsV2Soap">
+      <soap:address location="https://ws1.ems6.net/configsv2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConfigsV2Soap12" binding="tns:ConfigsV2Soap12">
+      <soap12:address location="https://ws1.ems6.net/configsv2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
