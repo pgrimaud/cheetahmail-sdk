@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="EMSContainerSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="defaultContent" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="historyUseState" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContainerSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContainerSaveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="EMSContainerUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="defaultContentKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="historyUseState" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContainerUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContainerUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContainerDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContainerDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContainerDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContainerID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetContainerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContainerIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContainer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContainerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContainerResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveCacheContent">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveCacheContentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveCacheContentForContainer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCacheContentForContainerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EMSContentSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContentSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContentSaveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContentUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contentId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContentUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContentUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContentDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMSContentDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EMSContentDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferenceKeyByContainer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferenceKeyByContainerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReferenceKeyByContainerResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTOSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondance" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTOSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceMTOSaveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTOUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeySource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondanceSource" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyDestination" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondanceDestination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTOUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceMTOUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTODelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceMTODeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceMTODeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorrespondanceMTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorrespondanceMTOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCorrespondanceMTOResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyMTO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="correspondanceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyMTOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKeyMTOResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondance" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceOTMSaveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeySource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondanceSource" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyDestination" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentKeyCorrespondanceDestination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="correspondanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceOTMUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorrespondanceOTMDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CorrespondanceOTMDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorrespondanceOTM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCorrespondanceOTMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCorrespondanceOTMResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyOTM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="containerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="correspondanceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyOTMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKeyOTMResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackLinkAndSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyNewTrack" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="containerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrackLinkAndSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrackLinkAndSaveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EMSContainerSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContainerSave" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContainerSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerSaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContainerUpdate" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContainerUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerUpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContainerDelete" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContainerDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContainerDeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContainerID" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContainerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerIDAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContainer" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContainerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCacheContent" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCacheContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentForContainerSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCacheContentForContainer" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentForContainerSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCacheContentForContainerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCacheContentForContainerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContentSave" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContentSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentSaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContentUpdate" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContentUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentUpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:EMSContentDelete" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:EMSContentDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMSContentDeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetReferenceKeyByContainerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReferenceKeyByContainer" />
+  </wsdl:message>
+  <wsdl:message name="GetReferenceKeyByContainerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReferenceKeyByContainerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReferenceKeyByContainerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContent" />
+  </wsdl:message>
+  <wsdl:message name="GetContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTOSave" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTOSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOSaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTOUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTOUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTOUpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTODeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTODelete" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTODeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceMTODeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceMTODeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceMTOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCorrespondanceMTO" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceMTOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCorrespondanceMTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceMTOAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyMTOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKeyMTO" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyMTOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKeyMTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyMTOAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMSave" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMSaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMUpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMDelete" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:CorrespondanceOTMDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CorrespondanceOTMDeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceOTMSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCorrespondanceOTM" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceOTMSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCorrespondanceOTMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCorrespondanceOTMAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyOTMSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKeyOTM" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyOTMSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKeyOTMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyOTMAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkAndSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:TrackLinkAndSave" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkAndSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:TrackLinkAndSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrackLinkAndSaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ContentSoap">
+    <wsdl:operation name="EMSContainerSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContainerSave creates a container. Return : container id. </wsdl:documentation>
+      <wsdl:input message="tns:EMSContainerSaveSoapIn" />
+      <wsdl:output message="tns:EMSContainerSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContainerUpdate updates information about a container.</wsdl:documentation>
+      <wsdl:input message="tns:EMSContainerUpdateSoapIn" />
+      <wsdl:output message="tns:EMSContainerUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerDelete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContainerDelete delete information about a container.   </wsdl:documentation>
+      <wsdl:input message="tns:EMSContainerDeleteSoapIn" />
+      <wsdl:output message="tns:EMSContainerDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContainerID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetContainerID provides a list of all containers id. </wsdl:documentation>
+      <wsdl:input message="tns:GetContainerIDSoapIn" />
+      <wsdl:output message="tns:GetContainerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContainer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetContainer provides information about a container. </wsdl:documentation>
+      <wsdl:input message="tns:GetContainerSoapIn" />
+      <wsdl:output message="tns:GetContainerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">RemoveCacheContent flushes cache of all contents.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveCacheContentSoapIn" />
+      <wsdl:output message="tns:RemoveCacheContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContentForContainer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">RemoveCacheContentForContainer flushes cache of all contents for a container.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveCacheContentForContainerSoapIn" />
+      <wsdl:output message="tns:RemoveCacheContentForContainerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContentSave creates a content.</wsdl:documentation>
+      <wsdl:input message="tns:EMSContentSaveSoapIn" />
+      <wsdl:output message="tns:EMSContentSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContentUpdate updates information about a content.</wsdl:documentation>
+      <wsdl:input message="tns:EMSContentUpdateSoapIn" />
+      <wsdl:output message="tns:EMSContentUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentDelete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">EMSContentDelete delete information about a content.</wsdl:documentation>
+      <wsdl:input message="tns:EMSContentDeleteSoapIn" />
+      <wsdl:output message="tns:EMSContentDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceKeyByContainer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetReferenceKeyByContainer provides a list of reference keys for a container.</wsdl:documentation>
+      <wsdl:input message="tns:GetReferenceKeyByContainerSoapIn" />
+      <wsdl:output message="tns:GetReferenceKeyByContainerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetContent provides information about a content.</wsdl:documentation>
+      <wsdl:input message="tns:GetContentSoapIn" />
+      <wsdl:output message="tns:GetContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceMTOSave creates a MTO (Many To One) relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceMTOSaveSoapIn" />
+      <wsdl:output message="tns:CorrespondanceMTOSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceMTOUpdate updates an existing MTO relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceMTOUpdateSoapIn" />
+      <wsdl:output message="tns:CorrespondanceMTOUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTODelete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceMTODelete deletes an existing MTO relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceMTODeleteSoapIn" />
+      <wsdl:output message="tns:CorrespondanceMTODeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceMTO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetCorrespondanceMTO provides a list of MTO relations</wsdl:documentation>
+      <wsdl:input message="tns:GetCorrespondanceMTOSoapIn" />
+      <wsdl:output message="tns:GetCorrespondanceMTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyMTO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetKeyMTO provides a list of Key MTO</wsdl:documentation>
+      <wsdl:input message="tns:GetKeyMTOSoapIn" />
+      <wsdl:output message="tns:GetKeyMTOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceOTMSave creates an OTM (One To Many) relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceOTMSaveSoapIn" />
+      <wsdl:output message="tns:CorrespondanceOTMSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceOTMUpdate updates an existing OTM relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceOTMUpdateSoapIn" />
+      <wsdl:output message="tns:CorrespondanceOTMUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMDelete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CorrespondanceOTMDelete deletes an existing OTM relation.</wsdl:documentation>
+      <wsdl:input message="tns:CorrespondanceOTMDeleteSoapIn" />
+      <wsdl:output message="tns:CorrespondanceOTMDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceOTM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetCorrespondanceOTM provides a list of OTM relations.</wsdl:documentation>
+      <wsdl:input message="tns:GetCorrespondanceOTMSoapIn" />
+      <wsdl:output message="tns:GetCorrespondanceOTMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyOTM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetKeyOTM provides a list of OTM Key</wsdl:documentation>
+      <wsdl:input message="tns:GetKeyOTMSoapIn" />
+      <wsdl:output message="tns:GetKeyOTMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkAndSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Replace link by tracking link</wsdl:documentation>
+      <wsdl:input message="tns:TrackLinkAndSaveSoapIn" />
+      <wsdl:output message="tns:TrackLinkAndSaveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ContentSoap" type="tns:ContentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EMSContainerSave">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContainerSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContainerSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerUpdate">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContainerUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContainerUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerDelete">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContainerDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContainerDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContainerID">
+      <soap:operation soapAction="http://ws.ems6.net/GetContainerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContainerIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContainer">
+      <soap:operation soapAction="http://ws.ems6.net/GetContainer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContent">
+      <soap:operation soapAction="http://ws.ems6.net/RemoveCacheContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveCacheContentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContentForContainer">
+      <soap:operation soapAction="http://ws.ems6.net/RemoveCacheContentForContainer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveCacheContentForContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentSave">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContentSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContentSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentUpdate">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContentUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContentUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentDelete">
+      <soap:operation soapAction="http://ws.ems6.net/EMSContentDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EMSContentDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceKeyByContainer">
+      <soap:operation soapAction="http://ws.ems6.net/GetReferenceKeyByContainer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetReferenceKeyByContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap:operation soapAction="http://ws.ems6.net/GetContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOSave">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceMTOSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceMTOSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOUpdate">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceMTOUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceMTOUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTODelete">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceMTODelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceMTODeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceMTO">
+      <soap:operation soapAction="http://ws.ems6.net/GetCorrespondanceMTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCorrespondanceMTOAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyMTO">
+      <soap:operation soapAction="http://ws.ems6.net/GetKeyMTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetKeyMTOAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMSave">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceOTMSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceOTMSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMUpdate">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceOTMUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceOTMUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMDelete">
+      <soap:operation soapAction="http://ws.ems6.net/CorrespondanceOTMDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CorrespondanceOTMDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceOTM">
+      <soap:operation soapAction="http://ws.ems6.net/GetCorrespondanceOTM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCorrespondanceOTMAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyOTM">
+      <soap:operation soapAction="http://ws.ems6.net/GetKeyOTM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetKeyOTMAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkAndSave">
+      <soap:operation soapAction="http://ws.ems6.net/TrackLinkAndSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TrackLinkAndSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ContentSoap12" type="tns:ContentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EMSContainerSave">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContainerSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContainerSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerUpdate">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContainerUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContainerUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContainerDelete">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContainerDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContainerDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContainerID">
+      <soap12:operation soapAction="http://ws.ems6.net/GetContainerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContainerIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContainer">
+      <soap12:operation soapAction="http://ws.ems6.net/GetContainer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContent">
+      <soap12:operation soapAction="http://ws.ems6.net/RemoveCacheContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RemoveCacheContentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheContentForContainer">
+      <soap12:operation soapAction="http://ws.ems6.net/RemoveCacheContentForContainer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RemoveCacheContentForContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentSave">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContentSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContentSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentUpdate">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContentUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContentUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMSContentDelete">
+      <soap12:operation soapAction="http://ws.ems6.net/EMSContentDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EMSContentDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceKeyByContainer">
+      <soap12:operation soapAction="http://ws.ems6.net/GetReferenceKeyByContainer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetReferenceKeyByContainerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap12:operation soapAction="http://ws.ems6.net/GetContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOSave">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceMTOSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceMTOSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTOUpdate">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceMTOUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceMTOUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceMTODelete">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceMTODelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceMTODeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceMTO">
+      <soap12:operation soapAction="http://ws.ems6.net/GetCorrespondanceMTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCorrespondanceMTOAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyMTO">
+      <soap12:operation soapAction="http://ws.ems6.net/GetKeyMTO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetKeyMTOAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMSave">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceOTMSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceOTMSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMUpdate">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceOTMUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceOTMUpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrespondanceOTMDelete">
+      <soap12:operation soapAction="http://ws.ems6.net/CorrespondanceOTMDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CorrespondanceOTMDeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCorrespondanceOTM">
+      <soap12:operation soapAction="http://ws.ems6.net/GetCorrespondanceOTM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCorrespondanceOTMAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyOTM">
+      <soap12:operation soapAction="http://ws.ems6.net/GetKeyOTM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetKeyOTMAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrackLinkAndSave">
+      <soap12:operation soapAction="http://ws.ems6.net/TrackLinkAndSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrackLinkAndSaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Content">
+    <wsdl:port name="ContentSoap" binding="tns:ContentSoap">
+      <soap:address location="https://ws1.ems6.net/content.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ContentSoap12" binding="tns:ContentSoap12">
+      <soap12:address location="https://ws1.ems6.net/content.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
