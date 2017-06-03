@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unitSMSParam" type="tns:CreateUnitSMSCampParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateUnitSMSCampParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnicode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Field" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unitSMSParam" type="tns:ListUnitSmsParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ListUnitSmsParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rows" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Order" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListResult" type="tns:UnitSMSListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnitSMSListResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SmsList" type="tns:ArrayOfUnitSMSList" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMore" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnitSMSList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UnitSMSList" nillable="true" type="tns:UnitSMSList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UnitSMSList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnicode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDSmsUnit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="tns:UnitSMSCampaign" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnitSMSCampaign">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDSmsUnit" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfSend" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnicode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Stats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatsResult" type="tns:UnitSMSStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnitSMSStats">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SentNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delivered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DestNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bounces" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SMSWithoutInformation" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Activate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActivateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Deactivate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeactivateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeactivateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unitSMSCamp" type="tns:UpdateUnitSMSCampParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateUnitSMSCampParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnicode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Field" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sendUnitSMSParam" type="tns:SendUnitSMSParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SendUnitSMSParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSmsUnit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUser" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListSoapIn">
+    <wsdl:part name="parameters" element="tns:List" />
+  </wsdl:message>
+  <wsdl:message name="ListSoapOut">
+    <wsdl:part name="parameters" element="tns:ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="StatsSoapIn">
+    <wsdl:part name="parameters" element="tns:Stats" />
+  </wsdl:message>
+  <wsdl:message name="StatsSoapOut">
+    <wsdl:part name="parameters" element="tns:StatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ActivateSoapIn">
+    <wsdl:part name="parameters" element="tns:Activate" />
+  </wsdl:message>
+  <wsdl:message name="ActivateSoapOut">
+    <wsdl:part name="parameters" element="tns:ActivateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateSoapIn">
+    <wsdl:part name="parameters" element="tns:Deactivate" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateSoapOut">
+    <wsdl:part name="parameters" element="tns:DeactivateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendSoapIn">
+    <wsdl:part name="parameters" element="tns:Send" />
+  </wsdl:message>
+  <wsdl:message name="SendSoapOut">
+    <wsdl:part name="parameters" element="tns:SendResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="SMSUnitSoap">
+    <wsdl:operation name="Create">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a new Unit SMS Campaign</wsdl:documentation>
+      <wsdl:input message="tns:CreateSoapIn" />
+      <wsdl:output message="tns:CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Unit SMS Campaign list</wsdl:documentation>
+      <wsdl:input message="tns:ListSoapIn" />
+      <wsdl:output message="tns:ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get detail about Unit SMS Campaign from its ID</wsdl:documentation>
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Stats">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Stats about SMS Unit Campaign</wsdl:documentation>
+      <wsdl:input message="tns:StatsSoapIn" />
+      <wsdl:output message="tns:StatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Activate the SMS Unit and can send sms unit</wsdl:documentation>
+      <wsdl:input message="tns:ActivateSoapIn" />
+      <wsdl:output message="tns:ActivateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deactivate the SMS Unit and cannot send SMS</wsdl:documentation>
+      <wsdl:input message="tns:DeactivateSoapIn" />
+      <wsdl:output message="tns:DeactivateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete SMS Unit Campaign from its ID</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update SMS Unit Campaign from its ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send order to send Service SMS</wsdl:documentation>
+      <wsdl:input message="tns:SendSoapIn" />
+      <wsdl:output message="tns:SendSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SMSUnitSoap" type="tns:SMSUnitSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://ws.ems6.net/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Stats">
+      <soap:operation soapAction="http://ws.ems6.net/Stats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StatsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <soap:operation soapAction="http://ws.ems6.net/Activate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ActivateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <soap:operation soapAction="http://ws.ems6.net/Deactivate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeactivateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap:operation soapAction="http://ws.ems6.net/Send" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SMSUnitSoap12" type="tns:SMSUnitSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap12:operation soapAction="http://ws.ems6.net/Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap12:operation soapAction="http://ws.ems6.net/List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://ws.ems6.net/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Stats">
+      <soap12:operation soapAction="http://ws.ems6.net/Stats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StatsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <soap12:operation soapAction="http://ws.ems6.net/Activate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ActivateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <soap12:operation soapAction="http://ws.ems6.net/Deactivate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeactivateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://ws.ems6.net/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap12:operation soapAction="http://ws.ems6.net/Send" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SMSUnit">
+    <wsdl:port name="SMSUnitSoap" binding="tns:SMSUnitSoap">
+      <soap:address location="https://ws1.ems6.net/smsunit.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SMSUnitSoap12" binding="tns:SMSUnitSoap12">
+      <soap12:address location="https://ws1.ems6.net/smsunit.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
