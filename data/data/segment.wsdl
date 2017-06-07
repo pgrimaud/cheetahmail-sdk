@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="CreateSegment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="insertSubs" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="idList" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSegmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateSegmentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="insertSubs" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="idQuery" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSegment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idQuery" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSegmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSegmentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSegment">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListSegmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListSegmentResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetImportStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="segmentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImportStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImportStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateSegmentSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSegment" />
+  </wsdl:message>
+  <wsdl:message name="CreateSegmentSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSegmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSegmentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSegmentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSegment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSegmentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSegmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSegmentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListSegmentSoapIn">
+    <wsdl:part name="parameters" element="tns:ListSegment" />
+  </wsdl:message>
+  <wsdl:message name="ListSegmentSoapOut">
+    <wsdl:part name="parameters" element="tns:ListSegmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSegmentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetImportStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImportStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetImportStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImportStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImportStatusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="SegmentSoap">
+    <wsdl:operation name="CreateSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a segment</wsdl:documentation>
+      <wsdl:input message="tns:CreateSegmentSoapIn" />
+      <wsdl:output message="tns:CreateSegmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update a segment</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a segment</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSegmentSoapIn" />
+      <wsdl:output message="tns:DeleteSegmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List of the segment</wsdl:documentation>
+      <wsdl:input message="tns:ListSegmentSoapIn" />
+      <wsdl:output message="tns:ListSegmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the importation status</wsdl:documentation>
+      <wsdl:input message="tns:GetImportStatusSoapIn" />
+      <wsdl:output message="tns:GetImportStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SegmentSoap" type="tns:SegmentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateSegment">
+      <soap:operation soapAction="http://ws.ems6.net/CreateSegment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSegment">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteSegment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSegment">
+      <soap:operation soapAction="http://ws.ems6.net/ListSegment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportStatus">
+      <soap:operation soapAction="http://ws.ems6.net/GetImportStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetImportStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SegmentSoap12" type="tns:SegmentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateSegment">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateSegment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://ws.ems6.net/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSegment">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteSegment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSegment">
+      <soap12:operation soapAction="http://ws.ems6.net/ListSegment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListSegmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportStatus">
+      <soap12:operation soapAction="http://ws.ems6.net/GetImportStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetImportStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Segment">
+    <wsdl:port name="SegmentSoap" binding="tns:SegmentSoap">
+      <soap:address location="https://ws1.ems6.net/segment.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SegmentSoap12" binding="tns:SegmentSoap12">
+      <soap12:address location="https://ws1.ems6.net/segment.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
