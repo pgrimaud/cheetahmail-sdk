@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.ems6.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.ems6.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.ems6.net/">
+      <s:element name="CreateImportMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingdesc" type="tns:MappingDesc" />
+            <s:element minOccurs="1" maxOccurs="1" name="mappingfile" type="tns:MappingFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MappingDesc">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MappingType" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNotifyGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lang" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportMassif" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MappingType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Import" />
+          <s:enumeration value="Export" />
+          <s:enumeration value="Scenario" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MappingFile">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Idmapp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Header" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColumnDelimiter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowDelimiter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextQualifer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateImportMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateImportMappingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="SetFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idmapp" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="correspondences_Fields" type="tns:ArrayOfLinkedfied" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLinkedfied">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Linkedfied" type="tns:Linkedfied" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Linkedfied">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FieldEMS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColumnName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdatePriority" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DuplicateKey" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixeValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetFieldsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappingDesc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappingDescResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMappingDescResult" type="tns:MappingDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileMappingResult" type="tns:MappingFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetlistMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="typeSSIS" type="tns:SSISType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SSISType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Import" />
+          <s:enumeration value="Export" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetlistMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetlistMappingResult" type="tns:ArrayOfMappingDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMappingDesc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MappingDesc" type="tns:MappingDesc" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFileColumn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileColumnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileColumnResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingdesc" type="tns:MappingDesc" />
+            <s:element minOccurs="1" maxOccurs="1" name="mappingfile" type="tns:MappingFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMappingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfoMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdMapping" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdGroup" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfoMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInfoMappingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropMapping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropMappingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DropMappingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Save">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Start">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMapping" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletePackageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateScheduler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DayOfWeeklist" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="hour" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="minute" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dayOfMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="frequency" type="tns:EMSFrequencyTypes" />
+            <s:element minOccurs="1" maxOccurs="1" name="enable" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EMSFrequencyTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Daily" />
+          <s:enumeration value="Weekly" />
+          <s:enumeration value="Monthly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateSchedulerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateSchedulerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSchedulerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSchedulerResult" type="tns:SchedulerDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SchedulerDesc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DayList" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMlist" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Minute" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hour" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMap" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frequency" type="tns:EMSFrequencyTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListSchedulers">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListSchedulersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListSchedulersResult" type="tns:ArrayOfSchedulerDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSchedulerDesc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SchedulerDesc" type="tns:SchedulerDesc" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteScheduler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchedulerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSchedulerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Updatescheduler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scheduler" type="tns:SchedulerDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateschedulerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateschedulerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastMappingStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mappingId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastMappingStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLastMappingStatusResult" type="tns:EnumStepStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumStepStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Creating" />
+          <s:enumeration value="Starting" />
+          <s:enumeration value="Errors" />
+          <s:enumeration value="OK" />
+          <s:enumeration value="Processing" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="History">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateBegin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoryResult" type="tns:ArrayOfHistoryDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHistoryDesc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HistoryDesc" type="tns:HistoryDesc" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HistoryDesc">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMap" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MappingType" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineToInsert" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineToUpdate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineInserted" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineUpdated" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineOnError" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Statut" type="tns:EnumStatut" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumStatut">
+        <s:restriction base="s:string">
+          <s:enumeration value="Creating" />
+          <s:enumeration value="inProgress" />
+          <s:enumeration value="error" />
+          <s:enumeration value="finish" />
+          <s:enumeration value="Process" />
+          <s:enumeration value="scenarioSuccess" />
+          <s:enumeration value="scenarioFail" />
+          <s:enumeration value="unknown" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateImportMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateImportMapping" />
+  </wsdl:message>
+  <wsdl:message name="CreateImportMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateImportMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateImportMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFields" />
+  </wsdl:message>
+  <wsdl:message name="SetFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFieldsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingDescSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMappingDesc" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingDescSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMappingDescResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMappingDescAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFileMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetFileMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetlistMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetlistMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetlistMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetlistMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetlistMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFileColumnSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileColumn" />
+  </wsdl:message>
+  <wsdl:message name="GetFileColumnSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileColumnAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMapping" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInfoMapping" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInfoMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DropMappingSoapIn">
+    <wsdl:part name="parameters" element="tns:DropMapping" />
+  </wsdl:message>
+  <wsdl:message name="DropMappingSoapOut">
+    <wsdl:part name="parameters" element="tns:DropMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="DropMappingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapIn">
+    <wsdl:part name="parameters" element="tns:Start" />
+  </wsdl:message>
+  <wsdl:message name="StartSoapOut">
+    <wsdl:part name="parameters" element="tns:StartResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeletePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePackage" />
+  </wsdl:message>
+  <wsdl:message name="DeletePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePackageAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateSchedulerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateScheduler" />
+  </wsdl:message>
+  <wsdl:message name="CreateSchedulerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSchedulerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSchedulerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduler" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSchedulerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListSchedulersSoapIn">
+    <wsdl:part name="parameters" element="tns:ListSchedulers" />
+  </wsdl:message>
+  <wsdl:message name="ListSchedulersSoapOut">
+    <wsdl:part name="parameters" element="tns:ListSchedulersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSchedulersAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulerSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteScheduler" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulerSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSchedulerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateschedulerSoapIn">
+    <wsdl:part name="parameters" element="tns:Updatescheduler" />
+  </wsdl:message>
+  <wsdl:message name="UpdateschedulerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateschedulerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateschedulerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetLastMappingStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastMappingStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetLastMappingStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastMappingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastMappingStatusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="HistorySoapIn">
+    <wsdl:part name="parameters" element="tns:History" />
+  </wsdl:message>
+  <wsdl:message name="HistorySoapOut">
+    <wsdl:part name="parameters" element="tns:HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="SSISSoap">
+    <wsdl:operation name="CreateImportMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a mapping</wsdl:documentation>
+      <wsdl:input message="tns:CreateImportMappingSoapIn" />
+      <wsdl:output message="tns:CreateImportMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFields">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Fields</wsdl:documentation>
+      <wsdl:input message="tns:SetFieldsSoapIn" />
+      <wsdl:output message="tns:SetFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingDesc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Mapping by Id</wsdl:documentation>
+      <wsdl:input message="tns:GetMappingDescSoapIn" />
+      <wsdl:output message="tns:GetMappingDescSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get File Mapping</wsdl:documentation>
+      <wsdl:input message="tns:GetFileMappingSoapIn" />
+      <wsdl:output message="tns:GetFileMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetlistMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get File Mapping</wsdl:documentation>
+      <wsdl:input message="tns:GetlistMappingSoapIn" />
+      <wsdl:output message="tns:GetlistMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileColumn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get File Column</wsdl:documentation>
+      <wsdl:input message="tns:GetFileColumnSoapIn" />
+      <wsdl:output message="tns:GetFileColumnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update File Mapping</wsdl:documentation>
+      <wsdl:input message="tns:UpdateMappingSoapIn" />
+      <wsdl:output message="tns:UpdateMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update generals informations of a Mapping</wsdl:documentation>
+      <wsdl:input message="tns:UpdateInfoMappingSoapIn" />
+      <wsdl:output message="tns:UpdateInfoMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropMapping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Drop Mapping </wsdl:documentation>
+      <wsdl:input message="tns:DropMappingSoapIn" />
+      <wsdl:output message="tns:DropMappingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create and Save the SQL page ON SSIS For shedular</wsdl:documentation>
+      <wsdl:input message="tns:SaveSoapIn" />
+      <wsdl:output message="tns:SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create,Save and Execute the SSIS package</wsdl:documentation>
+      <wsdl:input message="tns:StartSoapIn" />
+      <wsdl:output message="tns:StartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a SSIS job and package</wsdl:documentation>
+      <wsdl:input message="tns:DeletePackageSoapIn" />
+      <wsdl:output message="tns:DeletePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateScheduler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a SSIS scheduler</wsdl:documentation>
+      <wsdl:input message="tns:CreateSchedulerSoapIn" />
+      <wsdl:output message="tns:CreateSchedulerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Getscheduler</wsdl:documentation>
+      <wsdl:input message="tns:GetSchedulerSoapIn" />
+      <wsdl:output message="tns:GetSchedulerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSchedulers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List of scheduler</wsdl:documentation>
+      <wsdl:input message="tns:ListSchedulersSoapIn" />
+      <wsdl:output message="tns:ListSchedulersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteScheduler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a SSIS scheduler</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSchedulerSoapIn" />
+      <wsdl:output message="tns:DeleteSchedulerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Updatescheduler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update a SSIS scheduler</wsdl:documentation>
+      <wsdl:input message="tns:UpdateschedulerSoapIn" />
+      <wsdl:output message="tns:UpdateschedulerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMappingStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the last Status of a Mapping</wsdl:documentation>
+      <wsdl:input message="tns:GetLastMappingStatusSoapIn" />
+      <wsdl:output message="tns:GetLastMappingStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">History of execution scheduler</wsdl:documentation>
+      <wsdl:input message="tns:HistorySoapIn" />
+      <wsdl:output message="tns:HistorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SSISSoap" type="tns:SSISSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateImportMapping">
+      <soap:operation soapAction="http://ws.ems6.net/CreateImportMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateImportMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFields">
+      <soap:operation soapAction="http://ws.ems6.net/SetFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetFieldsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingDesc">
+      <soap:operation soapAction="http://ws.ems6.net/GetMappingDesc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMappingDescAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileMapping">
+      <soap:operation soapAction="http://ws.ems6.net/GetFileMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFileMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetlistMapping">
+      <soap:operation soapAction="http://ws.ems6.net/GetlistMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetlistMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileColumn">
+      <soap:operation soapAction="http://ws.ems6.net/GetFileColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFileColumnAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMapping">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoMapping">
+      <soap:operation soapAction="http://ws.ems6.net/UpdateInfoMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateInfoMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropMapping">
+      <soap:operation soapAction="http://ws.ems6.net/DropMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DropMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://ws.ems6.net/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap:operation soapAction="http://ws.ems6.net/Start" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePackage">
+      <soap:operation soapAction="http://ws.ems6.net/DeletePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletePackageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateScheduler">
+      <soap:operation soapAction="http://ws.ems6.net/CreateScheduler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduler">
+      <soap:operation soapAction="http://ws.ems6.net/GetScheduler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSchedulers">
+      <soap:operation soapAction="http://ws.ems6.net/ListSchedulers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListSchedulersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteScheduler">
+      <soap:operation soapAction="http://ws.ems6.net/DeleteScheduler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Updatescheduler">
+      <soap:operation soapAction="http://ws.ems6.net/Updatescheduler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateschedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMappingStatus">
+      <soap:operation soapAction="http://ws.ems6.net/GetLastMappingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLastMappingStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <soap:operation soapAction="http://ws.ems6.net/History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SSISSoap12" type="tns:SSISSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateImportMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateImportMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateImportMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFields">
+      <soap12:operation soapAction="http://ws.ems6.net/SetFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetFieldsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappingDesc">
+      <soap12:operation soapAction="http://ws.ems6.net/GetMappingDesc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMappingDescAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/GetFileMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFileMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetlistMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/GetlistMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetlistMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileColumn">
+      <soap12:operation soapAction="http://ws.ems6.net/GetFileColumn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFileColumnAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/UpdateInfoMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateInfoMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropMapping">
+      <soap12:operation soapAction="http://ws.ems6.net/DropMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DropMappingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap12:operation soapAction="http://ws.ems6.net/Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start">
+      <soap12:operation soapAction="http://ws.ems6.net/Start" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StartAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePackage">
+      <soap12:operation soapAction="http://ws.ems6.net/DeletePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletePackageAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateScheduler">
+      <soap12:operation soapAction="http://ws.ems6.net/CreateScheduler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduler">
+      <soap12:operation soapAction="http://ws.ems6.net/GetScheduler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSchedulers">
+      <soap12:operation soapAction="http://ws.ems6.net/ListSchedulers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListSchedulersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteScheduler">
+      <soap12:operation soapAction="http://ws.ems6.net/DeleteScheduler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteSchedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Updatescheduler">
+      <soap12:operation soapAction="http://ws.ems6.net/Updatescheduler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateschedulerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMappingStatus">
+      <soap12:operation soapAction="http://ws.ems6.net/GetLastMappingStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLastMappingStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <soap12:operation soapAction="http://ws.ems6.net/History" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SSIS">
+    <wsdl:port name="SSISSoap" binding="tns:SSISSoap">
+      <soap:address location="https://ws1.ems6.net/ssis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SSISSoap12" binding="tns:SSISSoap12">
+      <soap12:address location="https://ws1.ems6.net/ssis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
