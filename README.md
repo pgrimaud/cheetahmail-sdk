@@ -20,13 +20,21 @@ composer require pgrimaud/cheetahmail-sdk
     * BodyManager
     * Campaigns
     * ChronoContact
+    * Configs
+    * Content
+    * ImageHosting
+    * Sms
+    * SmsUnit
 * Data
     * Filters
+    * Segment
+    * Ssis
     * Subscribers
+    * Target
 * Statistics
     * Stats
 
-More services can be added if needed. Juste create a PR.
+All services are available.
 
 ## Basic usage
 
